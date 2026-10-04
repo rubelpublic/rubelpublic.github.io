@@ -28,13 +28,14 @@
 ## Work
 - Paloan: Rapar Rubel's personal AI agent for audience research, content drafts, planning and workflows
 - CAP ON HEAD: content, product photography and product presentation on social media and the website for a Bangladesh cap brand (https://caponhead.com/)
+- Myook: social media and website work, product-led creatives and ad concepts
 - MimAI: AI file assistant for the user's own Google Drive; understands Bangla, Banglish and English (https://mimai.onrender.com)
 - Proyojon Abashon: land share and property management platform in Dhaka (https://www.proyojonabashon.com)
 - Proyojon Prozukti: technology, digital marketing, creative and business-solutions brand
 - Proyojon Solutions: online-first legal and business advisory with AI-assisted intake
-- Proyojon Shop / Proyojon 360: retail and import of toys, stationery, bags and accessories
+- Proyojon Shop / Proyojon 360: retail and import of toys, stationery, bags and accessories; online store at https://www.proyojon.shop
 - The AB Wardrobe: women's kurti and two-piece label
-- Proyojon Vromon: travel brand for Bangla-reading travellers
+- Proyojon Vromon: travel brand and website for hotels, tickets and travel stories (https://proyojonvromon.com/)
 - Gaan Banai — MusicDirector: creative-AI music workflow concept
 - AI Power User: practical AI course taught in Bangla (10 classes, 18–20 hours, 70% hands-on)
 

@@ -163,7 +163,7 @@
      "name": "What has Rapar Rubel built?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "His work includes MimAI (an AI file assistant), Proyojon Abashon (land share and property management in Dhaka), Proyojon Prozukti (technology and growth services), Proyojon Solutions (legal-tech advisory), Proyojon Shop (retail and import), The AB Wardrobe (women's fashion), Proyojon Vromon (travel) and Gaan Banai (a creative-AI music concept). He also runs content, product photography and product presentation for CAP ON HEAD (caponhead.com), a Bangladesh cap brand."
+      "text": "His work includes MimAI (an AI file assistant), Proyojon Abashon (land share and property management in Dhaka), Proyojon Prozukti (technology and growth services), Proyojon Solutions (legal-tech advisory), Proyojon Shop (retail and import), The AB Wardrobe (women's fashion), Proyojon Vromon (travel) and Gaan Banai (a creative-AI music concept). He also runs content, product photography and product presentation for CAP ON HEAD (caponhead.com), social media and website work for Myook, and the proyojon.shop and proyojonvromon.com websites."
      }
     },
     {
@@ -282,8 +282,8 @@ html{scroll-behavior:smooth}
 .progress{position:fixed;left:0;bottom:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(var(--f,0));background:var(--marigold);z-index:50}
 .letterbox{position:fixed;left:0;right:0;height:calc(7vh * var(--lb,1));background:var(--letterbox);z-index:40;pointer-events:none;transition:background .4s}
 .letterbox.top{top:0}.letterbox.bot{bottom:0}
-.grain{position:fixed;inset:-50%;z-index:45;pointer-events:none;opacity:var(--grain);background-size:160px;animation:grain 1s steps(6) infinite}
-@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-4%)}60%{transform:translate(-4%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.grain{position:fixed;inset:0;z-index:45;pointer-events:none;opacity:var(--grain);background-size:160px;animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{background-position:0 0}20%{background-position:-48px 32px}40%{background-position:32px -64px}60%{background-position:-64px -16px}80%{background-position:48px 48px}100%{background-position:0 0}}
 
 /* ---------- shared scene scaffolding ---------- */
 .scene{position:relative}
@@ -449,9 +449,9 @@ html{scroll-behavior:smooth}
 .spine li.cap.on{color:var(--paper)}
 
 /* ---------- SC 05 Credits ---------- */
-#credits{height:240vh;--p:0}
+#credits{height:210vh;--p:0}
 #credits .stick{display:grid;place-items:center;padding-inline:var(--gut)}
-.roll{display:grid;gap:22px;justify-items:center;text-align:center;transform:translateY(calc(45vh - var(--p) * 90vh))}
+.roll{display:grid;gap:22px;justify-items:center;text-align:center;transform:translateY(calc(26vh - var(--p) * 84vh))}
 .roll .pres{color:var(--muted)}
 .cmono{height:54px;width:auto}
 .roll h3{margin:0 0 12px;font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,64px);letter-spacing:-.03em}
@@ -541,6 +541,15 @@ html{scroll-behavior:smooth}
 .project-card .num{color:var(--marigold)}
 .project-card h3{margin:0;font-family:var(--display);font-size:clamp(22px,2.2vw,30px);line-height:1.1}
 .project-card p{margin:0;color:var(--muted)}
+
+.pfilter{display:flex;flex-wrap:wrap;gap:8px}
+.pfilter button{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--paper);cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.pfilter button:hover{border-color:var(--marigold);transform:translateY(-1px)}
+.pfilter button[aria-pressed="true"]{background:var(--marigold);border-color:var(--marigold);color:var(--on-accent)}
+.pfilter .ct{font-family:var(--mono);font-size:11px;opacity:.7}
+.project-card{transition:opacity .35s,transform .35s,filter .35s}
+.project-card.dim{opacity:.18;filter:grayscale(1);transform:scale(.98)}
+.project-card.dim:hover{opacity:.5}
 .project-card .go{--ac:var(--marigold);margin-top:4px}
 .project-card .mini{font-size:11px;color:var(--paper);opacity:.72;margin-top:auto}
 .contact-actions{display:flex;flex-wrap:wrap;gap:10px}
@@ -558,8 +567,8 @@ html{scroll-behavior:smooth}
 
 /* ---------- Responsive polish: small phones, short screens, touch ---------- */
 img,svg,video{max-width:100%}
-html{overflow-x:clip}
-.still .stick{overflow:hidden}
+.still .stick{overflow:hidden;position:relative}
+.still .sun{transform:translate(-50%,-50%)!important}
 .pcap .aka{overflow-wrap:anywhere}
 @media (max-width:760px){
   .brief input,.brief select,.brief textarea{font-size:16px}
@@ -798,7 +807,7 @@ html{overflow-x:clip}
       <article class="reveal svc"><p class="mono k">Strategy</p><h3>Business models that add up</h3><p>Business models, positioning, pricing, offers, funnels and operating plans—so the commercial logic is clear before execution scales.</p><p class="proof mono">Proof · Proyojon Shop, Proyojon 360</p></article>
       <article class="reveal svc"><p class="mono k">AI</p><h3>AI that does real work</h3><p>Practical AI agents, automation, prompt systems, content workflows and team training in Bangla and English—focused on useful output, not tool hype.</p><p class="proof mono">Proof · MimAI, AI Power User, video & content workflows</p></article>
       <article class="reveal svc"><p class="mono k">Product</p><h3>Web products, shipped</h3><p>Websites, web apps and internal tools from product brief to launch, including UX structure, development direction, QA and iteration.</p><p class="proof mono">Proof · MimAI, Gaan Banai, Proyojon digital products</p></article>
-      <article class="reveal svc"><p class="mono k">Content</p><h3>Content that reads the audience</h3><p>Audience research, brand psychology, content strategy, copy, social creative and AI video—in Bangla, Banglish or English—built around what people actually say, fear and share.</p><p class="proof mono">Proof · The AB Wardrobe, buyer-awareness series, Proyojon Vromon, CAP ON HEAD</p></article>
+      <article class="reveal svc"><p class="mono k">Content</p><h3>Content that reads the audience</h3><p>Audience research, brand psychology, content strategy, copy, social creative and AI video—in Bangla, Banglish or English—built around what people actually say, fear and share.</p><p class="proof mono">Proof · The AB Wardrobe, CAP ON HEAD, Myook, Proyojon Vromon, buyer-awareness series</p></article>
       <article class="reveal svc"><p class="mono k">Business</p><h3>Operations, day to day</h3><p>Hands-on coordination across technology, retail, property, marketing and creative work—connecting teams, vendors, content and delivery.</p><p class="proof mono">Proof · multi-venture operations across retail, property & tech</p></article>
       <article class="reveal svc svc-cta"><p class="mono k">Work with me</p><h3>Have a need?</h3><p>Tell me what you’re building. I’ll reply with how I’d approach it.</p><a class="go" href="#contact">Start a conversation →</a></article>
     </div>
@@ -865,6 +874,7 @@ html{overflow-x:clip}
             <h2>Proyojon Shop</h2>
             <p class="desc">Toys, stationery, bags and accessories, sourced in China and sold across Bangladesh. Every product is costed and tracked from the factory price to the shelf.</p>
             <ul class="chips"><li>Toys</li><li>Stationery</li><li>Bags</li><li>Accessories</li></ul>
+            <a class="go" href="https://www.proyojon.shop" target="_blank" rel="noopener">proyojon.shop ↗</a>
           </div>
           <div class="art" aria-hidden="true">
             <span class="ptag" style="--x:8%;--y:12%;--d:-140;--r:-8deg">Toys</span>
@@ -899,7 +909,9 @@ html{overflow-x:clip}
             <p class="kind mono">Travel</p>
             <h2>Proyojon Vromon</h2>
             <p class="tag" lang="bn">ভ্রমণ হোক প্রয়োজন</p>
-            <p class="desc">A travel brand for Bangla-reading travellers, built on the idea that a trip is a need, not a luxury.</p>
+            <p class="desc">A travel brand and booking site for Bangla-reading travellers: travel stories, hotels, tickets and a travel shop, built on the idea that a trip is a need, not a luxury.</p>
+            <ul class="chips"><li>Travel stories</li><li>Hotels</li><li>Tickets</li><li>Travel shop</li></ul>
+            <a class="go" href="https://proyojonvromon.com/" target="_blank" rel="noopener">proyojonvromon.com ↗</a>
           </div>
           <div class="art" aria-hidden="true">
             <svg class="route" viewBox="0 0 400 400">
@@ -1004,13 +1016,17 @@ html{overflow-x:clip}
   <section class="project-index" id="projects" data-scene="Selected projects">
     <p class="mono">Selected projects · beyond the reel</p>
     <h2>Building across categories, not inside one box.</h2>
-    <div class="project-grid">
-      <article class="reveal project-card"><span class="num mono">01 · Real estate</span><h3>Proyojon Green Vista</h3><p>Land-share visualization and buyer-facing project structure for a 10-katha, G+9, south-facing lake-view development concept.</p><p class="mini mono">Property storytelling · visualization · sales structure</p></article>
-      <article class="reveal project-card"><span class="num mono">02 · AI assistant</span><h3>MimAI</h3><p>A free file-finding assistant designed for Bangladesh, using the user’s own Google Drive and understanding Bangla, Banglish and English.</p><p class="mini mono">Product concept · UX · AI workflow · web/app</p></article>
-      <article class="reveal project-card"><span class="num mono">03 · Digital ecosystem</span><h3>3D City / Human-Necessity Ecosystem</h3><p>An interactive city concept where essential services become explorable buildings, systems and experiences—including transport, health, education and utilities.</p><p class="mini mono">3D web concept · interaction · product storytelling</p></article>
-      <article class="reveal project-card"><span class="num mono">04 · E-commerce</span><h3>Proyojon.shop</h3><p>Category strategy, product content, pricing logic, creative QA and campaign assets for an evolving Bangladesh e-commerce operation.</p><p class="mini mono">Retail · merchandising · creative systems</p></article>
-      <article class="reveal project-card"><span class="num mono">05 · Caps · Content & photography</span><h3>CAP ON HEAD</h3><p>Content, product photography and product presentation for a Bangladesh cap brand: how every cap looks, reads and sells on social media and on the website.</p><p class="mini mono">Product photography · social content · website merchandising</p><a class="go" href="https://caponhead.com/" target="_blank" rel="noopener">caponhead.com ↗</a></article>
-      <article class="reveal project-card"><span class="num mono">06 · AI video</span><h3>Character & Story Systems</h3><p>Reusable character reference sheets, cinematic prompt systems and short-form story structures for consistent AI-generated video production.</p><p class="mini mono">Character design · prompt systems · AI video direction</p></article>
+    <div class="pfilter" role="group" aria-label="Filter projects"><button type="button" data-f="all" aria-pressed="true">All<span class="ct"></span></button><button type="button" data-f="content" aria-pressed="false">Content<span class="ct"></span></button><button type="button" data-f="ai" aria-pressed="false">AI<span class="ct"></span></button><button type="button" data-f="commerce" aria-pressed="false">Commerce<span class="ct"></span></button><button type="button" data-f="web" aria-pressed="false">Websites<span class="ct"></span></button><button type="button" data-f="property" aria-pressed="false">Property<span class="ct"></span></button></div>
+    <div class="project-grid" id="pgrid">
+      <article class="reveal project-card" data-cat="property content"><span class="num mono">01 · Real estate</span><h3>Proyojon Green Vista</h3><p>Land-share visualization and buyer-facing project structure for a 10-katha, G+9, south-facing lake-view development concept.</p><p class="mini mono">Property storytelling · visualization · sales structure</p></article>
+      <article class="reveal project-card" data-cat="ai web"><span class="num mono">02 · AI assistant</span><h3>MimAI</h3><p>A free file-finding assistant designed for Bangladesh, using the user’s own Google Drive and understanding Bangla, Banglish and English.</p><p class="mini mono">Product concept · UX · AI workflow · web/app</p><a class="go" href="https://mimai.onrender.com" target="_blank" rel="noopener">mimai.onrender.com ↗</a></article>
+      <article class="reveal project-card" data-cat="commerce web content"><span class="num mono">03 · E-commerce website</span><h3>Proyojon.shop</h3><p>The online store for Proyojon Shop: category strategy, product content, pricing logic, creative QA and campaign assets for a growing Bangladesh e-commerce operation.</p><p class="mini mono">Retail · merchandising · website · creative systems</p><a class="go" href="https://www.proyojon.shop" target="_blank" rel="noopener">proyojon.shop ↗</a></article>
+      <article class="reveal project-card" data-cat="content web"><span class="num mono">04 · Travel website</span><h3>Proyojon Vromon</h3><p>Travel content and a booking-style website for hotels, tickets and travel products, written for Bangla-reading travellers who see a trip as a need.</p><p class="mini mono">Travel content · website · Bangla storytelling</p><a class="go" href="https://proyojonvromon.com/" target="_blank" rel="noopener">proyojonvromon.com ↗</a></article>
+      <article class="reveal project-card" data-cat="commerce content"><span class="num mono">05 · Caps · content & photography</span><h3>CAP ON HEAD</h3><p>Content, product photography and product presentation for a Bangladesh cap brand: how every cap looks, reads and sells on social media and on the website.</p><p class="mini mono">Product photography · social content · website merchandising</p><a class="go" href="https://caponhead.com/" target="_blank" rel="noopener">caponhead.com ↗</a></article>
+      <article class="reveal project-card" data-cat="commerce content web"><span class="num mono">06 · Social media & website</span><h3>Myook</h3><p>Social media and website work for the Myook brand: product-led creatives, ad concepts, packaging experiments and how products are presented online.</p><p class="mini mono">Social media · website · creative direction</p></article>
+      <article class="reveal project-card" data-cat="ai content"><span class="num mono">07 · AI video</span><h3>Character & Story Systems</h3><p>Reusable character reference sheets, cinematic prompt systems and short-form story structures for consistent AI-generated video production.</p><p class="mini mono">Character design · prompt systems · AI video direction</p></article>
+      <article class="reveal project-card" data-cat="web"><span class="num mono">08 · Digital ecosystem</span><h3>3D City / Human-Necessity Ecosystem</h3><p>An interactive city concept where essential services become explorable buildings, systems and experiences—including transport, health, education and utilities.</p><p class="mini mono">3D web concept · interaction · product storytelling</p></article>
+      <article class="reveal project-card" data-cat="ai"><span class="num mono">09 · Personal AI agent</span><h3>Paloan</h3><p>My own AI agent for audience research, content drafts, planning and workflows. A guide version answers visitors’ questions right here on this site.</p><p class="mini mono">AI agent · workflows · in development</p><a class="go" href="#paloan">Meet Paloan →</a></article>
     </div>
   </section>
 
@@ -1050,6 +1066,7 @@ html{overflow-x:clip}
         <div class="credit"><span class="r">Travel</span><span class="dot"></span><span class="n">Proyojon Vromon</span></div>
         <div class="credit"><span class="r">Property</span><span class="dot"></span><span class="n">Proyojon Abashon</span></div>
         <div class="credit"><span class="r">Caps</span><span class="dot"></span><span class="n">CAP ON HEAD</span></div>
+        <div class="credit"><span class="r">Social &amp; web</span><span class="dot"></span><span class="n">Myook</span></div>
         <div class="credit"><span class="r">App</span><span class="dot"></span><span class="n">MimAI</span></div>
         <div class="credit"><span class="r">Technology</span><span class="dot"></span><span class="n">Proyojon Prozukti</span></div>
         <div class="credit"><span class="r">Legal-tech</span><span class="dot"></span><span class="n">Proyojon Solutions</span></div>
@@ -1071,7 +1088,7 @@ html{overflow-x:clip}
       <details class="qa reveal"><summary><h3>What services does Rapar Rubel offer?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Business strategy (business models, pricing, offers and operating plans), practical AI agents and workflow automation, websites and web apps, digital marketing and growth, brand and creative systems, AI video direction, and AI training for teams in Bangla and English.</p></div></details>
       <details class="qa reveal"><summary><h3>How does Rapar Rubel approach content and brand psychology?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>He starts in the audience&#x27;s head, not on the brand&#x27;s page: listen to the exact words people use, decode the need, fear and hope underneath, frame one angle, create native content in Bangla, Banglish or English, then test and turn what works into a repeatable content system.</p></div></details>
       <details class="qa reveal"><summary><h3>What is Paloan?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Paloan is Rapar Rubel&#x27;s personal AI agent, the assistant he is building to work alongside him on research, content drafting, planning and workflows. A guide version of Paloan on this site answers questions about his work.</p></div></details>
-      <details class="qa reveal"><summary><h3>What has Rapar Rubel built?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>His work includes MimAI (an AI file assistant), Proyojon Abashon (land share and property management in Dhaka), Proyojon Prozukti (technology and growth services), Proyojon Solutions (legal-tech advisory), Proyojon Shop (retail and import), The AB Wardrobe (women&#x27;s fashion), Proyojon Vromon (travel) and Gaan Banai (a creative-AI music concept). He also runs content, product photography and product presentation for CAP ON HEAD (caponhead.com), a Bangladesh cap brand.</p></div></details>
+      <details class="qa reveal"><summary><h3>What has Rapar Rubel built?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>His work includes MimAI (an AI file assistant), Proyojon Abashon (land share and property management in Dhaka), Proyojon Prozukti (technology and growth services), Proyojon Solutions (legal-tech advisory), Proyojon Shop (retail and import), The AB Wardrobe (women&#x27;s fashion), Proyojon Vromon (travel) and Gaan Banai (a creative-AI music concept). He also runs content, product photography and product presentation for CAP ON HEAD (caponhead.com), social media and website work for Myook, and the proyojon.shop and proyojonvromon.com websites.</p></div></details>
       <details class="qa reveal"><summary><h3>Can he build AI tools that understand Bangla and Banglish?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Yes. Building AI that works in Bangla, Banglish and English is a core focus. MimAI, for example, finds files in a user&#x27;s own Google Drive from questions written in any of the three.</p></div></details>
       <details class="qa reveal"><summary><h3>What is the AI Power User course?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>AI Power User is a practical AI course taught in Bangla for Bangladeshi learners and teams: 10 classes, 18 to 20 hours, about 70% hands-on practice, from beginner to intermediate. Every module ends with something built, tested or automated.</p></div></details>
       <details class="qa reveal"><summary><h3>How can I hire or contact Rapar Rubel?</h3><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Email rubel.public@gmail.com, call or WhatsApp +880 1676-464807, or use the brief form on this page to send a ready-made message. He is based in Dhaka, Bangladesh (GMT+6).</p></div></details>
@@ -1110,6 +1127,8 @@ html{overflow-x:clip}
         <a href="https://mimai.onrender.com" target="_blank" rel="noopener">mimai.onrender.com ↗</a>
         <a href="https://www.proyojonabashon.com" target="_blank" rel="noopener">proyojonabashon.com ↗</a>
         <a href="https://caponhead.com/" target="_blank" rel="noopener">caponhead.com ↗</a>
+        <a href="https://www.proyojon.shop" target="_blank" rel="noopener">proyojon.shop ↗</a>
+        <a href="https://proyojonvromon.com/" target="_blank" rel="noopener">proyojonvromon.com ↗</a>
       </div>
     </div>
     <form class="brief" id="brief" novalidate>
@@ -1322,7 +1341,7 @@ html{overflow-x:clip}
     {k:/content|brand|psycholog|audience|copy|caption|social|marketing|creative|post|banglish/i,a:()=>'<p>Content is where Rubel is strongest. He starts in the audience’s head, not on the brand’s page:</p><ul><li><b>Listen:</b> the exact words people use</li><li><b>Decode:</b> the fear and hope underneath</li><li><b>Frame:</b> one angle, one emotion</li><li><b>Create:</b> native content in Bangla, Banglish or English</li><li><b>Test:</b> keep what works and turn it into a system</li></ul><p>See it live in the '+L('#approach','audience mind map')+'.</p>'},
     {k:/\bai\b|mimai|automation|agent|chatbot|prompt|gpt|claude/i,a:()=>'<p>Rubel builds practical AI that does real work, in Bangla, Banglish and English: agents, prompt systems, automation and content workflows.</p><p>Example: '+L('https://mimai.onrender.com','MimAI')+', a file hub with a built-in AI assistant that he designed and built with Claude Code. He also teaches the <b>AI Power User</b> course.</p>'},
     {k:/course|teach|class|learn|training|power user|shikh/i,a:()=>'<p><b>AI Power User</b> is Rubel’s practical AI course, taught in Bangla: 10 classes, 18–20 hours, about 70% hands-on. It goes Understand → Use → Create → Automate → Think with AI, and the capstone is your own personal AI operating system.</p>'},
-    {k:/project|work|built|venture|portfolio|business|company|kaj|proyojon|cap on head|caponhead|caps?|photograph/i,a:()=>'<p>Highlights:</p><ul><li><b>MimAI</b>: AI file assistant</li><li><b>Proyojon Abashon</b>: land share and property in Dhaka</li><li><b>Proyojon Prozukti</b>: tech, marketing and growth</li><li><b>Proyojon Solutions</b>: legal-tech advisory</li><li><b>Proyojon Shop</b>: retail and import</li><li><b>The AB Wardrobe</b>: women’s fashion</li><li><b>Proyojon Vromon</b>: travel</li><li><b>Gaan Banai</b>: creative-AI music concept</li><li><b>CAP ON HEAD</b>: content, product photography and website for a cap brand ('+L('https://caponhead.com/','caponhead.com')+')</li></ul><p>Scroll the '+L('#reel','work reel')+' for the full story.</p>'},
+    {k:/project|work|built|venture|portfolio|business|company|kaj|proyojon|cap on head|caponhead|\bcaps?\b|photograph|myook|website|shop|vromon|travel/i,a:()=>'<p>Highlights:</p><ul><li><b>MimAI</b>: AI file assistant</li><li><b>Proyojon Abashon</b>: land share and property in Dhaka</li><li><b>Proyojon Prozukti</b>: tech, marketing and growth</li><li><b>Proyojon Solutions</b>: legal-tech advisory</li><li><b>Proyojon Shop</b>: retail and import</li><li><b>The AB Wardrobe</b>: women’s fashion</li><li><b>Proyojon Vromon</b>: travel</li><li><b>Gaan Banai</b>: creative-AI music concept</li><li><b>CAP ON HEAD</b>: content, product photography and website for a cap brand ('+L('https://caponhead.com/','caponhead.com')+')</li><li><b>Myook</b>: social media and website</li><li>Websites: '+L('https://www.proyojon.shop','proyojon.shop')+' and '+L('https://proyojonvromon.com/','proyojonvromon.com')+'</li></ul><p>Scroll the '+L('#reel','work reel')+' for the full story.</p>'},
     {k:/service|hire|help|offer|do you do|what does he do|consult|work with/i,a:()=>'<p>Rubel helps founders, SMEs and teams with:</p><ul><li>Business strategy, pricing and offers</li><li>Content strategy and audience psychology</li><li>AI agents and workflow automation</li><li>Websites, web apps and product direction</li><li>Brand and creative systems, AI video</li></ul><p>The quickest start is the '+L('#brief','brief form')+'.</p>'},
     {k:/price|cost|rate|fee|budget|charge|dam|koto taka/i,a:()=>'<p>It depends on the scope, so Rubel quotes per project. Send a short brief with what you need and your timeline: '+L('#brief','write your brief')+', or message him on '+L('https://wa.me/8801676464807','WhatsApp')+'.</p>'},
     {k:/\bcv\b|resume|résumé|biodata/i,a:()=>'<p>Here’s Rubel’s one-page CV: '+L('Rubel-Miah-Rapar-Rubel-CV.pdf','download the PDF')+' or '+L('cv/','view it online')+'.</p>'},
@@ -1356,6 +1375,14 @@ html{overflow-x:clip}
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!paPanel.hidden)closePa();});
   paForm.addEventListener('submit',e=>{e.preventDefault();ask(paIn.value);paIn.value='';});
   paLog.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&innerWidth<=520)closePa();});
+
+  // project filters: dim non-matching cards so the grid never collapses into gaps
+  const pf=document.querySelector('.pfilter'),pcards=[...document.querySelectorAll('#pgrid .project-card')];
+  if(pf){
+    pf.querySelectorAll('button').forEach(b=>{const f=b.dataset.f;b.querySelector('.ct').textContent=f==='all'?pcards.length:pcards.filter(c=>c.dataset.cat.split(' ').includes(f)).length;
+      b.addEventListener('click',()=>{pf.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+        pcards.forEach(c=>{const on=f==='all'||c.dataset.cat.split(' ').includes(f);c.classList.toggle('dim',!on);c.setAttribute('aria-hidden',String(!on));});});});
+  }
 
   // copy email
   const btn=document.getElementById('copy'),email=document.getElementById('email');
