@@ -1,15 +1,24 @@
 # Rapar Rubel (Rubel Miah)
 
-> Rapar Rubel is the online name of Rubel Miah, also known as Rubel Public: a business builder and AI & product operator based in Dhaka, Bangladesh. He works across business strategy, AI workflows and automation, digital products, branding, content and venture operations, and builds AI that works in Bangla, Banglish and English.
+> Rapar Rubel is the online name of Rubel Miah, also known as Rubel Public: a business builder, content strategist and AI & product operator based in Dhaka, Bangladesh. His core strength is reading the audience (the words people use, what they fear and what they share) and turning that into content, brands, products and operating systems in Bangla, Banglish and English.
 
 ## Identity
 - Real name: Rubel Miah
 - Online / creative name: Rapar Rubel
 - Other public identity: Rubel Public
 - Based in: Dhaka, Bangladesh (GMT+6)
-- Role: Business Builder, AI & Product Operator, Independent Business Architect
+- Role: Business Builder, Content Strategist, AI & Product Operator, Independent Business Architect
+- Personal AI agent: Paloan (in development; a guide version answers questions on the portfolio site)
+
+## Content approach
+1. Listen: collect the exact words the audience uses (comments, inbox, reviews, searches)
+2. Decode: find the need, fear and hope under the request
+3. Frame: one angle, one emotion; the brand as the answer to a need
+4. Create: native content in Bangla, Banglish or English for each platform
+5. Test & systemise: keep what drives saves, shares, replies and sales; make it repeatable
 
 ## Services
+- Content strategy, audience research and brand psychology; Banglish/Bangla copy, product photography and social creative
 - Business strategy: business models, pricing, offers, funnels, operating plans
 - AI: agents, prompt systems, workflow automation, team training in Bangla and English
 - Product: websites, web apps and internal tools from brief to launch
@@ -17,6 +26,8 @@
 - Operations: hands-on coordination across technology, retail, property and marketing
 
 ## Work
+- Paloan: Rapar Rubel's personal AI agent for audience research, content drafts, planning and workflows
+- CAP ON HEAD: content, product photography and product presentation on social media and the website for a Bangladesh cap brand (https://caponhead.com/)
 - MimAI: AI file assistant for the user's own Google Drive; understands Bangla, Banglish and English (https://mimai.onrender.com)
 - Proyojon Abashon: land share and property management platform in Dhaka (https://www.proyojonabashon.com)
 - Proyojon Prozukti: technology, digital marketing, creative and business-solutions brand
