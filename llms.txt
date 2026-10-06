@@ -1,13 +1,14 @@
 # Rapar Rubel (Rubel Miah)
 
-> Rapar Rubel is the online name of Rubel Miah, also known as Rubel Public: a business builder, content strategist and AI & product operator based in Dhaka, Bangladesh. His core strength is reading the audience (the words people use, what they fear and what they share) and turning that into content, brands, products and operating systems in Bangla, Banglish and English.
+> Rapar Rubel is the online name of Rubel Miah, also known as Rubel Public: an independent AI expert and AI builder in Dhaka, Bangladesh. He builds AI agents, automation and AI-powered products that work in Bangla, Banglish and English, and pairs them with business strategy, content and brand psychology (reading what an audience says, fears and shares).
 
 ## Identity
 - Real name: Rubel Miah
 - Online / creative name: Rapar Rubel
 - Other public identity: Rubel Public
 - Based in: Dhaka, Bangladesh (GMT+6)
-- Role: Business Builder, Content Strategist, AI & Product Operator, Independent Business Architect
+- Role: Independent AI Expert & AI Builder; also Content Strategist and Business Builder
+- Works: independently, in the AI field in Bangladesh
 - Personal AI agent: Paloan (in development; a guide version answers questions on the portfolio site)
 
 ## Content approach
@@ -28,7 +29,7 @@
 ## Work
 - Paloan: Rapar Rubel's personal AI agent for audience research, content drafts, planning and workflows
 - CAP ON HEAD: content, product photography and product presentation on social media and the website for a Bangladesh cap brand (https://caponhead.com/)
-- Myook: social media and website work, product-led creatives and ad concepts
+- Myook: social media and website for a clothing brand, product-led creatives and ad concepts (https://www.facebook.com/myookclothing)
 - MimAI: AI file assistant for the user's own Google Drive; understands Bangla, Banglish and English (https://mimai.onrender.com)
 - Proyojon Abashon: land share and property management platform in Dhaka (https://www.proyojonabashon.com)
 - Proyojon Prozukti: technology, digital marketing, creative and business-solutions brand
