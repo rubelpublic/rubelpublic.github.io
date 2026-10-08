@@ -775,6 +775,9 @@ img,svg,video{max-width:100%}
 
 /* perf: pause looping animations while off screen; static grain on phones */
 .paused,.paused *{animation-play-state:paused!important}
+.services,.approach,.project-index,.faq,.contact,.paloan-sec{content-visibility:auto;contain-intrinsic-size:auto 1000px}
+.flat .panel{content-visibility:auto;contain-intrinsic-size:auto 820px}
+
 @media (max-width:760px){.grain{animation:none}}
 </style>
 </head>
@@ -1226,7 +1229,7 @@ img,svg,video{max-width:100%}
   try{
     const c=document.createElement('canvas');c.width=c.height=160;const x=c.getContext('2d');const d=x.createImageData(160,160);
     for(let i=0;i<d.data.length;i+=4){const v=Math.random()*255|0;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255;}
-    x.putImageData(d,0,0);document.querySelector('.grain').style.backgroundImage='url('+c.toDataURL()+')';
+    x.putImageData(d,0,0);{let u=c.toDataURL('image/webp',.7);if(u.indexOf('image/webp')<0)u=c.toDataURL();document.querySelector('.grain').style.backgroundImage='url('+u+')';}
   }catch(e){}
 
   // manifesto words
@@ -1252,51 +1255,64 @@ img,svg,video{max-width:100%}
   const scenes=[...document.querySelectorAll('[data-scene]')];
   const scn=document.getElementById('scn'),tc=document.getElementById('tc');
 
-  const lbEls=[...document.querySelectorAll('.letterbox'),document.getElementById('portrait')],progressEl=document.querySelector('.progress');let lastLb=null;
+  const lbEls=[...document.querySelectorAll('.letterbox'),document.getElementById('portrait')],progressEl=document.querySelector('.progress');
   function prog(el){const r=el.getBoundingClientRect();const total=r.height-innerHeight;return total>0?clamp(-r.top/total):(r.top<0?1:0);}
   const pad=n=>String(n).padStart(2,'0');
+
+  // write helpers: skip DOM writes when nothing changed
+  const varCache=new WeakMap();
+  function setVar(el,k,v){let m=varCache.get(el);if(!m){m={};varCache.set(el,m);}if(m[k]!==v){m[k]=v;el.style.setProperty(k,v);}}
+  function setText(el,t){if(el.textContent!==t)el.textContent=t;}
+  const progOf=(r,H)=>{const total=r.height-H;return total>0?clamp(-r.top/total):(r.top<0?1:0);};
 
   function tick(){
     ticking=false;
     const flat=root.classList.contains('flat'),still=root.classList.contains('still');
+    const H=innerHeight,W=innerWidth;
+    // ---- read phase: every layout measurement happens before any write ----
+    const rOpen=opening.getBoundingClientRect(),rPort=portrait.getBoundingClientRect(),rServ=services.getBoundingClientRect(),
+          rMan=manifesto.getBoundingClientRect(),rReel=reel.getBoundingClientRect(),rCourse=course.getBoundingClientRect(),rCred=credits.getBoundingClientRect();
+    const trackW=flat?0:track.scrollWidth;
+    const panelRects=flat?panels.map(p=>p.getBoundingClientRect()):null;
+    const sceneRects=scenes.map(sc=>sc.getBoundingClientRect());
+    const maxScroll=document.documentElement.scrollHeight-H,sy=scrollY;
+    // ---- write phase ----
     // SC 01
-    const po=still?0:prog(opening);
-    opening.style.setProperty('--p',po.toFixed(4));
-    {const lb=still?0:clamp(1-po*1.8).toFixed(3);if(lb!==lastLb){lastLb=lb;lbEls.forEach(e=>e.style.setProperty('--lb',lb));}}
+    const po=still?0:progOf(rOpen,H);
+    setVar(opening,'--p',po.toFixed(4));
+    const lb=still?'0':clamp(1-po*1.8).toFixed(3);
+    lbEls.forEach(e=>setVar(e,'--lb',lb));
     // Portrait
-    portrait.style.setProperty('--p',still?1:prog(portrait).toFixed(4));
+    setVar(portrait,'--p',still?'1':progOf(rPort,H).toFixed(4));
     // Services formula
-    {const r=services.getBoundingClientRect();services.style.setProperty('--p',still?0:clamp((innerHeight-r.top)/(innerHeight+r.height)).toFixed(4));}
+    setVar(services,'--p',still?'0':clamp((H-rServ.top)/(H+rServ.height)).toFixed(4));
     // SC 02
-    const pm=prog(manifesto);
-    const lit=still?words.length:Math.floor(clamp(pm*1.2)*words.length);
+    const lit=still?words.length:Math.floor(clamp(progOf(rMan,H)*1.2)*words.length);
     words.forEach((w,i)=>w.classList.toggle('on',i<lit));
-    // SC 03
-    if(!flat){const pr=prog(reel);track.style.transform='translate3d('+(-pr*(track.scrollWidth-innerWidth))+'px,0,0)';}
-    else track.style.transform='';
-    panels.forEach(p=>{
-      const r=p.getBoundingClientRect();
-      const lp=flat?(r.top+r.height/2-innerHeight/2)/innerHeight:r.left/innerWidth;
+    // SC 03: in pinned mode each panel's position is known from the track offset, no measuring needed
+    const trackX=flat?0:-progOf(rReel,H)*(trackW-W);
+    if(!flat)setVar(track,'transform','translate3d('+trackX.toFixed(1)+'px,0,0)');else setVar(track,'transform','');
+    panels.forEach((p,i)=>{
+      const lp=flat?(panelRects[i].top+panelRects[i].height/2-H/2)/H:(i*W+trackX)/W;
       const vis=still?1:clamp(1-Math.abs(lp)*1.25);
-      p.style.setProperty('--lp',still?0:clamp(lp,-1.5,1.5).toFixed(4));
-      p.style.setProperty('--vis',vis.toFixed(4));
-      if(p.classList.contains('p-abashon')){plots.forEach((el,i)=>el.classList.toggle('on',rank[i]<Math.round(vis*plots.length)));}
-      if(p.classList.contains('p-mimai')){mimaiLines.forEach((l,i)=>l.style.setProperty('--t',clamp(vis*mimaiLines.length*1.1-i).toFixed(3)));}
+      setVar(p,'--lp',still?'0':clamp(lp,-1.5,1.5).toFixed(4));
+      setVar(p,'--vis',vis.toFixed(4));
+      if(p.classList.contains('p-abashon')){const n=Math.round(vis*plots.length);plots.forEach((el,k)=>el.classList.toggle('on',rank[k]<n));}
+      if(p.classList.contains('p-mimai')){mimaiLines.forEach((l,k)=>setVar(l,'--t',clamp(vis*mimaiLines.length*1.1-k).toFixed(3)));}
     });
     // SC 04
-    const pc=prog(course);
-    const step=still?spine.length:Math.floor(clamp(pc*1.1)*spine.length);
+    const step=still?spine.length:Math.floor(clamp(progOf(rCourse,H)*1.1)*spine.length);
     spine.forEach((li,i)=>{li.classList.toggle('on',i<step);li.classList.toggle('now',!still&&i===step-1&&!li.classList.contains('cap'));});
     // SC 05
-    credits.style.setProperty('--p',still?0:prog(credits).toFixed(4));
+    setVar(credits,'--p',still?'0':progOf(rCred,H).toFixed(4));
     // HUD
-    const max=document.documentElement.scrollHeight-innerHeight;const f=max>0?clamp(scrollY/max):0;
-    progressEl.style.setProperty('--f',f.toFixed(4));
+    const f=maxScroll>0?clamp(sy/maxScroll):0;
+    setVar(progressEl,'--f',f.toFixed(4));
     const secs=f*150;const fr=Math.floor((secs%1)*24);
-    tc.textContent='00:'+pad(Math.floor(secs/60))+':'+pad(Math.floor(secs%60))+':'+pad(fr);
-    const mid=innerHeight/2;let cur=0;
-    scenes.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)cur=i;});
-    scn.textContent='SC '+pad(cur+1)+' · '+scenes[cur].dataset.scene;
+    setText(tc,'00:'+pad(Math.floor(secs/60))+':'+pad(Math.floor(secs%60))+':'+pad(fr));
+    const mid=H/2;let cur=0;
+    sceneRects.forEach((r,i)=>{if(r.top<=mid&&r.bottom>mid)cur=i;});
+    setText(scn,'SC '+pad(cur+1)+' · '+scenes[cur].dataset.scene);
   }
   let ticking=false;
   function queue(){if(!ticking){ticking=true;requestAnimationFrame(tick);}}
