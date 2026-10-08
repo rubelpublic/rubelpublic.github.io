@@ -39,7 +39,7 @@
     renderer.setClearColor(0x000000, 0);
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(58, innerWidth / innerHeight, 0.1, 420);
-    scene.fog = new THREE.FogExp2(0x0d1b1e, 0.016);
+    scene.fog = new THREE.FogExp2(0x0d1b1e, 0.0105);
 
     // ---------- palette (follows dark / light mode) ----------
     const C = { a: new THREE.Color(), b: new THREE.Color(), t: new THREE.Color(), light: false };
@@ -93,46 +93,46 @@
       const sp = toks.map((t, i) => { const l = label(t.replace(' ', '␣'), { size: 46, world: 1.45, col: i % 3 ? 't' : 'a', box: true }); g.add(l.sprite); return { s: l.sprite, a: i / toks.length * 6.283, r: 4.5 + (i % 4) * 1.2, y: (i % 5 - 2) * 1.3 }; });
       const n = small ? 1400 : 3200, pos = new Float32Array(n * 3);
       for (let i = 0; i < n; i++) { const r = 2.5 + Math.pow(rnd(), 0.8) * 7.5, a = rnd() * 6.283, h = gauss() * 2.2; pos.set([Math.cos(a) * r, h, Math.sin(a) * r], i * 3); }
-      const cloud = points(pos, 'b', 0.28, 0.5); g.add(cloud);
+      const cloud = points(pos, 'b', 0.42, 0.85); g.add(cloud);
       animators.push(t => { cloud.rotation.y = t * 0.06; sp.forEach((o, i) => { const a = o.a + t * 0.22; o.s.position.set(Math.cos(a) * o.r, o.y + Math.sin(t * 0.8 + i) * 0.4, Math.sin(a) * o.r); }); });
     }
     // ---------- L2 ATTENTION: ring of heads with pulsing arcs ----------
     {
       const g = layers[1], N = 16, R = 8, P = [];
-      for (let i = 0; i < N; i++) { const a = i / N * 6.283; P.push(new THREE.Vector3(Math.cos(a) * R, Math.sin(a) * R * 0.62, Math.sin(a * 2) * 1.5)); const d = glow(i % 4 ? 'b' : 'a', 1.6); d.position.copy(P[i]); g.add(d); }
+      for (let i = 0; i < N; i++) { const a = i / N * 6.283; P.push(new THREE.Vector3(Math.cos(a) * R, Math.sin(a) * R * 0.62, Math.sin(a * 2) * 1.5)); const d = glow(i % 4 ? 'b' : 'a', 2.4); d.position.copy(P[i]); g.add(d); }
       const pos = [], phase = [];
       for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) { if (rnd() > 0.32) continue; const a = P[i], b = P[j], mid = a.clone().add(b).multiplyScalar(0.5); mid.z += 3 + rnd() * 5;
         const ph = rnd() * 6.283; let prev = a; for (let k = 1; k <= 14; k++) { const t = k / 14, q = new THREE.Vector3().copy(a).multiplyScalar((1 - t) ** 2).addScaledVector(mid, 2 * (1 - t) * t).addScaledVector(b, t * t); pos.push(prev.x, prev.y, prev.z, q.x, q.y, q.z); phase.push(ph, ph); prev = q; } }
       const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); geo.setAttribute('aPh', new THREE.Float32BufferAttribute(phase, 1));
       const mat = track(new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false,
         uniforms: { uT: { value: 0 }, uCol: { value: C.a.clone() } },
-        vertexShader: 'attribute float aPh; varying float vA; uniform float uT; void main(){ vA = 0.08 + 0.6 * pow(0.5 + 0.5 * sin(uT * 1.6 + aPh), 6.0); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+        vertexShader: 'attribute float aPh; varying float vA; uniform float uT; void main(){ vA = 0.18 + 0.82 * pow(0.5 + 0.5 * sin(uT * 1.6 + aPh), 5.0); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
         fragmentShader: 'uniform vec3 uCol; varying float vA; void main(){ gl_FragColor = vec4(uCol, vA); }' }), 'a');
       const arcs = new THREE.LineSegments(geo, mat); g.add(arcs);
       animators.push(t => { mat.uniforms.uT.value = t; g.rotation.z = t * 0.04; });
     }
     // ---------- L3 TOOLS: core + tools on a sphere, packets flying ----------
-    const core = glow('b', 7), toolNodes = [];
+    const core = glow('b', 10), toolNodes = [];
     {
       const g = layers[2]; g.add(core); const coreTxt = label('PALOAN', { size: 46, world: 1.2, col: 't', weight: 700 }); g.add(coreTxt.sprite);
       const ga = Math.PI * (3 - Math.sqrt(5)), pos = [];
       TOOLS.forEach((name, i) => { const y = 1 - (i + 0.5) / TOOLS.length * 2, r = Math.sqrt(1 - y * y), th = ga * i;
         const p = new THREE.Vector3(Math.cos(th) * r * 9, y * 7, Math.sin(th) * r * 9);
-        const dot = glow('a', 1.4); dot.position.copy(p); const l = label(name, { size: 40, world: 1.05, col: 't' }); l.sprite.position.copy(p).add(new THREE.Vector3(0, 1.1, 0));
+        const dot = glow('a', 2); dot.position.copy(p); const l = label(name, { size: 40, world: 1.05, col: 't' }); l.sprite.position.copy(p).add(new THREE.Vector3(0, 1.1, 0));
         const grp = new THREE.Group(); grp.add(dot, l.sprite); g.add(grp); toolNodes.push({ name, p, dot, heat: 0 }); pos.push(0, 0, 0, p.x, p.y, p.z); });
-      g.add(lines(pos, 't', 0.14));
-      animators.push(t => { g.rotation.y = t * 0.08; toolNodes.forEach(n => { n.heat = Math.max(0, n.heat - 0.015); n.dot.scale.setScalar(1.4 + n.heat * 3); }); core.scale.setScalar(7 + Math.sin(t * 1.7) * 0.5); });
+      g.add(lines(pos, 't', 0.32));
+      animators.push(t => { g.rotation.y = t * 0.08; toolNodes.forEach(n => { n.heat = Math.max(0, n.heat - 0.015); n.dot.scale.setScalar(2 + n.heat * 4); }); core.scale.setScalar(10 + Math.sin(t * 1.7) * 0.8); });
     }
     // packets travelling core → tool → core
     const packets = [];
-    const packet = (to, col, back) => { const s = glow(col, 1.1); layers[2].add(s); packets.push({ s, to, t: 0, back }); };
+    const packet = (to, col, back) => { const s = glow(col, 1.6); layers[2].add(s); packets.push({ s, to, t: 0, back }); };
     // ---------- reasoning rings between TOOLS and CHAIN OF THOUGHT (you fly through them) ----------
     {
       ['Listen', 'Decode', 'Frame', 'Create', 'Test'].forEach((w, i) => {
-        const z = Z[2] - 16 - i * 9.5, ring = new THREE.Mesh(new THREE.TorusGeometry(5.2 + i * 0.25, 0.05, 6, 96),
+        const z = Z[2] - 16 - i * 9.5, ring = new THREE.Mesh(new THREE.TorusGeometry(6.6 + i * 0.3, 0.08, 6, 120),
           track(new THREE.MeshBasicMaterial({ color: C.a, transparent: true, opacity: 0.85, depthWrite: false, blending: THREE.AdditiveBlending }), i % 2 ? 'b' : 'a'));
         ring.position.z = z; scene.add(ring);
-        const l = label(String(i + 1).padStart(2, '0') + ' ' + w, { size: 44, world: 1.1, col: i % 2 ? 'b' : 'a' }); l.sprite.position.set(0, 6.1 + i * 0.25, z); scene.add(l.sprite);
+        const l = label(String(i + 1).padStart(2, '0') + ' ' + w, { size: 44, world: 1.1, col: i % 2 ? 'b' : 'a' }); l.sprite.position.set(0, 7.6 + i * 0.3, z); scene.add(l.sprite);
         animators.push(t => { ring.rotation.z = t * (0.2 + i * 0.05) * (i % 2 ? -1 : 1); });
       });
     }
@@ -140,7 +140,7 @@
     {
       const g = layers[3], n = small ? 700 : 1600, pos = new Float32Array(n * 3);
       for (let i = 0; i < n; i++) { const t = i / n, a = t * 6.283 * 3.2 + (i % 2) * Math.PI; pos.set([Math.cos(a) * 4.5, (t - 0.5) * 16, Math.sin(a) * 4.5], i * 3); }
-      const helix = points(pos, 'a', 0.32, 0.8); g.add(helix);
+      const helix = points(pos, 'a', 0.48, 1.0); g.add(helix);
       const words = ['says', 'means', 'fears', 'shares', 'content']; const ls = words.map((w, i) => { const l = label(w, { size: 44, world: 1.2, col: 'b', box: true }); g.add(l.sprite); return l.sprite; });
       animators.push(t => { helix.rotation.y = t * 0.35; ls.forEach((s, i) => { const a = t * 0.35 + i * 1.25; s.position.set(Math.cos(a) * 6.8, -6 + i * 3, Math.sin(a) * 6.8); }); });
     }
@@ -148,9 +148,9 @@
     {
       const g = layers[4], k = small ? 9 : 12, pos = [];
       for (let x = 0; x < k; x++) for (let y = 0; y < k; y++) for (let z = 0; z < k; z++) pos.push((x - k / 2) * 1.6 + gauss() * 0.1, (y - k / 2) * 1.2, (z - k / 2) * 1.6);
-      const lat = points(pos, 't', 0.18, 0.5); g.add(lat);
+      const lat = points(pos, 't', 0.26, 0.75); g.add(lat);
       const projs = ['MimAI', 'Paloan', 'proyojon.shop', 'Vromon', 'Abashon', 'CAP ON HEAD', 'Myook', 'AI video', '3D City'];
-      projs.forEach((p, i) => { const a = i / projs.length * 6.283, v = new THREE.Vector3(Math.cos(a) * 6.5, (i % 3 - 1) * 4, Math.sin(a) * 6.5); const d = glow('a', 1.8); d.position.copy(v);
+      projs.forEach((p, i) => { const a = i / projs.length * 6.283, v = new THREE.Vector3(Math.cos(a) * 6.5, (i % 3 - 1) * 4, Math.sin(a) * 6.5); const d = glow('a', 2.6); d.position.copy(v);
         const l = label(p, { size: 42, world: 1.1, col: 'a', box: true }); l.sprite.position.copy(v).add(new THREE.Vector3(0, 1.3, 0)); g.add(d, l.sprite); });
       animators.push(t => { g.rotation.y = t * 0.05; g.rotation.x = Math.sin(t * 0.2) * 0.08; });
     }
@@ -158,8 +158,8 @@
     {
       const g = layers[5], n = small ? 500 : 1200, pos = new Float32Array(n * 6);
       for (let i = 0; i < n; i++) { const a = rnd() * 6.283, r0 = 0.6, r1 = 4 + rnd() * 14, h = gauss() * 0.5; pos.set([Math.cos(a) * r0, Math.sin(a) * r0 * 0.6 + h, 0, Math.cos(a) * r1, Math.sin(a) * r1 * 0.6 + h, 6 + rnd() * 10], i * 6); }
-      const rays = lines(Array.from(pos), 'a', 0.16); g.add(rays); const sun = glow('a', 9); g.add(sun);
-      animators.push(t => { rays.rotation.z = t * 0.05; sun.scale.setScalar(9 + Math.sin(t * 2) * 0.8); });
+      const rays = lines(Array.from(pos), 'a', 0.3); g.add(rays); const sun = glow('a', 13); g.add(sun);
+      animators.push(t => { rays.rotation.z = t * 0.05; sun.scale.setScalar(13 + Math.sin(t * 2) * 1.2); });
     }
     // ---------- data stream: particles rushing past the camera along the whole flight ----------
     {
@@ -168,8 +168,8 @@
       const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
       const mat = track(new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
         uniforms: { uT: { value: 0 }, uCol: { value: C.t.clone() }, uSpan: { value: span }, uPx: { value: 1 } },
-        vertexShader: 'uniform float uT, uSpan, uPx; varying float vA; void main(){ vec3 p = position; p.z = 40.0 - mod(40.0 - p.z - uT * 6.0, uSpan); vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv; gl_PointSize = uPx * 60.0 / -mv.z; vA = smoothstep(160.0, 20.0, -mv.z) * smoothstep(0.5, 6.0, -mv.z); }',
-        fragmentShader: 'uniform vec3 uCol; varying float vA; void main(){ float d = length(gl_PointCoord - 0.5); gl_FragColor = vec4(uCol, smoothstep(0.5, 0.0, d) * vA * 0.5); }' }), 't');
+        vertexShader: 'uniform float uT, uSpan, uPx; varying float vA; void main(){ vec3 p = position; p.z = 40.0 - mod(40.0 - p.z - uT * 6.0, uSpan); vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv; gl_PointSize = uPx * 85.0 / -mv.z; vA = smoothstep(160.0, 20.0, -mv.z) * smoothstep(0.5, 6.0, -mv.z); }',
+        fragmentShader: 'uniform vec3 uCol; varying float vA; void main(){ float d = length(gl_PointCoord - 0.5); gl_FragColor = vec4(uCol, smoothstep(0.5, 0.0, d) * vA * 0.8); }' }), 't');
       const stream = new THREE.Points(geo, mat); scene.add(stream);
       animators.push(t => { mat.uniforms.uT.value = t; });
       mats.streamPx = mat;
@@ -201,10 +201,10 @@
       W = innerWidth; H = innerHeight; const dpr = Math.min(devicePixelRatio || 1, small ? 1.25 : 1.5);
       renderer.setPixelRatio(dpr); renderer.setSize(W, H, false); camera.aspect = W / H;
       camera.filmOffset = W >= 900 ? -13 : 0; // push the vanishing point to the right so text stays readable
-      layers.forEach(g => { g.position.x = W >= 900 ? 6.5 : 0; });
+      layers.forEach(g => { g.position.x = W >= 900 ? 7.5 : 0; g.scale.setScalar(W >= 900 ? 1.4 : 1.1); });
       camera.fov = W / H < 1 ? 72 : 58; camera.updateProjectionMatrix();
       if (mats.streamPx) mats.streamPx.uniforms.uPx.value = dpr * (W / H < 1 ? 1.4 : 1) * (H / 900);
-      canvas.style.opacity = W < 900 ? (C.light ? 0.45 : 0.6) : 1;
+      canvas.style.opacity = W < 900 ? (C.light ? 0.6 : 0.72) : 1;
       const abs = el => { const r = el.getBoundingClientRect(); return [r.top + scrollY, r.height]; };
       anchors = LAYERS.map(L => { const el = document.getElementById(L.id); if (!el) return null; const [t, h] = abs(el); return t + Math.min(h, H * 2) / 2; });
       covers = ['portrait', 'reel', 'bts'].map(id => document.getElementById(id)).filter(Boolean).map(el => { const [t, h] = abs(el); return [t, t + h - H]; });
