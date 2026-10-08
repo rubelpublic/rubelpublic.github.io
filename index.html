@@ -551,7 +551,7 @@ html{scroll-behavior:smooth}
 }
 /* Still mode: reduced motion turns off every pin and move */
 .still .grain,.still .cue span,.still .hud .rec::before,.still .caret{animation:none}
-.still #opening,.still #manifesto,.still #course,.still #credits{height:auto}
+.still #opening,.still #manifesto,.still #course,.still #credits,.still #bts{height:auto}
 .still .stick{position:static;height:auto;min-height:0;overflow:visible;padding-block:96px}
 .still .roll{transform:none}
 .still .say .w{opacity:1}
@@ -779,6 +779,79 @@ img,svg,video{max-width:100%}
 .flat .panel{content-visibility:auto;contain-intrinsic-size:auto 820px}
 
 @media (max-width:760px){.grain{animation:none}}
+
+/* ================= Motion upgrade: WebGL particles, 3D scroll, decode text ================= */
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.6s ease}
+#fx.on{opacity:1}
+/* hero: tilts toward the pointer, then tips back into depth as you scroll away */
+.open-copy{transform:perspective(1300px) rotateX(calc(var(--ty,0deg) + var(--p,0) * 22deg)) rotateY(var(--tx,0deg)) translateZ(calc(var(--p,0) * -160px));transform-style:preserve-3d;will-change:transform}
+.open-copy .word{transform-style:preserve-3d}
+/* work reel: panels swing like doors as they pass */
+.panel{perspective:1500px}
+.p-in{transform:translateY(calc((1 - var(--vis)) * 40px)) rotateY(calc(var(--lp) * -18deg)) translateZ(calc((var(--vis) - 1) * 80px));transform-origin:0% 50%}
+.art{transform:rotateY(calc(var(--lp) * 28deg)) translateZ(calc((var(--vis) - 1) * 180px)) scale(calc(.86 + var(--vis) * .14));transform-origin:100% 50%;transform-style:preserve-3d}
+.flat .p-in{transform:translateY(calc((1 - var(--vis)) * 40px)) rotateX(calc(var(--lp) * 14deg));transform-origin:50% 0%}
+.flat .art{transform:rotateX(calc(var(--lp) * -18deg)) scale(calc(.88 + var(--vis) * .12));transform-origin:50% 100%}
+.still .p-in,.still .art{transform:none}
+/* cards and FAQ rise and flip into place */
+.js .reveal{transform:perspective(1100px) translateY(46px) rotateX(18deg) scale(.97);transform-origin:50% 0%}
+.js .reveal.in{transform:none}
+@media (hover:hover) and (pointer:fine){
+  .js .project-card.in{transition:opacity .35s,transform .25s cubic-bezier(.2,.8,.2,1),filter .35s}
+  .js .project-card.in:hover{transform:perspective(900px) rotateX(var(--ry,0deg)) rotateY(var(--rx,0deg));z-index:2}
+  .btn{transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,box-shadow .25s,translate .35s cubic-bezier(.2,.8,.2,1)}
+  .social a,.theme-btn,.nav .nav-cta,.tabs button{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,color .3s,background .3s,translate .35s cubic-bezier(.2,.8,.2,1)}
+}
+/* ---- Behind the scenes: 3D photo reel turned by scroll ---- */
+#bts{height:300vh;--p:0}
+#bts .stick{display:grid;grid-template-rows:auto minmax(0,1fr);justify-items:center;align-items:center;gap:6px;padding:calc(7vh * var(--lb,0) + 76px) var(--gut) 28px}
+.bts-head{text-align:center;display:grid;gap:8px;max-width:760px;justify-items:center}
+.bts-head .mono{margin:0;color:var(--marigold)}
+.bts-head h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(30px,min(5vw,7.5vh),72px);line-height:1;letter-spacing:-.035em}
+.bts-head .bts-sub{margin:0;color:var(--muted);font-size:clamp(14px,1.3vw,17px)}
+.ring-stage{width:100%;height:100%;min-height:0;display:grid;place-items:center;perspective:1700px;perspective-origin:50% 35%}
+.ring{--w:clamp(140px,min(21vw,36vh),300px);--r:calc(var(--w) * 1.08);position:relative;width:var(--w);aspect-ratio:4/5;transform-style:preserve-3d;
+  transform:translateZ(calc(var(--r) * -1)) rotateX(-7deg) rotateY(calc(var(--p) * -330deg + 8deg));will-change:transform}
+.rc{position:absolute;inset:0;margin:0;border-radius:18px;overflow:hidden;backface-visibility:hidden;transform:rotateY(calc(var(--i) * 60deg)) translateZ(var(--r));
+  box-shadow:0 40px 70px -30px rgba(0,0,0,.7);background:var(--ink-2)}
+.rc img{width:100%;height:100%;object-fit:cover;display:block}
+.rc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,10,12,.8),transparent 46%);pointer-events:none}
+.rc .shade{position:absolute;inset:0;background:#05090b;opacity:calc(.72 - var(--face,1) * .72);pointer-events:none;z-index:1}
+.rc figcaption{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#EDE6D8;display:grid;gap:2px}
+.rc figcaption b{font-family:var(--display);font-weight:600;font-size:clamp(14px,1.3vw,18px);letter-spacing:-.01em}
+.rc figcaption span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--marigold)}
+.ring-floor{position:absolute;width:calc(var(--w) * 3.1);height:calc(var(--w) * 3.1);left:50%;top:100%;transform:translate(-50%,-50%) rotateX(90deg);
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--marigold) 22%,transparent),transparent);pointer-events:none}
+.still #bts{height:auto}
+.still .ring{transform:none;width:100%;max-width:980px;aspect-ratio:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.still .rc{position:relative;transform:none;aspect-ratio:4/5;backface-visibility:visible}
+.still .rc .shade,.still .ring-floor{display:none}
+@media (max-width:760px){.still .ring{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ---- decode text ---- */
+[data-scramble]{font-variant-ligatures:none}
+/* ---- cursor glow + magnetic buttons (desktop) ---- */
+.cursor{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.5px solid #EDE6D8;pointer-events:none;z-index:70;
+  mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s,opacity .3s;opacity:0}
+.cursor.on{opacity:1}
+.cursor.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:#EDE6D8}
+@media (hover:none),(pointer:coarse){.cursor{display:none}}
+
+/* ---- Paloan live: agent log + thinking steps ---- */
+.agent-log{position:fixed;left:var(--gut);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;width:min(340px,38vw);font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--muted);
+  background:color-mix(in srgb,var(--ink) 74%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+  pointer-events:none;opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s,border-color .4s}
+.agent-log.on{opacity:.94;transform:none}
+.agent-log.hot{border-color:#9C8CFF}
+.al-head{display:flex;align-items:center;gap:7px;color:var(--marigold);letter-spacing:.14em;font-size:10px;margin-bottom:3px}
+.al-head i{width:6px;height:6px;border-radius:50%;background:#46d38a;box-shadow:0 0 8px #46d38a;animation:blink 1.4s steps(2) infinite}
+.al-line{display:flex;justify-content:space-between;gap:10px;white-space:nowrap}
+.al-line .al-t{overflow:hidden;text-overflow:ellipsis}
+.al-line b{color:var(--marigold);font-weight:500;flex:none}
+@media (max-width:899px){.agent-log{display:none}}
+@media print{.agent-log,#fx{display:none}}
+.think{display:grid;gap:3px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.think span{animation:pop .25s cubic-bezier(.2,.8,.2,1)}
+.think b{color:#9C8CFF;font-weight:500}
 </style>
 </head>
 <body>
@@ -822,7 +895,7 @@ img,svg,video{max-width:100%}
       <figure class="frame"><img class="blur" data-same alt="" aria-hidden="true" width="1000" height="1250" loading="lazy" decoding="async"><img class="full" data-same alt="" aria-hidden="true" width="1000" height="1250" loading="lazy" decoding="async"><img class="main" id="portraitImg" src="assets/portrait.webp" srcset="assets/portrait-600.webp 600w, assets/portrait.webp 1000w" sizes="100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Rapar Rubel (Rubel Miah) laughing in a grey beanie and white-and-mustard hoodie, surrounded by five tiny cartoon versions of himself"></figure>
       <div class="p-side mono"><span>Still · Dhaka</span><span>The founder</span></div>
       <div class="pcap">
-        <p class="mono">Starring</p>
+        <p class="mono" data-scramble>Starring</p>
         <p class="pname">Rapar Rubel</p>
         <p class="aka mono">Rubel Miah · AI expert & AI workflow builder · Content strategist</p>
         <p>I move between business strategy, product building, AI workflows, marketing, content and operations—connecting the pieces so an idea can become something people can actually use.</p>
@@ -833,7 +906,7 @@ img,svg,video{max-width:100%}
   <!-- SC 02 -->
   <section class="scene" id="manifesto" data-scene="Manifesto">
     <div class="stick">
-      <p class="mono">The story so far</p>
+      <p class="mono" data-scramble>The story so far</p>
       <p class="say" id="say">Retail that moves. Brands that speak locally. Travel stories people remember. Property decisions buyers can trust. Software that removes friction. AI that works in Bangla, Banglish and English. Different industries, same instinct: understand the need, then build the system.</p>
     </div>
   </section>
@@ -841,7 +914,7 @@ img,svg,video{max-width:100%}
 
   <!-- Services -->
   <section class="services" id="services" data-scene="What I do">
-    <p class="mono">What I do</p>
+    <p class="mono" data-scramble>What I do</p>
     <h2 class="formula" id="formula"><span>AI</span> <i>×</i> <span>Strategy</span> <i>×</i> <span>Content</span> <i>×</i> <span>Product</span> <i>×</i> <span>Business</span></h2>
     <p class="s-lede">I help founders, SMEs and teams move from idea to execution: business model, product, website or app, AI workflow, brand, content, launch and operating rhythm. Most of these capabilities were developed by solving the same problems inside my own ventures and client work.</p>
     <div class="svc-grid">
@@ -856,7 +929,7 @@ img,svg,video{max-width:100%}
 
   <!-- How I think -->
   <section class="approach" id="approach" data-scene="How I think">
-    <p class="mono">How I think · Content & audience psychology</p>
+    <p class="mono" data-scramble>How I think · Content & audience psychology</p>
     <h2>Content starts in the audience’s head, not on the brand’s page.</h2>
     <p class="s-lede">Before I write a line or design a frame, I work out how the audience thinks: the words they use, what they worry about, what makes them stop scrolling and what makes them trust. Then I build the content to fit that mind—in Bangla, Banglish or English.</p>
 
@@ -1055,7 +1128,7 @@ img,svg,video{max-width:100%}
   </section>
 
   <section class="project-index" id="projects" data-scene="Selected projects">
-    <p class="mono">Selected projects · beyond the reel</p>
+    <p class="mono" data-scramble>Selected projects · beyond the reel</p>
     <h2>Building across categories, not inside one box.</h2>
     <div class="pfilter" role="group" aria-label="Filter projects"><button type="button" data-f="all" aria-pressed="true">All<span class="ct"></span></button><button type="button" data-f="content" aria-pressed="false">Content<span class="ct"></span></button><button type="button" data-f="ai" aria-pressed="false">AI<span class="ct"></span></button><button type="button" data-f="commerce" aria-pressed="false">Commerce<span class="ct"></span></button><button type="button" data-f="web" aria-pressed="false">Websites<span class="ct"></span></button><button type="button" data-f="property" aria-pressed="false">Property<span class="ct"></span></button></div>
     <div class="project-grid" id="pgrid">
@@ -1075,7 +1148,7 @@ img,svg,video{max-width:100%}
   <section class="scene" id="course" data-scene="The course">
     <div class="stick">
       <div class="c-head">
-        <p class="mono">Teaching</p>
+        <p class="mono" data-scramble>Teaching</p>
         <h2>AI Power User<small>Working title · taught in Bangla</small></h2>
         <p>A practical AI learning system for Bangladeshi learners and teams. The focus is choosing the right model or tool, designing repeatable workflows, and producing useful work—not memorizing interfaces. Every module ends with something built, tested or automated.</p>
         <div class="stats">
@@ -1093,6 +1166,28 @@ img,svg,video{max-width:100%}
         <li>Think with AI</li>
         <li class="cap">Capstone: your own Personal AI Operating System</li>
       </ol>
+    </div>
+  </section>
+
+  <!-- Behind the scenes -->
+  <section class="scene" id="bts" data-scene="Behind the scenes">
+    <div class="stick">
+      <div class="bts-head">
+        <p class="mono" data-scramble>Behind the scenes</p>
+        <h2>The person behind the work.</h2>
+        <p class="bts-sub">On stage, in the studio, out in the city. Keep scrolling to turn the reel.</p>
+      </div>
+      <div class="ring-stage">
+        <div class="ring" id="ring">
+          <figure class="rc" style="--i:0"><img src="assets/bts/stage.webp" alt="Rapar Rubel speaking at a podium in a dark suit" width="640" height="800" loading="lazy" decoding="async"><span class="shade"></span><figcaption><span>Sharing what works</span><b>On stage</b></figcaption></figure>
+          <figure class="rc" style="--i:1"><img src="assets/bts/studio.webp" alt="Rapar Rubel in a studio wearing glasses and a black fleece" width="640" height="800" loading="lazy" decoding="async"><span class="shade"></span><figcaption><span>Making AI lessons in Bangla</span><b>In the studio</b></figcaption></figure>
+          <figure class="rc" style="--i:2"><img src="assets/bts/night.webp" alt="Rapar Rubel at night in a city street wearing a cap and sunglasses" width="640" height="800" loading="lazy" decoding="async"><span class="shade"></span><figcaption><span>Where ideas show up</span><b>City nights</b></figcaption></figure>
+          <figure class="rc" style="--i:3"><img src="assets/bts/offduty.webp" alt="Rapar Rubel smiling in a white T-shirt and flat cap" width="640" height="800" loading="lazy" decoding="async"><span class="shade"></span><figcaption><span>Same curiosity</span><b>Off duty</b></figcaption></figure>
+          <figure class="rc" style="--i:4"><img src="assets/bts/neon.webp" alt="Rapar Rubel posing under neon city lights" width="640" height="800" loading="lazy" decoding="async"><span class="shade"></span><figcaption><span>Always looking up</span><b>In the neon</b></figcaption></figure>
+          <figure class="rc" style="--i:5"><img src="assets/bts/homies.webp" alt="Rapar Rubel seen from behind in a sweatshirt that reads The Homies, knowledge can change" width="640" height="800" loading="lazy" decoding="async"><span class="shade"></span><figcaption><span>Back to the people</span><b>Knowledge can change</b></figcaption></figure>
+          <div class="ring-floor" aria-hidden="true"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1120,7 +1215,7 @@ img,svg,video{max-width:100%}
   </section>
 
   <section class="faq" id="faq" data-scene="FAQ">
-    <p class="mono">FAQ · Quick answers</p>
+    <p class="mono" data-scramble>FAQ · Quick answers</p>
     <h2>Questions people ask about Rapar Rubel.</h2>
     <p class="s-lede">Short, direct answers about who I am, what I do and how to work with me.</p>
     <div class="qa-list">
@@ -1142,7 +1237,7 @@ img,svg,video{max-width:100%}
   <section class="contact" id="contact" data-scene="Contact">
     <div class="c-left">
       <img class="avatar" data-same alt="Rapar Rubel" width="84" height="84" loading="lazy" decoding="async">
-      <p class="mono">Next scene</p>
+      <p class="mono" data-scramble>Next scene</p>
       <h2>Got a need? <span class="bn">চলুন কথা বলি।</span></h2>
       <p class="c-sub">Tell me what you are trying to build, improve or launch. I work across business strategy, AI workflows, product/web builds, digital marketing, brand/creative systems and structured consulting.</p>
       <div class="mail">
@@ -1250,6 +1345,7 @@ img,svg,video{max-width:100%}
   const opening=document.getElementById('opening'),manifesto=document.getElementById('manifesto'),reel=document.getElementById('reel'),
         track=document.getElementById('track'),course=document.getElementById('course'),credits=document.getElementById('credits');
   const panels=[...track.querySelectorAll('.panel')];
+  const bts=document.getElementById('bts'),ringCards=[...document.querySelectorAll('#ring .rc')];
   const spine=[...document.querySelectorAll('#spine li')];
   const mimaiLines=[...document.querySelectorAll('.win .ln')];
   const scenes=[...document.querySelectorAll('[data-scene]')];
@@ -1271,7 +1367,7 @@ img,svg,video{max-width:100%}
     const H=innerHeight,W=innerWidth;
     // ---- read phase: every layout measurement happens before any write ----
     const rOpen=opening.getBoundingClientRect(),rPort=portrait.getBoundingClientRect(),rServ=services.getBoundingClientRect(),
-          rMan=manifesto.getBoundingClientRect(),rReel=reel.getBoundingClientRect(),rCourse=course.getBoundingClientRect(),rCred=credits.getBoundingClientRect();
+          rMan=manifesto.getBoundingClientRect(),rReel=reel.getBoundingClientRect(),rCourse=course.getBoundingClientRect(),rCred=credits.getBoundingClientRect(),rBts=bts?bts.getBoundingClientRect():null;
     const trackW=flat?0:track.scrollWidth;
     const panelRects=flat?panels.map(p=>p.getBoundingClientRect()):null;
     const sceneRects=scenes.map(sc=>sc.getBoundingClientRect());
@@ -1305,6 +1401,9 @@ img,svg,video{max-width:100%}
     spine.forEach((li,i)=>{li.classList.toggle('on',i<step);li.classList.toggle('now',!still&&i===step-1&&!li.classList.contains('cap'));});
     // SC 05
     setVar(credits,'--p',still?'0':progOf(rCred,H).toFixed(4));
+    // Behind the scenes: 3D reel angle + per-card lighting
+    if(bts){const pb=still?0:progOf(rBts,H);setVar(bts,'--p',pb.toFixed(4));
+      const base=-pb*330+8;ringCards.forEach((c,i)=>{const a=(i*60+base)*Math.PI/180;setVar(c,'--face',((Math.cos(a)+1)/2).toFixed(3));});}
     // HUD
     const f=maxScroll>0?clamp(sy/maxScroll):0;
     setVar(progressEl,'--f',f.toFixed(4));
@@ -1368,7 +1467,7 @@ img,svg,video{max-width:100%}
   }else revs.forEach(el=>el.classList.add('in'));
 
   // spotlight that follows the pointer on project cards
-  document.querySelectorAll('.project-card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');}));
+  document.querySelectorAll('.project-card').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');c.style.setProperty('--rx',((x/r.width-.5)*14).toFixed(2)+'deg');c.style.setProperty('--ry',((.5-y/r.height)*12).toFixed(2)+'deg');});c.addEventListener('pointerleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});});
 
   // audience mind map
   const MIND=[
@@ -1417,8 +1516,15 @@ img,svg,video{max-width:100%}
   }
   function ask(q){
     q=q.trim();if(!q)return;add(esc(q),'me');
-    const t=add('<span class="typing"><i></i><i></i><i></i></span>','bot');
-    setTimeout(()=>{t.innerHTML=answer(q);paLog.scrollTop=paLog.scrollHeight;},root.classList.contains('still')?0:550+Math.random()*400);
+    // let visitors watch the agent think: classify, recall, answer (the background network reacts too)
+    const hit=KB.find(x=>x.k.test(q));
+    const intent=hit?hit.k.source.replace(/\\b|[()?]/g,'').split('|')[0].split(' ')[0]:'unknown';
+    dispatchEvent(new CustomEvent('paloan:ask',{detail:{q,intent}}));
+    const t=add('<div class="think"></div>','bot'),box=t.firstChild;
+    const done=()=>{t.innerHTML=answer(q);paLog.scrollTop=paLog.scrollHeight;};
+    if(root.classList.contains('still')){done();return;}
+    const steps=['reading Rubel’s notes','intent → '+intent,'composing answer'];let i=0;
+    (function next(){if(i<steps.length){box.insertAdjacentHTML('beforeend','<span>'+steps[i++]+' <b>✓</b></span>');paLog.scrollTop=paLog.scrollHeight;setTimeout(next,320);}else setTimeout(done,260);})();
   }
   SUGS.forEach(s=>{const b=document.createElement('button');b.type='button';b.textContent=s;b.addEventListener('click',()=>ask(s));paSugs.appendChild(b);});
   let greeted=false;
@@ -1447,6 +1553,39 @@ img,svg,video{max-width:100%}
     document.querySelectorAll('.ticker,.paloan,.p-mimai,#opening .cue').forEach(el=>loopIO.observe(el));
   }
 
+  // ---- decode effect: section labels scramble, then lock into the real text ----
+  const glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+/<>=';
+  function decode(el){
+    const final=el.textContent;if(root.classList.contains('still'))return;
+    const t0=performance.now(),dur=650+final.length*18;
+    (function step(now){const k=Math.min(1,(now-t0)/dur);const n=Math.floor(k*final.length);
+      let out=final.slice(0,n);for(let i=n;i<final.length;i++)out+=final[i]===' '||final[i]==='·'?final[i]:glyphs[(Math.random()*glyphs.length)|0];
+      el.textContent=out;if(k<1)requestAnimationFrame(step);else el.textContent=final;})(t0);
+  }
+  if('IntersectionObserver' in window){
+    const dio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){decode(en.target);dio.unobserve(en.target);}}),{threshold:.6});
+    document.querySelectorAll('[data-scramble]').forEach(el=>dio.observe(el));
+  }
+
+  // ---- desktop only: hero tilt, magnetic buttons, cursor glow ----
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const oc=document.querySelector('.open-copy'),cur=document.querySelector('.cursor');
+    let px=innerWidth/2,py=innerHeight/2,cx=px,cy=py,tx=0,ty=0,ttx=0,tty=0,raf=0;
+    const loop=()=>{raf=0;cx+=(px-cx)*.22;cy+=(py-cy)*.22;tx+=(ttx-tx)*.08;ty+=(tty-ty)*.08;
+      cur.style.transform='translate3d('+cx.toFixed(1)+'px,'+cy.toFixed(1)+'px,0)';
+      setVar(oc,'--tx',tx.toFixed(2)+'deg');setVar(oc,'--ty',ty.toFixed(2)+'deg');
+      if(Math.abs(px-cx)+Math.abs(py-cy)>.5||Math.abs(ttx-tx)+Math.abs(tty-ty)>.02)raf=requestAnimationFrame(loop);};
+    const kick=()=>{if(!raf)raf=requestAnimationFrame(loop);};
+    addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY;cur.classList.add('on');
+      if(scrollY<innerHeight*1.2){ttx=(e.clientX/innerWidth-.5)*10;tty=(.5-e.clientY/innerHeight)*8;}else{ttx=0;tty=0;}
+      cur.classList.toggle('big',!!e.target.closest('a,button,summary,input,select,textarea,label,[role=tab]'));kick();},{passive:true});
+    document.addEventListener('mouseleave',()=>cur.classList.remove('on'));
+    document.querySelectorAll('.btn,.nav-cta,.social a,.theme-btn,.pa-fab,.tabs button').forEach(el=>{
+      el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.translate=((e.clientX-r.left-r.width/2)*.28).toFixed(1)+'px '+((e.clientY-r.top-r.height/2)*.38).toFixed(1)+'px';});
+      el.addEventListener('pointerleave',()=>{el.style.translate='';});
+    });
+  }
+
   // copy email
   const btn=document.getElementById('copy'),email=document.getElementById('email');
   btn.addEventListener('click',()=>{
@@ -1457,5 +1596,7 @@ img,svg,video{max-width:100%}
 })();
 </script>
 
+<div class="cursor" aria-hidden="true"></div>
+<script src="assets/agent.js" defer></script>
 </body>
 </html>
