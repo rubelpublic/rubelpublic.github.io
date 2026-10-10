@@ -49,3 +49,12 @@
 - Instagram: https://www.instagram.com/rapar.rubel/
 - X: https://x.com/raparrubel1
 - GitHub: https://github.com/rubelpublic
+
+<!-- THOUGHTS -->
+## Thoughts (blog)
+- [Why I Build AI That Speaks Bangla, Banglish and English](https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/): Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.
+- [What Does an AI Workflow Builder Actually Do for a Small Business?](https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/): What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
+- [Paloan — Why I'm Building My Own Personal AI Agent](https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/): Rapar Rubel on Paloan, the personal AI agent he is building to research audiences, draft Bangla and English content, plan launches and run workflows.
+- [How I Built MimAI, an AI File Assistant, With Claude Code](https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/): How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.
+- [Content Starts in the Audience's Head — My 5-Step Process](https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/): Rapar Rubel's five-step content process — Listen, Decode, Frame, Create, Test — with real examples from fashion, property, travel and cap brands in Bangladesh.
+<!-- /THOUGHTS -->

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How I Built MimAI, an AI File Assistant, With Claude Code | Rapar Rubel</title>
+<meta name="description" content="How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.">
+<meta name="author" content="Rapar Rubel (Rubel Miah)">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/">
+<link rel="alternate" type="application/rss+xml" title="Thoughts by Rapar Rubel" href="https://rubelpublic.github.io/thoughts/feed.xml">
+<meta name="theme-color" content="#0D1B1E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F1E7" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rapar Rubel">
+<meta property="og:title" content="How I Built MimAI, an AI File Assistant, With Claude Code | Rapar Rubel">
+<meta property="og:description" content="How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.">
+<meta property="og:url" content="https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/">
+<meta property="og:image" content="https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-10">
+<meta property="article:modified_time" content="2026-10-10">
+<meta property="article:author" content="https://rubelpublic.github.io/">
+<meta property="article:tag" content="MimAI">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="AI product">
+<meta property="article:tag" content="building with AI">
+<meta property="article:tag" content="Google Drive">
+<meta property="article:tag" content="Bangladesh">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@raparrubel1">
+<meta name="twitter:creator" content="@raparrubel1">
+<meta name="twitter:title" content="How I Built MimAI, an AI File Assistant, With Claude Code | Rapar Rubel">
+<meta name="twitter:description" content="How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.">
+<meta name="twitter:image" content="https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/og.jpg">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/thoughts/thoughts.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://rubelpublic.github.io/#person",
+   "name": "Rubel Miah",
+   "alternateName": [
+    "Rapar Rubel",
+    "Rubel Public"
+   ],
+   "url": "https://rubelpublic.github.io/",
+   "jobTitle": "AI Expert & AI Workflow Builder",
+   "image": "https://rubelpublic.github.io/assets/portrait.jpg",
+   "sameAs": [
+    "https://www.facebook.com/rapar.rubel",
+    "https://www.instagram.com/rapar.rubel/",
+    "https://x.com/raparrubel1",
+    "https://github.com/rubelpublic"
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/#post",
+   "headline": "How I Built MimAI, an AI File Assistant, With Claude Code",
+   "description": "How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.",
+   "image": "https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/og.jpg",
+   "datePublished": "2026-10-10",
+   "dateModified": "2026-10-10",
+   "author": {
+    "@id": "https://rubelpublic.github.io/#person"
+   },
+   "publisher": {
+    "@id": "https://rubelpublic.github.io/#person"
+   },
+   "mainEntityOfPage": "https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/",
+   "url": "https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/",
+   "inLanguage": "en",
+   "articleSection": "Thoughts",
+   "keywords": "MimAI, Claude Code, AI product, building with AI, Google Drive, Bangladesh",
+   "wordCount": 487,
+   "timeRequired": "PT2M",
+   "isPartOf": {
+    "@id": "https://rubelpublic.github.io/thoughts/#blog"
+   },
+   "abstract": "MimAI is a file hub with a built-in AI assistant that finds files in the user's own Google Drive. It understands requests in Bangla, Banglish and English. I designed it and built it with Claude Code as my engineering partner, and it runs live on the web. The biggest lessons — start with one painful job, describe the user not the feature, ship early, keep secrets out of the code."
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Rapar Rubel",
+     "item": "https://rubelpublic.github.io/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Thoughts",
+     "item": "https://rubelpublic.github.io/thoughts/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "How I Built MimAI, an AI File Assistant, With Claude Code",
+     "item": "https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is MimAI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "MimAI is an AI file assistant and file hub designed by Rapar Rubel. It searches the user's own Google Drive and lets them find files by asking in Bangla, Banglish or English. It is live at mimai.onrender.com."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can you build a real product with Claude Code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Claude Code can act as an engineering partner that writes and edits code, explains errors and helps deploy. You still need a clear problem, product decisions and careful testing — that part is yours."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who built MimAI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "MimAI was designed and built by Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka, Bangladesh, using Claude Code."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="read-bar" aria-hidden="true"></div>
+<header class="t-hud">
+  <a class="home" href="/" aria-label="Rapar Rubel — portfolio home"><img src="/assets/mark.png" alt="" width="97" height="74"><span class="mono">Rapar Rubel</span></a>
+  <nav class="t-nav mono" aria-label="Main">
+    <a href="/" class="hide-sm">Portfolio</a><a href="/thoughts/">Thoughts</a><a href="/#contact" class="cta">Contact</a>
+    <button type="button" class="theme-btn" id="theme-btn" aria-label="Toggle dark or light mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </nav>
+</header>
+<main id="main">
+<p class="crumbs"><a href="/">Rapar Rubel</a> › <a href="/thoughts/">Thoughts</a> › <span aria-current="page">How I Built MimAI, an AI File Assistant, With Claude Code</span></p>
+<article class="post">
+  <h1>How I Built MimAI, an AI File Assistant, With Claude Code</h1>
+  <p class="meta">By <b><a href="/" rel="author">Rapar Rubel</a></b> (Rubel Miah) · <time datetime="2026-10-10">10 October 2026</time> · 2 min read</p>
+  <ul class="tags"><li>MimAI</li><li>Claude Code</li><li>AI product</li><li>building with AI</li><li>Google Drive</li><li>Bangladesh</li></ul>
+  <section class="tldr" aria-labelledby="tldr-h"><h2 id="tldr-h">Short answer</h2><ul><li>MimAI is a file hub with a built-in AI assistant that finds files in the user&#x27;s own Google Drive.</li><li>It understands requests in Bangla, Banglish and English.</li><li>I designed it and built it with Claude Code as my engineering partner, and it runs live on the web.</li><li>The biggest lessons — start with one painful job, describe the user not the feature, ship early, keep secrets out of the code.</li></ul></section>
+  <p>Everyone has had this moment: you <em>know</em> the file is somewhere in your Google Drive, but you cannot remember the name, the folder or the date. You end up scrolling for ten minutes.</p>
+<p>That small, daily frustration became <a href="https://mimai.onrender.com">MimAI</a> — a file hub with an AI assistant built in. I designed it and built it with <strong>Claude Code</strong>. Here is what I learned.</p>
+<h2 id="what-problem-does-mimai-solve">What problem does MimAI solve?</h2>
+<p>People do not remember file names. They remember <em>what the file was about</em> and roughly <em>when</em> they used it. So instead of searching by name, MimAI lets you ask:</p>
+<ul>
+<li>"last month er invoice ta dao"</li>
+<li>"the property brochure I sent last week"</li>
+<li>"আমার CV এর নতুন version"</li>
+</ul>
+<p>The assistant searches your own Google Drive and finds the right file — in Bangla, Banglish or English. (Why three languages matter is the subject of <a href="../ai-that-speaks-banglish/">Why I Build AI That Speaks Banglish</a>.)</p>
+<h2 id="why-did-i-build-it-with-claude-code">Why did I build it with Claude Code?</h2>
+<p>I am a builder who thinks in products and businesses first. Claude Code let me work like a product lead with a tireless engineering partner: I described what the user needed, and together we wrote, tested and fixed the code.</p>
+<p>It did not replace thinking. It made the distance between an idea and a working version much shorter, so I could spend my time on the decisions that matter — what the assistant should understand, what it should never do, and how it should feel to use.</p>
+<h2 id="what-were-the-biggest-lessons">What were the biggest lessons?</h2>
+<p><strong>1. Start with one painful job.</strong> MimAI does not try to be a whole office suite. It does one job — find my file — and tries to do it well.</p>
+<p><strong>2. Describe the user, not the feature.</strong> "A shop owner who types in Banglish on a phone and is in a hurry" leads to better decisions than "add a search box".</p>
+<p><strong>3. Ship early, then improve.</strong> A live version that real people can try teaches you more in a day than a week of planning.</p>
+<p><strong>4. Keep secrets out of the code.</strong> Keys and passwords live in the hosting platform's environment settings, never in the repository.</p>
+<p><strong>5. Test with real requests.</strong> The best test cases are the strange, messy ways people actually ask for things.</p>
+<h2 id="how-is-mimai-deployed">How is MimAI deployed?</h2>
+<p>The code lives on GitHub and the app runs on Render, which redeploys automatically when I publish an update. It is a simple setup that lets a small team — or one person — ship improvements quickly and safely.</p>
+<h2 id="what-does-this-mean-for-other-businesses">What does this mean for other businesses?</h2>
+<p>You no longer need a large engineering team to test a useful AI idea. If you have a clear, painful job and real examples of how people ask for help, you can build a working first version quickly — and learn from real users.</p>
+<p>That is how I approach every <a href="../what-an-ai-workflow-builder-does/">AI workflow</a>: small, useful, live, then better.</p>
+<p>Want something like MimAI for your team? <a href="../../#brief">Tell me about it</a>.</p>
+  <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Quick answers</h2><details class="qa"><summary>What is MimAI?</summary><p>MimAI is an AI file assistant and file hub designed by Rapar Rubel. It searches the user&#x27;s own Google Drive and lets them find files by asking in Bangla, Banglish or English. It is live at mimai.onrender.com.</p></details><details class="qa"><summary>Can you build a real product with Claude Code?</summary><p>Yes. Claude Code can act as an engineering partner that writes and edits code, explains errors and helps deploy. You still need a clear problem, product decisions and careful testing — that part is yours.</p></details><details class="qa"><summary>Who built MimAI?</summary><p>MimAI was designed and built by Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka, Bangladesh, using Claude Code.</p></details></section>
+  <aside class="author" aria-labelledby="author-h"><img src="/assets/portrait-600.webp" alt="Rapar Rubel (Rubel Miah)" width="72" height="72" loading="lazy">
+    <div><h2 id="author-h">Rapar Rubel <span class="mono" style="color:var(--muted)">· Rubel Miah</span></h2><p>Independent AI expert and AI workflow builder in Dhaka, Bangladesh. I build AI agents, automation and AI-powered content that work in Bangla, Banglish and English — and test them inside my own ventures.</p><div class="links"><a href="https://rubelpublic.github.io/" rel="me noopener">Portfolio</a> <a href="https://www.facebook.com/rapar.rubel" rel="me noopener" target=_blank>Facebook</a> <a href="https://www.instagram.com/rapar.rubel/" rel="me noopener" target=_blank>Instagram</a> <a href="https://x.com/raparrubel1" rel="me noopener" target=_blank>X</a> <a href="https://github.com/rubelpublic" rel="me noopener" target=_blank>GitHub</a></div></div></aside>
+</article>
+<section class="related" aria-labelledby="rel-h"><h2 id="rel-h">Keep reading</h2><div class="cards"><a class="card" href="/thoughts/ai-that-speaks-banglish/"><span class="mono">10 October 2026 · 3 min read</span><h3>Why I Build AI That Speaks Bangla, Banglish and English</h3><p>Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.</p></a><a class="card" href="/thoughts/what-an-ai-workflow-builder-does/"><span class="mono">10 October 2026 · 2 min read</span><h3>What Does an AI Workflow Builder Actually Do for a Small Business?</h3><p>What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.</p></a><a class="card" href="/thoughts/why-i-built-paloan-personal-ai-agent/"><span class="mono">10 October 2026 · 2 min read</span><h3>Paloan — Why I&#x27;m Building My Own Personal AI Agent</h3><p>Rapar Rubel on Paloan, the personal AI agent he is building to research audiences, draft Bangla and English content, plan launches and run workflows.</p></a></div></section>
+<section class="cta"><h2>Have a question about AI for your business?</h2><p>Ask my AI agent Paloan, or send me a short brief.</p>
+  <a class="btn btn-primary" href="/#paloan">Ask Paloan →</a><a class="btn btn-ghost" href="/#brief">Send a brief</a></section>
+</main>
+<footer>
+  <p>© 2026 Rubel Miah · Rapar Rubel · Rubel Public — AI expert &amp; AI workflow builder, Dhaka, Bangladesh</p>
+  <p><a href="/">Portfolio</a> · <a href="/thoughts/">Thoughts</a> · <a href="/thoughts/feed.xml">RSS</a> · <a href="/#contact">Contact</a></p>
+</footer>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('theme-btn');
+  var light=function(){return r.dataset.theme?r.dataset.theme==='light':matchMedia('(prefers-color-scheme: light)').matches;};
+  b.addEventListener('click',function(){var n=light()?'dark':'light';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  var bar=document.querySelector('.read-bar'),a=document.querySelector('article.post');
+  if(a&&bar){var f=function(){var t=a.getBoundingClientRect(),h=t.height-innerHeight;bar.style.transform='scaleX('+Math.min(1,Math.max(0,-t.top/(h>0?h:1)))+')';};addEventListener('scroll',f,{passive:true});f();}
+})();
+</script>
+</body>
+</html>
