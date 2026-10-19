@@ -11,7 +11,7 @@ It (re)generates:
   thoughts/feed.xml            RSS feed
   sitemap.xml                  all pages with lastmod
   llms.txt                     "Thoughts" section for AI assistants
-  index.html                   "Latest thoughts" strip between <!-- THOUGHTS:START --> / <!-- THOUGHTS:END -->
+  index.html                   "Thoughts" strip (every post) between <!-- THOUGHTS:START --> / <!-- THOUGHTS:END -->
 Requires: pip install markdown pillow
 """
 import html, json, os, re, sys
@@ -286,7 +286,7 @@ def build_home_strip(posts):
     p = os.path.join(ROOT, 'index.html')
     s = open(p, encoding='utf-8').read()
     cards = ''.join(f'''
-      <article class="reveal project-card"><span class="num mono">{nice_date(q["date"])} · {q["minutes"]} min read</span><h3><a href="/thoughts/{q["slug"]}/">{esc(q["title"])}</a></h3><p>{esc(q["description"])}</p><a class="go" href="/thoughts/{q["slug"]}/">Read →</a></article>''' for q in posts[:3])
+      <article class="reveal project-card"><span class="num mono">{nice_date(q["date"])} · {q["minutes"]} min read</span><h3><a href="/thoughts/{q["slug"]}/">{esc(q["title"])}</a></h3><p>{esc(q["description"])}</p><a class="go" href="/thoughts/{q["slug"]}/">Read →</a></article>''' for q in posts)
     block = f'''
   <section class="project-index" id="thoughts" data-scene="Thoughts">
     <p class="mono" data-scramble>Thoughts · latest writing</p>

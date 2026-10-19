@@ -589,6 +589,8 @@ html{scroll-behavior:smooth}
 .project-card.dim:hover{opacity:.5}
 .project-card h3 a{text-decoration:none;color:inherit}.project-card h3 a:hover{color:var(--marigold)}
 #thoughts>p:last-child{margin:4px 0 0}
+#thoughts .project-card:last-child:nth-child(3n+2){grid-column:span 2}
+#thoughts .project-card:last-child:nth-child(3n+1){grid-column:span 3}
 .project-card .go{--ac:var(--marigold);margin-top:4px}
 .project-card .mini{font-size:11px;color:var(--paper);opacity:.72;margin-top:auto}
 .contact-actions{display:flex;flex-wrap:wrap;gap:10px}
@@ -601,8 +603,8 @@ html{scroll-behavior:smooth}
 .cv-head .mono{margin:0}
 .cv-head button{font:600 13px var(--body);padding:8px 14px;border-radius:8px;border:0;background:var(--marigold);color:var(--on-accent);cursor:pointer}
 .cv-panel pre{margin:0;padding:16px;max-height:360px;overflow:auto;white-space:pre-wrap;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--paper)}
-@media (max-width:900px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.project-grid{grid-template-columns:1fr}.booking-row{grid-template-columns:1fr}}
+@media (max-width:900px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#thoughts .project-card:last-child:nth-child(n){grid-column:auto}#thoughts .project-card:last-child:nth-child(odd){grid-column:span 2}}
+@media (max-width:560px){.project-grid{grid-template-columns:1fr}#thoughts .project-card:last-child:nth-child(odd){grid-column:auto}.booking-row{grid-template-columns:1fr}}
 
 /* ---------- Responsive polish: small phones, short screens, touch ---------- */
 img,svg,video{max-width:100%}
@@ -1225,6 +1227,8 @@ img,svg,video{max-width:100%}
       <article class="reveal project-card"><span class="num mono">10 October 2026 · 3 min read</span><h3><a href="/thoughts/ai-that-speaks-banglish/">Why I Build AI That Speaks Bangla, Banglish and English</a></h3><p>Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.</p><a class="go" href="/thoughts/ai-that-speaks-banglish/">Read →</a></article>
       <article class="reveal project-card"><span class="num mono">10 October 2026 · 2 min read</span><h3><a href="/thoughts/what-an-ai-workflow-builder-does/">What Does an AI Workflow Builder Actually Do for a Small Business?</a></h3><p>What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.</p><a class="go" href="/thoughts/what-an-ai-workflow-builder-does/">Read →</a></article>
       <article class="reveal project-card"><span class="num mono">10 October 2026 · 2 min read</span><h3><a href="/thoughts/why-i-built-paloan-personal-ai-agent/">Paloan — Why I&#x27;m Building My Own Personal AI Agent</a></h3><p>Rapar Rubel on Paloan, the personal AI agent he is building to research audiences, draft Bangla and English content, plan launches and run workflows.</p><a class="go" href="/thoughts/why-i-built-paloan-personal-ai-agent/">Read →</a></article>
+      <article class="reveal project-card"><span class="num mono">10 October 2026 · 2 min read</span><h3><a href="/thoughts/building-mimai-with-claude-code/">How I Built MimAI, an AI File Assistant, With Claude Code</a></h3><p>How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.</p><a class="go" href="/thoughts/building-mimai-with-claude-code/">Read →</a></article>
+      <article class="reveal project-card"><span class="num mono">10 October 2026 · 3 min read</span><h3><a href="/thoughts/content-starts-in-the-audiences-head/">Content Starts in the Audience&#x27;s Head — My 5-Step Process</a></h3><p>Rapar Rubel&#x27;s five-step content process — Listen, Decode, Frame, Create, Test — with real examples from fashion, property, travel and cap brands in Bangladesh.</p><a class="go" href="/thoughts/content-starts-in-the-audiences-head/">Read →</a></article>
     </div>
     <p><a class="btn btn-ghost" href="/thoughts/">All thoughts →</a></p>
   </section>
