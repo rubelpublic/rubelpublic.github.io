@@ -2,6 +2,8 @@
 
 > Rapar Rubel is the online name of Rubel Miah, also known as Rubel Public: an independent AI expert and AI workflow builder in Dhaka, Bangladesh. He builds AI agents, automation and AI-powered products that work in Bangla, Banglish and English, and pairs them with business strategy, content and brand psychology (reading what an audience says, fears and shares).
 
+Full text of the profile and every blog post: https://rubelpublic.github.io/llms-full.txt
+
 ## Identity
 - Real name: Rubel Miah
 - Online / creative name: Rapar Rubel

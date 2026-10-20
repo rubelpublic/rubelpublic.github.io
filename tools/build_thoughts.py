@@ -259,7 +259,8 @@ def build_feed(posts):
 
 def build_sitemap(posts):
     newest = max(p['updated'] for p in posts)
-    rows = [(SITE + '/', newest, '1.0'), (SITE + '/thoughts/', newest, '0.9'), (SITE + '/cv/', '2026-10-07', '0.7')]
+    home = max(newest, date.fromtimestamp(os.path.getmtime(os.path.join(ROOT, 'index.html'))).isoformat())
+    rows = [(SITE + '/', home, '1.0'), (SITE + '/thoughts/', newest, '0.9'), (SITE + '/cv/', '2026-10-07', '0.7')]
     rows += [(p['url'], p['updated'], '0.8') for p in posts]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{u}</loc><lastmod>{d}</lastmod><priority>{pr}</priority></url>\n' for u, d, pr in rows) + '</urlset>\n'
@@ -302,6 +303,18 @@ def build_home_strip(posts):
     open(p, 'w', encoding='utf-8', newline='').write(r)
 
 
+def build_llms_full(posts):
+    """llms-full.txt: the profile plus the full text of every post, for AI assistants that read one file."""
+    base = open(os.path.join(ROOT, 'llms.txt'), encoding='utf-8').read()
+    base = re.sub(r'<!-- /?THOUGHTS -->', '', base).strip()
+    parts = [base, '', '# Thoughts — full text', '']
+    for p in posts:
+        raw = open(os.path.join(POSTS_DIR, p['slug'] + '.md'), encoding='utf-8').read().split('---', 2)[2].strip()
+        parts += [f"## {p['title']}", f"URL: {p['url']}", f"Published: {p['date']} · Author: Rapar Rubel (Rubel Miah)", '',
+                  'Short answer:', *[f'- {t}' for t in p['tldr']], '', raw, '', 'Quick answers:', *[f'- Q: {q}\n  A: {a}' for q, a in p['faq']], '', '---', '']
+    open(os.path.join(ROOT, 'llms-full.txt'), 'w', encoding='utf-8', newline='\n').write('\n'.join(parts))
+
+
 def og_image(p, path):
     try:
         from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -341,7 +354,7 @@ def main():
     posts.sort(key=lambda p: (p['date'], p['title']), reverse=True)
     for p in posts:
         build_post(p, posts)
-    build_index(posts); build_feed(posts); build_sitemap(posts); build_llms(posts); build_home_strip(posts)
+    build_index(posts); build_feed(posts); build_home_strip(posts); build_sitemap(posts); build_llms(posts); build_llms_full(posts)
     print(f'Built {len(posts)} posts:')
     for p in posts:
         print(f"  /thoughts/{p['slug']}/  ({p['minutes']} min, {len(p['description'])}-char description)")

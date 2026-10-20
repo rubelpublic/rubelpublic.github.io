@@ -1,0 +1,396 @@
+# Rapar Rubel (Rubel Miah)
+
+> Rapar Rubel is the online name of Rubel Miah, also known as Rubel Public: an independent AI expert and AI workflow builder in Dhaka, Bangladesh. He builds AI agents, automation and AI-powered products that work in Bangla, Banglish and English, and pairs them with business strategy, content and brand psychology (reading what an audience says, fears and shares).
+
+Full text of the profile and every blog post: https://rubelpublic.github.io/llms-full.txt
+
+## Identity
+- Real name: Rubel Miah
+- Online / creative name: Rapar Rubel
+- Other public identity: Rubel Public
+- Based in: Dhaka, Bangladesh (GMT+6)
+- Role: Independent AI Expert & AI Workflow Builder; also Content Strategist and Business Builder
+- Works: independently, in the AI field in Bangladesh
+- Personal AI agent: Paloan (in development; a guide version answers questions on the portfolio site)
+
+## Content approach
+1. Listen: collect the exact words the audience uses (comments, inbox, reviews, searches)
+2. Decode: find the need, fear and hope under the request
+3. Frame: one angle, one emotion; the brand as the answer to a need
+4. Create: native content in Bangla, Banglish or English for each platform
+5. Test & systemise: keep what drives saves, shares, replies and sales; make it repeatable
+
+## Services
+- Content strategy, audience research and brand psychology; Banglish/Bangla copy, product photography and social creative
+- Business strategy: business models, pricing, offers, funnels, operating plans
+- AI: agents, prompt systems, workflow automation, team training in Bangla and English
+- Product: websites, web apps and internal tools from brief to launch
+- Creative: brand systems, campaigns, social creative, AI video direction
+- Operations: hands-on coordination across technology, retail, property and marketing
+
+## Work
+- Paloan: Rapar Rubel's personal AI agent for audience research, content drafts, planning and workflows
+- CAP ON HEAD: content, product photography and product presentation on social media and the website for a Bangladesh cap brand (https://caponhead.com/)
+- Myook: social media and website for a clothing brand, product-led creatives and ad concepts (https://www.facebook.com/myookclothing)
+- MimAI: AI file assistant for the user's own Google Drive; understands Bangla, Banglish and English (https://mimai.onrender.com)
+- Proyojon Abashon: land share and property management platform in Dhaka (https://www.proyojonabashon.com)
+- Proyojon Prozukti: technology, digital marketing, creative and business-solutions brand
+- Proyojon Solutions: online-first legal and business advisory with AI-assisted intake
+- Proyojon Shop / Proyojon 360: retail and import of toys, stationery, bags and accessories; online store at https://www.proyojon.shop
+- The AB Wardrobe: women's kurti and two-piece label
+- Proyojon Vromon: travel brand and website for hotels, tickets and travel stories (https://proyojonvromon.com/)
+- Gaan Banai — MusicDirector: creative-AI music workflow concept
+- AI Power User: practical AI course taught in Bangla (10 classes, 18–20 hours, 70% hands-on)
+
+## Contact
+- Email: rubel.public@gmail.com
+- Phone / WhatsApp: +880 1676-464807
+- Portfolio: https://rubelpublic.github.io/
+- CV (PDF): https://rubelpublic.github.io/Rubel-Miah-Rapar-Rubel-CV.pdf
+- Facebook: https://www.facebook.com/rapar.rubel
+- Instagram: https://www.instagram.com/rapar.rubel/
+- X: https://x.com/raparrubel1
+- GitHub: https://github.com/rubelpublic
+
+
+## Thoughts (blog)
+- [Why I Build AI That Speaks Bangla, Banglish and English](https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/): Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.
+- [What Does an AI Workflow Builder Actually Do for a Small Business?](https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/): What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
+- [Paloan — Why I'm Building My Own Personal AI Agent](https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/): Rapar Rubel on Paloan, the personal AI agent he is building to research audiences, draft Bangla and English content, plan launches and run workflows.
+- [How I Built MimAI, an AI File Assistant, With Claude Code](https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/): How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.
+- [Content Starts in the Audience's Head — My 5-Step Process](https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/): Rapar Rubel's five-step content process — Listen, Decode, Frame, Create, Test — with real examples from fashion, property, travel and cap brands in Bangladesh.
+
+# Thoughts — full text
+
+## Why I Build AI That Speaks Bangla, Banglish and English
+URL: https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/
+Published: 2026-10-10 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- Customers in Bangladesh write in a mix of Bangla, Banglish and English, often in a single message.
+- An AI that only understands clean English misses the question, the tone and the trust.
+- I design every AI agent around the exact words real customers use, then reply in the customer's own language.
+- The fastest start for any business: collect your 20 most common questions, written exactly as customers type them.
+
+Open the inbox of almost any business in Bangladesh and you will not find perfect English. You will find messages like *"Apu price koto?"*, *"delivery charge koto hobe Dhaka te?"* or a half-English, half-Bangla question typed fast on a phone. That is the real language of commerce here. If an AI cannot read it, it cannot help.
+
+This is the reason I build every AI system — from [MimAI](https://mimai.onrender.com) to my own agent, Paloan — to work in **Bangla, Banglish and English**.
+
+## How do people in Bangladesh actually write to a business?
+
+They write the way they talk. A single message often mixes three things:
+
+- **Bangla script** for feelings and detail ("অনেক সুন্দর হয়েছে")
+- **Banglish** — Bangla words in English letters — for speed ("kobe pabo?")
+- **English** for product words, prices and brands ("size M ache?")
+
+Spelling is not standard either. The same question can arrive as *koto*, *kto*, *koto taka* or *dam koto*. A system that only matches neat English keywords will miss most of these.
+
+## Why does English-only AI fail here?
+
+Three reasons I have seen again and again:
+
+1. **It misses the question.** If the bot does not understand "dam koto", the customer gets a generic reply — or nothing.
+2. **It misses the tone.** A worried property buyer and a casual shopper both write in Banglish, but they need very different answers.
+3. **It breaks trust.** When a business replies in stiff, translated English to a friendly Banglish message, it feels like talking to a machine. People leave.
+
+## How do I design AI for three languages?
+
+My process is simple, and it starts before any technology:
+
+1. **Collect real phrases.** I gather the actual words customers use — comments, inbox messages, search terms — not the words the brand prefers. (This is the same "listen first" step I use for content; I wrote about it in [Content Starts in the Audience's Head](../content-starts-in-the-audiences-head/).)
+2. **Map the variations.** For each common question I list the different spellings and mixes, so the agent recognises them all.
+3. **Answer in the customer's language.** If someone writes Banglish, the reply is in clear Banglish or Bangla, not formal English.
+4. **Keep the brand's voice.** Friendly for a fashion label, calm and precise for property, practical for a shop.
+5. **Test with real messages, not invented ones.** The best test set is last month's inbox.
+
+## What does this look like in a real product?
+
+In MimAI, my AI file assistant, the whole point is that you can ask for a file the way you would ask a colleague. "Last month er invoice ta dao" should work as well as "show me last month's invoice". The assistant searches the user's own Google Drive and understands the request in Bangla, Banglish or English.
+
+The same principle runs through Paloan, the personal AI agent I am building: it researches audiences and drafts content in whichever of the three languages the job needs.
+
+## Where should a small business start?
+
+You do not need a big project. Start with one list:
+
+- Write down the **20 questions** your customers ask most.
+- Copy them **exactly** as customers type them — mistakes, Banglish and all.
+- Next to each, write the answer a great salesperson would give.
+
+That list alone is the foundation of a useful AI assistant. It also tells you which workflow to automate first — something I explain in [What Does an AI Workflow Builder Actually Do?](../what-an-ai-workflow-builder-does/)
+
+If you want help turning that list into a working agent, you can [ask Paloan on my portfolio](../../#paloan) or [message me directly](../../#contact).
+
+Quick answers:
+- Q: Can AI understand Banglish?
+  A: Yes. Modern language models can read Banglish (Bangla written in Latin letters) well, as long as the agent is designed and tested with real Banglish messages, including spelling variations like "koto", "kto" and "koto taka".
+- Q: Should a business chatbot in Bangladesh reply in Bangla or English?
+  A: Reply in the language the customer used. If they write Banglish, answer in simple Banglish or Bangla; if they write English, answer in English. Matching the customer's language builds trust faster than any template.
+- Q: Who builds Banglish AI agents in Bangladesh?
+  A: Rapar Rubel (Rubel Miah) is an independent AI expert and AI workflow builder in Dhaka who designs AI agents and assistants that work in Bangla, Banglish and English, including MimAI and his personal agent Paloan.
+
+---
+
+## What Does an AI Workflow Builder Actually Do for a Small Business?
+URL: https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/
+Published: 2026-10-10 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- An AI workflow builder designs systems where AI handles a repeatable business task from start to finish, with a human checking the important decisions.
+- Every useful workflow has five parts — trigger, understand, decide, act, check.
+- The best first workflow is repetitive, high-volume and has a clear "right answer".
+- Do not automate anything where a wrong answer is expensive and no human is watching.
+
+"AI workflow builder" sounds technical, so let me explain it the way I explain it to business owners in Dhaka.
+
+A business is full of small jobs that repeat every day: answering the same questions, sorting messages, finding files, writing captions, updating a sheet. An AI workflow builder takes one of those jobs and designs a system where **AI does the repetitive part from start to finish, and a human checks the decisions that matter**.
+
+That is my work: I design those systems, connect the tools, and make sure they work in the language your customers actually use.
+
+## What are the parts of an AI workflow?
+
+Every useful workflow I build has the same five parts:
+
+1. **Trigger** — something happens: a message arrives, a form is submitted, a file is uploaded.
+2. **Understand** — AI reads it and works out what it is about, even in Banglish.
+3. **Decide** — the system chooses the next step based on clear rules.
+4. **Act** — it replies, drafts, files, schedules or updates a record.
+5. **Check** — a human approves anything important, and the system learns from corrections.
+
+If one of these parts is missing, the "automation" usually becomes a new problem to manage.
+
+## What does this look like in real work?
+
+A few examples from my own projects:
+
+- **Enquiry intake.** For Proyojon Solutions, a legal and business advisory concept, I designed an AI-assisted intake: the client explains their problem, the system gathers context and documents, classifies the matter type and urgency, and lists the required files — before a professional is assigned.
+- **Finding files.** [MimAI](../building-mimai-with-claude-code/) lets people find files in their own Google Drive by simply asking, in Bangla, Banglish or English.
+- **Content drafts.** For brands I work with, AI drafts several caption options in the right language and tone, and a human picks and polishes the best one.
+
+## How do you choose your first workflow?
+
+Look for a task that is:
+
+- **Repetitive** — the same steps every time
+- **High-volume** — it happens many times a week
+- **Clear** — there is an obvious right answer most of the time
+
+Answering your top 20 customer questions is often the perfect first workflow. (I explain how to collect those questions in [Why I Build AI That Speaks Banglish](../ai-that-speaks-banglish/).)
+
+## What should you not automate?
+
+Be careful with anything where a wrong answer is expensive and nobody is watching — pricing promises, legal advice, refunds, anything involving a customer's money or documents. These can still use AI, but only to **prepare** the work, with a person making the final call.
+
+## How does a project usually run?
+
+1. We map one workflow on paper: trigger to check.
+2. I build a small working version and test it with real messages from your business.
+3. We run it alongside your team before it handles anything on its own.
+4. Once it is reliable, we pick the next workflow.
+
+Small, working and trusted beats big and impressive.
+
+## Who is this for?
+
+Founders, SMEs and small teams in Bangladesh who feel they spend too much of the day on the same tasks. If that sounds like you, [write me a short brief](../../#brief) or ask [Paloan](../why-i-built-paloan-personal-ai-agent/) on my portfolio.
+
+Quick answers:
+- Q: What is an AI workflow builder?
+  A: An AI workflow builder designs and connects AI tools so a business task runs automatically — for example reading incoming messages, classifying them, drafting replies and updating records — with humans reviewing the decisions that matter.
+- Q: What is a good first AI workflow for a small business?
+  A: Pick a task that is repetitive, happens many times a week and has a clear right answer — such as answering common customer questions, sorting incoming enquiries by type and urgency, or drafting first versions of social captions.
+- Q: Is there an AI workflow builder in Bangladesh?
+  A: Yes. Rapar Rubel (Rubel Miah) is an independent AI expert and AI workflow builder based in Dhaka who builds AI agents and workflows for businesses in Bangla, Banglish and English.
+
+---
+
+## Paloan — Why I'm Building My Own Personal AI Agent
+URL: https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/
+Published: 2026-10-10 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- Paloan is the personal AI agent I am building to work alongside me across my ventures.
+- It helps with audience research, content drafts in Bangla, Banglish and English, launch planning and repeatable workflows.
+- A personal agent is valuable because it carries context — my brands, my audiences, my way of working.
+- My rule — the agent prepares, the human decides.
+
+I run and support several ventures at once — retail, fashion, travel, property, technology and creative work. Each has its own audience, voice and daily tasks. For a long time, the bottleneck was not ideas. It was **switching context** fast enough.
+
+That is why I am building **Paloan**, my personal AI agent.
+
+## What does Paloan do?
+
+Paloan works alongside me on four kinds of work:
+
+- **Audience research** — gathering what people say, ask and worry about, so I can decode the need behind it (the first steps of [my content process](../content-starts-in-the-audiences-head/))
+- **Content drafts** — first versions of captions, scripts and explainers in Bangla, Banglish or English
+- **Planning** — turning a launch or a campaign into steps, timelines and checklists
+- **Workflows** — repeatable jobs that run the same way every time (see [What an AI Workflow Builder Does](../what-an-ai-workflow-builder-does/))
+
+The goal is simple: more of my time goes into thinking and deciding, less into busywork.
+
+## Why personal, and not just a general chatbot?
+
+A general chatbot starts every conversation from zero. A personal agent carries **context**: which brand I am working on, who its audience is, how that audience talks, what worked last time and what I would never say.
+
+Context is what turns "write a caption" into the *right* caption.
+
+## What is my rule for working with an AI agent?
+
+**The agent prepares; the human decides.**
+
+Paloan can collect patterns, draft options and organise a plan. But the final call — what a customer really needs, what a brand should promise, what goes live — stays with me. That rule keeps quality high and trust intact.
+
+## Can visitors meet Paloan?
+
+Yes. On [my portfolio](../../#paloan) there is a guide version of Paloan. Click **Ask Paloan** and ask about my work, services or projects. You will see it think — reading notes, finding your intent, composing an answer — and if you scroll the site you can watch a 3D visual of its "mind" at work: tokens, attention, tools, memory and output.
+
+## What comes next?
+
+I am teaching Paloan more of my workflows step by step, and testing each one on real tasks before it handles anything on its own. If you are a founder thinking about your own personal AI agent, my advice is the same as for any [AI product](../building-mimai-with-claude-code/): start with one painful job, keep a human in the loop, and improve from real use.
+
+Curious what a personal agent could do for your work? [Let's talk](../../#contact).
+
+Quick answers:
+- Q: What is Paloan?
+  A: Paloan is the personal AI agent that Rapar Rubel (Rubel Miah) is building. It helps him research audiences, draft content in Bangla, Banglish and English, plan launches and run repeatable workflows. A guide version on his portfolio answers visitors' questions about his work.
+- Q: What is a personal AI agent?
+  A: A personal AI agent is an AI assistant set up around one person's work — their projects, audiences, tools and style — so it can take on multi-step tasks like research, drafting and planning, instead of answering one-off questions.
+- Q: Can I talk to Paloan?
+  A: Yes. A guide version of Paloan lives on rubelpublic.github.io. Click "Ask Paloan" to ask about Rapar Rubel's work, services, projects or how to contact him, and watch it think as it answers.
+
+---
+
+## How I Built MimAI, an AI File Assistant, With Claude Code
+URL: https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/
+Published: 2026-10-10 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- MimAI is a file hub with a built-in AI assistant that finds files in the user's own Google Drive.
+- It understands requests in Bangla, Banglish and English.
+- I designed it and built it with Claude Code as my engineering partner, and it runs live on the web.
+- The biggest lessons — start with one painful job, describe the user not the feature, ship early, keep secrets out of the code.
+
+Everyone has had this moment: you *know* the file is somewhere in your Google Drive, but you cannot remember the name, the folder or the date. You end up scrolling for ten minutes.
+
+That small, daily frustration became [MimAI](https://mimai.onrender.com) — a file hub with an AI assistant built in. I designed it and built it with **Claude Code**. Here is what I learned.
+
+## What problem does MimAI solve?
+
+People do not remember file names. They remember *what the file was about* and roughly *when* they used it. So instead of searching by name, MimAI lets you ask:
+
+- "last month er invoice ta dao"
+- "the property brochure I sent last week"
+- "আমার CV এর নতুন version"
+
+The assistant searches your own Google Drive and finds the right file — in Bangla, Banglish or English. (Why three languages matter is the subject of [Why I Build AI That Speaks Banglish](../ai-that-speaks-banglish/).)
+
+## Why did I build it with Claude Code?
+
+I am a builder who thinks in products and businesses first. Claude Code let me work like a product lead with a tireless engineering partner: I described what the user needed, and together we wrote, tested and fixed the code.
+
+It did not replace thinking. It made the distance between an idea and a working version much shorter, so I could spend my time on the decisions that matter — what the assistant should understand, what it should never do, and how it should feel to use.
+
+## What were the biggest lessons?
+
+**1. Start with one painful job.** MimAI does not try to be a whole office suite. It does one job — find my file — and tries to do it well.
+
+**2. Describe the user, not the feature.** "A shop owner who types in Banglish on a phone and is in a hurry" leads to better decisions than "add a search box".
+
+**3. Ship early, then improve.** A live version that real people can try teaches you more in a day than a week of planning.
+
+**4. Keep secrets out of the code.** Keys and passwords live in the hosting platform's environment settings, never in the repository.
+
+**5. Test with real requests.** The best test cases are the strange, messy ways people actually ask for things.
+
+## How is MimAI deployed?
+
+The code lives on GitHub and the app runs on Render, which redeploys automatically when I publish an update. It is a simple setup that lets a small team — or one person — ship improvements quickly and safely.
+
+## What does this mean for other businesses?
+
+You no longer need a large engineering team to test a useful AI idea. If you have a clear, painful job and real examples of how people ask for help, you can build a working first version quickly — and learn from real users.
+
+That is how I approach every [AI workflow](../what-an-ai-workflow-builder-does/): small, useful, live, then better.
+
+Want something like MimAI for your team? [Tell me about it](../../#brief).
+
+Quick answers:
+- Q: What is MimAI?
+  A: MimAI is an AI file assistant and file hub designed by Rapar Rubel. It searches the user's own Google Drive and lets them find files by asking in Bangla, Banglish or English. It is live at mimai.onrender.com.
+- Q: Can you build a real product with Claude Code?
+  A: Yes. Claude Code can act as an engineering partner that writes and edits code, explains errors and helps deploy. You still need a clear problem, product decisions and careful testing — that part is yours.
+- Q: Who built MimAI?
+  A: MimAI was designed and built by Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka, Bangladesh, using Claude Code.
+
+---
+
+## Content Starts in the Audience's Head — My 5-Step Process
+URL: https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/
+Published: 2026-10-10 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- Good content starts in the audience's head, not on the brand's page.
+- My process has five steps — Listen, Decode, Frame, Create, Test.
+- The most important step is the first: collect the exact words people use.
+- AI speeds up research and drafting, but the human decision about what the audience really fears and wants stays with me.
+
+Most brands start content with a question about themselves: *what should we post this week?* I start somewhere else: **what is my audience already thinking?**
+
+Before I write a line or design a frame, I work out how the audience thinks — the words they use, what they worry about, what makes them stop scrolling and what makes them trust. Then I build the content to fit that mind. Here is the exact process I use across my own ventures.
+
+## Step 1 — Listen: what words does the audience actually use?
+
+I read comments, inbox messages, reviews and search terms, and I copy the exact phrases. Not a summary — the real words.
+
+For [The AB Wardrobe](../../#reel), a women's kurti label, the most common question was some version of *"Apu, price koto? Fabric ki?"* That one line told me more than any brand brief: people want price and fabric answered before they ask.
+
+## Step 2 — Decode: what is the need under the request?
+
+Every question hides a feeling. I separate what people **say** from what they **mean**, what they **fear** and what they would **share**.
+
+A property buyer in Dhaka says, *"Is this land's paperwork clean?"* What they mean is, *"I can't afford one wrong move with my family's savings."* What they fear is fake deeds, hidden DAP problems and being rushed by a broker.
+
+You can try this yourself with the interactive mind map on [my portfolio](../../#approach).
+
+## Step 3 — Frame: one angle, one emotion
+
+Once I know the fear and the hope, I choose a single angle. The brand becomes the answer to a need — not a product looking for buyers.
+
+For Proyojon Abashon, that angle was protection, so we created **ক্রেতা সুরক্ষা**, a calm buyer-education series explaining deeds, DAP and home loans *before* ever asking for a sale. For Proyojon Vromon, the angle was that travel is a need, not a luxury — **ভ্রমণ হোক প্রয়োজন** — with real costs up front.
+
+## Step 4 — Create: native to the platform and the language
+
+Now I write and design. The rule: make it feel like it belongs where it appears.
+
+- **Banglish captions** where customers speak Banglish
+- **Bangla explainers** for serious topics like property law
+- **Product-led photography** where the product must sell itself — for [CAP ON HEAD](https://caponhead.com/), every cap's photo, angle and description is planned for how it will look on social media and on the website
+- **Short AI video** and carousels when the idea needs motion or steps
+
+## Step 5 — Test: keep the winner, make it a system
+
+I publish variations and watch what people *do*: saves, shares, replies and sales — not just likes. Whatever works becomes a repeatable template, so the next post starts ahead instead of from zero.
+
+## Where does AI fit into this process?
+
+AI is my research assistant and first-draft writer. My personal agent, [Paloan](../why-i-built-paloan-personal-ai-agent/), helps me gather patterns from many comments quickly and draft several caption variations in Bangla, Banglish or English.
+
+But the core decision — *what does this audience really fear, and what will earn their trust?* — stays human. That judgement is the difference between content that gets seen and content that gets believed. (I go deeper into the language side in [Why I Build AI That Speaks Banglish](../ai-that-speaks-banglish/).)
+
+## A simple exercise to try today
+
+Take your last 30 comments or messages. Sort them into four columns: **says, means, fears, shares.** Your next five posts are hiding in the "fears" column.
+
+If you want me to run this process for your brand, [send me a brief](../../#brief).
+
+Quick answers:
+- Q: What is audience-first content?
+  A: Audience-first content is built from what the audience already says, fears and shares, instead of what the brand wants to say. You start by listening to comments, messages and searches, then shape the message to answer their real question.
+- Q: What are the five steps of Rapar Rubel's content process?
+  A: Listen (collect the exact words people use), Decode (find the need, fear and hope underneath), Frame (pick one angle and one emotion), Create (write and design natively for the platform and language), and Test (keep what drives saves, shares, replies and sales).
+- Q: Does AI replace content strategy?
+  A: No. AI is excellent for gathering patterns and drafting variations quickly, but deciding what an audience truly worries about — and what will earn their trust — is still a human judgement.
+
+---

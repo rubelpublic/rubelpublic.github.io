@@ -9,6 +9,11 @@
 <meta name="keywords" content="Rapar Rubel, Rubel Miah, Rubel Public, AI expert Bangladesh, AI workflow builder Bangladesh, AI builder Bangladesh, AI workflow automation, AI specialist Dhaka, AI agent developer Bangladesh, Bangla AI, AI automation Bangladesh, AI consultant Dhaka, Paloan, content strategist Bangladesh">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://rubelpublic.github.io/">
+<meta name="geo.region" content="BD-13">
+<meta name="geo.placename" content="Dhaka, Bangladesh">
+<meta name="geo.position" content="23.8103;90.4125">
+<meta name="ICBM" content="23.8103, 90.4125">
+<link rel="author" href="https://rubelpublic.github.io/llms.txt">
 <meta name="theme-color" content="#0D1B1E" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F6F1E7" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="profile">
@@ -49,7 +54,14 @@
     "Rubel Public"
    ],
    "url": "https://rubelpublic.github.io/",
-   "image": "https://rubelpublic.github.io/assets/portrait.jpg",
+   "image": {
+    "@type": "ImageObject",
+    "@id": "https://rubelpublic.github.io/#portrait",
+    "url": "https://rubelpublic.github.io/assets/portrait.jpg",
+    "width": 1000,
+    "height": 1250,
+    "caption": "Rapar Rubel (Rubel Miah), AI expert and AI workflow builder in Dhaka, Bangladesh"
+   },
    "jobTitle": "AI Expert & AI Workflow Builder",
    "description": "Independent AI expert and AI workflow builder in Bangladesh. Builds AI agents, automation and AI-powered products that work in Bangla, Banglish and English, alongside business strategy, content and brand psychology.",
    "email": "mailto:rubel.public@gmail.com",
@@ -110,6 +122,13 @@
    "homeLocation": {
     "@type": "Place",
     "name": "Dhaka, Bangladesh"
+   },
+   "worksFor": {
+    "@id": "https://rubelpublic.github.io/#service"
+   },
+   "mainEntityOfPage": "https://rubelpublic.github.io/",
+   "subjectOf": {
+    "@id": "https://rubelpublic.github.io/thoughts/#blog"
    }
   },
   {
@@ -137,7 +156,22 @@
    "isPartOf": {
     "@id": "https://rubelpublic.github.io/#website"
    },
-   "dateModified": "2026-10-07"
+   "dateModified": "2026-10-20",
+   "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+     ".open-copy h1",
+     ".open-copy .line",
+     ".open-copy .lede",
+     "#faq .qa"
+    ]
+   },
+   "primaryImageOfPage": {
+    "@id": "https://rubelpublic.github.io/#portrait"
+   },
+   "about": {
+    "@id": "https://rubelpublic.github.io/#person"
+   }
   },
   {
    "@type": "FAQPage",
@@ -250,6 +284,123 @@
     "@id": "https://rubelpublic.github.io/#person"
    },
    "operatingSystem": "Web"
+  },
+  {
+   "@type": "ProfessionalService",
+   "@id": "https://rubelpublic.github.io/#service",
+   "name": "Rapar Rubel — AI Expert & AI Workflow Builder",
+   "url": "https://rubelpublic.github.io/",
+   "image": "https://rubelpublic.github.io/assets/og-image.jpg",
+   "founder": {
+    "@id": "https://rubelpublic.github.io/#person"
+   },
+   "description": "Independent AI expert and AI workflow builder in Dhaka, Bangladesh: AI agents, workflow automation, AI training, strategy, web products and content.",
+   "email": "rubel.public@gmail.com",
+   "telephone": "+8801676464807",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dhaka",
+    "addressCountry": "BD"
+   },
+   "areaServed": [
+    {
+     "@type": "Country",
+     "name": "Bangladesh"
+    },
+    {
+     "@type": "Place",
+     "name": "Worldwide (remote)"
+    }
+   ],
+   "knowsLanguage": [
+    "bn",
+    "en"
+   ],
+   "priceRange": "On request",
+   "sameAs": [
+    "https://www.facebook.com/rapar.rubel",
+    "https://www.instagram.com/rapar.rubel/",
+    "https://x.com/raparrubel1",
+    "https://github.com/rubelpublic"
+   ],
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "AI workflow automation",
+       "description": "Designing AI workflows that read, sort, draft and act on routine business tasks, with a human checking key decisions.",
+       "provider": {
+        "@id": "https://rubelpublic.github.io/#person"
+       },
+       "areaServed": "Bangladesh"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "AI agents and chatbots in Bangla, Banglish and English",
+       "description": "Customer-facing and internal AI agents that understand how people in Bangladesh actually write.",
+       "provider": {
+        "@id": "https://rubelpublic.github.io/#person"
+       },
+       "areaServed": "Bangladesh"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "AI training for teams",
+       "description": "Practical AI training in Bangla, including the AI Power User course.",
+       "provider": {
+        "@id": "https://rubelpublic.github.io/#person"
+       },
+       "areaServed": "Bangladesh"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Business strategy",
+       "description": "Business models, pricing, offers and operating plans.",
+       "provider": {
+        "@id": "https://rubelpublic.github.io/#person"
+       },
+       "areaServed": "Bangladesh"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Websites and web apps",
+       "description": "Websites, web apps and internal tools from brief to launch.",
+       "provider": {
+        "@id": "https://rubelpublic.github.io/#person"
+       },
+       "areaServed": "Bangladesh"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Content strategy and brand psychology",
+       "description": "Audience research and Bangla/Banglish content built on what people say, fear and share.",
+       "provider": {
+        "@id": "https://rubelpublic.github.io/#person"
+       },
+       "areaServed": "Bangladesh"
+      }
+     }
+    ]
+   }
   }
  ]
 }
@@ -323,7 +474,7 @@ html{scroll-behavior:smooth}
 .stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 
 /* ---------- SC 01 Opening ---------- */
-#opening{height:200vh;--p:0}
+#opening{height:130vh;--p:0}
 #opening .stick{display:grid;place-items:center;padding-inline:var(--gut)}
 .sun{position:absolute;left:50%;top:50%;width:min(90vw,820px);aspect-ratio:1;border-radius:50%;
   background:radial-gradient(circle at 50% 50%, rgba(240,168,48,.55), rgba(240,168,48,.12) 45%, transparent 70%);
@@ -351,7 +502,7 @@ html{scroll-behavior:smooth}
 @keyframes drip{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.2);transform-origin:bottom}}
 
 /* ---------- Portrait: framed still that opens to full-bleed ---------- */
-#portrait{height:240vh;--p:0;--ix:31%;--iy:16%}
+#portrait{height:150vh;--p:0;--ix:31%;--iy:16%}
 #portrait .stick{background:var(--ink)}
 .frame{position:absolute;inset:0;margin:0;clip-path:inset(calc((1 - var(--p)) * var(--iy)) calc((1 - var(--p)) * var(--ix)) round calc((1 - var(--p)) * 22px))}
 .frame img{position:absolute;inset:0;width:100%;height:100%;display:block}.frame .blur{object-fit:cover;filter:blur(36px) saturate(1.15) brightness(.8);transform:scale(1.25)}.frame .main{object-fit:cover;object-position:58% 38%;transform:scale(calc(1.12 - var(--p) * .12));opacity:calc(1 - var(--p) * 1.6)}.frame .full{object-fit:contain;object-position:88% 50%;opacity:calc(var(--p) * 1.6 - .5)}@media (max-width:760px){.frame .full{object-position:50% 30%}}
@@ -368,7 +519,7 @@ html{scroll-behavior:smooth}
 .still .frame{clip-path:none}.still .frame .main{opacity:0}.still .frame .full{opacity:1}
 
 /* ---------- SC 02 Manifesto ---------- */
-#manifesto{height:260vh}
+#manifesto{height:160vh}
 #manifesto .stick{display:grid;align-content:center;padding-inline:var(--gut);gap:28px}
 #manifesto .mono{color:var(--marigold)}
 .say{margin:0;max-width:22ch;font-family:var(--display);font-weight:600;font-size:clamp(24px, min(5.6vw, 7.4vh), 76px);line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
@@ -398,7 +549,7 @@ html{scroll-behavior:smooth}
 @media (max-width:560px){.svc-grid{grid-template-columns:1fr}}
 
 /* ---------- SC 03 Reel ---------- */
-#reel{height:800vh}
+#reel{height:480vh}
 #reel .stick{display:block}
 .track{display:flex;height:100%;will-change:transform}
 .panel{--vis:1;--lp:0;flex:0 0 100vw;height:100%;position:relative;overflow:hidden;background:var(--bg);color:var(--fg);
@@ -464,7 +615,7 @@ html{scroll-behavior:smooth}
 .caret{display:inline-block;width:8px;height:1.1em;vertical-align:-3px;background:#B9A6FF;animation:blink 1s steps(2) infinite}
 
 /* ---------- SC 04 Course ---------- */
-#course{height:320vh;--p:0}
+#course{height:170vh;--p:0}
 #course .stick{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,80px);align-items:center;padding:calc(7vh + 60px) var(--gut) calc(7vh + 30px)}
 .c-head{display:grid;gap:18px;min-width:0}
 .c-head .mono{color:var(--marigold)}
@@ -486,7 +637,7 @@ html{scroll-behavior:smooth}
 .spine li.cap.on{color:var(--paper)}
 
 /* ---------- SC 05 Credits ---------- */
-#credits{height:210vh;--p:0}
+#credits{height:130vh;--p:0}
 #credits .stick{display:grid;place-items:center;padding-inline:var(--gut)}
 .roll{display:grid;gap:22px;justify-items:center;text-align:center;transform:translateY(calc(26vh - var(--p) * 84vh))}
 .roll .pres{color:var(--muted)}
@@ -538,7 +689,7 @@ html{scroll-behavior:smooth}
 .flat #reel{height:auto}
 .flat #reel .stick{position:static;height:auto;overflow:visible}
 .flat .track{flex-direction:column;transform:none!important}
-.flat .panel{flex:none;height:auto;min-height:100svh;grid-template-columns:1fr;padding:96px var(--gut) 72px}
+.flat .panel{flex:none;height:auto;min-height:70svh;grid-template-columns:1fr;padding:96px var(--gut) 72px}
 .flat .art{height:min(56vh,380px)}
 .flat .ghost{font-size:34vw;top:16%}
 @media (max-width:760px){
@@ -808,7 +959,7 @@ img,svg,video{max-width:100%}
   .social a,.theme-btn,.nav .nav-cta,.tabs button{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,color .3s,background .3s,translate .35s cubic-bezier(.2,.8,.2,1)}
 }
 /* ---- Behind the scenes: 3D photo reel turned by scroll ---- */
-#bts{height:300vh;--p:0}
+#bts{height:180vh;--p:0}
 #bts .stick{display:grid;grid-template-rows:auto minmax(0,1fr);justify-items:center;align-items:center;gap:6px;padding:calc(7vh * var(--lb,0) + 76px) var(--gut) 28px}
 .bts-head{text-align:center;display:grid;gap:8px;max-width:760px;justify-items:center}
 .bts-head .mono{margin:0;color:var(--marigold)}
@@ -857,6 +1008,8 @@ img,svg,video{max-width:100%}
 .think{display:grid;gap:3px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
 .think span{animation:pop .25s cubic-bezier(.2,.8,.2,1)}
 .think b{color:#9C8CFF;font-weight:500}
+@media (max-width:760px){.project-card .mini{display:none}.project-card{min-height:0}}
+@media (max-width:760px) and (orientation:portrait){.flat .panel{min-height:0;padding:76px var(--gut) 36px;gap:14px}.flat .art{min-height:0;height:min(32vh,240px)}.flat .signal{height:190px}.flat .ghost{font-size:30vw}}
 </style>
 </head>
 <body>
@@ -921,13 +1074,13 @@ img,svg,video{max-width:100%}
   <section class="services" id="services" data-scene="What I do">
     <p class="mono" data-scramble>What I do</p>
     <h2 class="formula" id="formula"><span>AI</span> <i>×</i> <span>Strategy</span> <i>×</i> <span>Content</span> <i>×</i> <span>Product</span> <i>×</i> <span>Business</span></h2>
-    <p class="s-lede">I help founders, SMEs and teams move from idea to execution: business model, product, website or app, AI workflow, brand, content, launch and operating rhythm. Most of these capabilities were developed by solving the same problems inside my own ventures and client work.</p>
+    <p class="s-lede">I help founders, SMEs and teams in Bangladesh go from idea to execution with AI, strategy, product and content—every method tested first in my own ventures.</p>
     <div class="svc-grid">
-      <article class="reveal svc"><p class="mono k">Strategy</p><h3>Business models that add up</h3><p>Business models, positioning, pricing, offers, funnels and operating plans—so the commercial logic is clear before execution scales.</p><p class="proof mono">Proof · Proyojon Shop, Proyojon 360</p></article>
-      <article class="reveal svc"><p class="mono k">AI</p><h3>AI that does real work</h3><p>Practical AI agents, automation, prompt systems, content workflows and team training in Bangla and English—focused on useful output, not tool hype.</p><p class="proof mono">Proof · MimAI, AI Power User, video & content workflows</p></article>
-      <article class="reveal svc"><p class="mono k">Product</p><h3>Web products, shipped</h3><p>Websites, web apps and internal tools from product brief to launch, including UX structure, development direction, QA and iteration.</p><p class="proof mono">Proof · MimAI, Gaan Banai, Proyojon digital products</p></article>
-      <article class="reveal svc"><p class="mono k">Content</p><h3>Content that reads the audience</h3><p>Audience research, brand psychology, content strategy, copy, social creative and AI video—in Bangla, Banglish or English—built around what people actually say, fear and share.</p><p class="proof mono">Proof · The AB Wardrobe, CAP ON HEAD, Myook, Proyojon Vromon, buyer-awareness series</p></article>
-      <article class="reveal svc"><p class="mono k">Business</p><h3>Operations, day to day</h3><p>Hands-on coordination across technology, retail, property, marketing and creative work—connecting teams, vendors, content and delivery.</p><p class="proof mono">Proof · multi-venture operations across retail, property & tech</p></article>
+      <article class="reveal svc"><p class="mono k">Strategy</p><h3>Business models that add up</h3><p>Business models, pricing, offers and operating plans that make sense before you scale.</p><p class="proof mono">Proof · Proyojon Shop, Proyojon 360</p></article>
+      <article class="reveal svc"><p class="mono k">AI</p><h3>AI that does real work</h3><p>AI agents, workflow automation and team training in Bangla and English—useful output, not hype.</p><p class="proof mono">Proof · MimAI, AI Power User, video & content workflows</p></article>
+      <article class="reveal svc"><p class="mono k">Product</p><h3>Web products, shipped</h3><p>Websites, web apps and internal tools, from brief to launch.</p><p class="proof mono">Proof · MimAI, Gaan Banai, Proyojon digital products</p></article>
+      <article class="reveal svc"><p class="mono k">Content</p><h3>Content that reads the audience</h3><p>Audience research, brand psychology and Bangla/Banglish content built on what people say, fear and share.</p><p class="proof mono">Proof · The AB Wardrobe, CAP ON HEAD, Myook, Proyojon Vromon, buyer-awareness series</p></article>
+      <article class="reveal svc"><p class="mono k">Business</p><h3>Operations, day to day</h3><p>Hands-on coordination of teams, vendors, content and delivery.</p><p class="proof mono">Proof · retail, property & tech ventures</p></article>
       <article class="reveal svc svc-cta"><p class="mono k">Work with me</p><h3>Have a need?</h3><p>Tell me what you’re building. I’ll reply with how I’d approach it.</p><a class="go" href="#contact">Start a conversation →</a></article>
     </div>
   </section>
@@ -936,7 +1089,7 @@ img,svg,video{max-width:100%}
   <section class="approach" id="approach" data-scene="How I think">
     <p class="mono" data-scramble>How I think · Content & audience psychology</p>
     <h2>Content starts in the audience’s head, not on the brand’s page.</h2>
-    <p class="s-lede">Before I write a line or design a frame, I work out how the audience thinks: the words they use, what they worry about, what makes them stop scrolling and what makes them trust. Then I build the content to fit that mind—in Bangla, Banglish or English.</p>
+    <p class="s-lede">I first learn how the audience thinks—their words, worries and triggers—then build content for that mind in Bangla, Banglish or English.</p>
 
     <div class="mind reveal">
       <div class="mind-head">
@@ -957,11 +1110,11 @@ img,svg,video{max-width:100%}
     </div>
 
     <ol class="steps">
-      <li class="reveal"><span class="mono">01</span><h3>Listen</h3><p>Read comments, inbox questions, reviews and search terms. Collect the exact words people use, not the words a brand prefers.</p></li>
-      <li class="reveal"><span class="mono">02</span><h3>Decode</h3><p>Find the need under the request: the fear, the hope, the status, the price anxiety. Separate what people say from what they mean.</p></li>
-      <li class="reveal"><span class="mono">03</span><h3>Frame</h3><p>Pick one angle and one emotion. Position the brand as the answer to a need, not a product looking for buyers.</p></li>
-      <li class="reveal"><span class="mono">04</span><h3>Create</h3><p>Write and design native to the platform and the language: Banglish captions, Bangla explainers, carousels, short AI video, product-led creative.</p></li>
-      <li class="reveal"><span class="mono">05</span><h3>Test & systemise</h3><p>Ship variations, watch saves, shares, replies and sales, then turn what worked into a repeatable content system.</p></li>
+      <li class="reveal"><span class="mono">01</span><h3>Listen</h3><p>Collect the exact words people use: comments, inboxes, reviews, searches.</p></li>
+      <li class="reveal"><span class="mono">02</span><h3>Decode</h3><p>Find the fear and hope under every request.</p></li>
+      <li class="reveal"><span class="mono">03</span><h3>Frame</h3><p>One angle, one emotion: the brand as the answer to a need.</p></li>
+      <li class="reveal"><span class="mono">04</span><h3>Create</h3><p>Native content: Banglish captions, Bangla explainers, short AI video.</p></li>
+      <li class="reveal"><span class="mono">05</span><h3>Test & systemise</h3><p>Keep what drives saves, shares, replies and sales; make it a system.</p></li>
     </ol>
   </section>
 
@@ -1137,15 +1290,15 @@ img,svg,video{max-width:100%}
     <h2>Building across categories, not inside one box.</h2>
     <div class="pfilter" role="group" aria-label="Filter projects"><button type="button" data-f="all" aria-pressed="true">All<span class="ct"></span></button><button type="button" data-f="content" aria-pressed="false">Content<span class="ct"></span></button><button type="button" data-f="ai" aria-pressed="false">AI<span class="ct"></span></button><button type="button" data-f="commerce" aria-pressed="false">Commerce<span class="ct"></span></button><button type="button" data-f="web" aria-pressed="false">Websites<span class="ct"></span></button><button type="button" data-f="property" aria-pressed="false">Property<span class="ct"></span></button></div>
     <div class="project-grid" id="pgrid">
-      <article class="reveal project-card" data-cat="property content"><span class="num mono">01 · Real estate</span><h3>Proyojon Green Vista</h3><p>Land-share visualization and buyer-facing project structure for a 10-katha, G+9, south-facing lake-view development concept.</p><p class="mini mono">Property storytelling · visualization · sales structure</p></article>
-      <article class="reveal project-card" data-cat="ai web"><span class="num mono">02 · AI assistant</span><h3>MimAI</h3><p>A free file-finding assistant designed for Bangladesh, using the user’s own Google Drive and understanding Bangla, Banglish and English.</p><p class="mini mono">Product concept · UX · AI workflow · web/app</p><a class="go" href="https://mimai.onrender.com" target="_blank" rel="noopener">mimai.onrender.com ↗</a></article>
-      <article class="reveal project-card" data-cat="commerce web content"><span class="num mono">03 · E-commerce website</span><h3>Proyojon.shop</h3><p>The online store for Proyojon Shop: category strategy, product content, pricing logic, creative QA and campaign assets for a growing Bangladesh e-commerce operation.</p><p class="mini mono">Retail · merchandising · website · creative systems</p><a class="go" href="https://www.proyojon.shop" target="_blank" rel="noopener">proyojon.shop ↗</a></article>
-      <article class="reveal project-card" data-cat="content web"><span class="num mono">04 · Travel website</span><h3>Proyojon Vromon</h3><p>Travel content and a booking-style website for hotels, tickets and travel products, written for Bangla-reading travellers who see a trip as a need.</p><p class="mini mono">Travel content · website · Bangla storytelling</p><a class="go" href="https://proyojonvromon.com/" target="_blank" rel="noopener">proyojonvromon.com ↗</a></article>
-      <article class="reveal project-card" data-cat="commerce content"><span class="num mono">05 · Caps · content & photography</span><h3>CAP ON HEAD</h3><p>Content, product photography and product presentation for a Bangladesh cap brand: how every cap looks, reads and sells on social media and on the website.</p><p class="mini mono">Product photography · social content · website merchandising</p><a class="go" href="https://caponhead.com/" target="_blank" rel="noopener">caponhead.com ↗</a></article>
-      <article class="reveal project-card" data-cat="commerce content web"><span class="num mono">06 · Clothing · social media & website</span><h3>Myook</h3><p>Social media and website for Myook, a clothing brand: product-led creatives, ad concepts, packaging experiments and how the clothes are presented online.</p><p class="mini mono">Social media · website · creative direction</p><a class="go" href="https://www.facebook.com/myookclothing" target="_blank" rel="noopener">Myook on Facebook ↗</a></article>
-      <article class="reveal project-card" data-cat="ai content"><span class="num mono">07 · AI video</span><h3>Character & Story Systems</h3><p>Reusable character reference sheets, cinematic prompt systems and short-form story structures for consistent AI-generated video production.</p><p class="mini mono">Character design · prompt systems · AI video direction</p></article>
-      <article class="reveal project-card" data-cat="web"><span class="num mono">08 · Digital ecosystem</span><h3>3D City / Human-Necessity Ecosystem</h3><p>An interactive city concept where essential services become explorable buildings, systems and experiences—including transport, health, education and utilities.</p><p class="mini mono">3D web concept · interaction · product storytelling</p></article>
-      <article class="reveal project-card" data-cat="ai"><span class="num mono">09 · Personal AI agent</span><h3>Paloan</h3><p>My own AI agent for audience research, content drafts, planning and workflows. A guide version answers visitors’ questions right here on this site.</p><p class="mini mono">AI agent · workflows · in development</p><a class="go" href="#paloan">Meet Paloan →</a></article>
+      <article class="reveal project-card" data-cat="property content"><span class="num mono">01 · Real estate</span><h3>Proyojon Green Vista</h3><p>Land-share visualization and buyer-facing structure for a G+9 lake-view development.</p><p class="mini mono">Property storytelling · visualization · sales structure</p></article>
+      <article class="reveal project-card" data-cat="ai web"><span class="num mono">02 · AI assistant</span><h3>MimAI</h3><p>AI file assistant for your own Google Drive, in Bangla, Banglish and English.</p><p class="mini mono">Product concept · UX · AI workflow · web/app</p><a class="go" href="https://mimai.onrender.com" target="_blank" rel="noopener">mimai.onrender.com ↗</a></article>
+      <article class="reveal project-card" data-cat="commerce web content"><span class="num mono">03 · E-commerce website</span><h3>Proyojon.shop</h3><p>Online store: category strategy, product content, pricing and campaigns.</p><p class="mini mono">Retail · merchandising · website · creative systems</p><a class="go" href="https://www.proyojon.shop" target="_blank" rel="noopener">proyojon.shop ↗</a></article>
+      <article class="reveal project-card" data-cat="content web"><span class="num mono">04 · Travel website</span><h3>Proyojon Vromon</h3><p>Travel content and a booking site for hotels, tickets and travel products.</p><p class="mini mono">Travel content · website · Bangla storytelling</p><a class="go" href="https://proyojonvromon.com/" target="_blank" rel="noopener">proyojonvromon.com ↗</a></article>
+      <article class="reveal project-card" data-cat="commerce content"><span class="num mono">05 · Caps · content & photography</span><h3>CAP ON HEAD</h3><p>Content, product photography and presentation for a Bangladesh cap brand.</p><p class="mini mono">Product photography · social content · website merchandising</p><a class="go" href="https://caponhead.com/" target="_blank" rel="noopener">caponhead.com ↗</a></article>
+      <article class="reveal project-card" data-cat="commerce content web"><span class="num mono">06 · Clothing · social media & website</span><h3>Myook</h3><p>Social media and website for a clothing brand: creatives, ads and presentation.</p><p class="mini mono">Social media · website · creative direction</p><a class="go" href="https://www.facebook.com/myookclothing" target="_blank" rel="noopener">Myook on Facebook ↗</a></article>
+      <article class="reveal project-card" data-cat="ai content"><span class="num mono">07 · AI video</span><h3>Character & Story Systems</h3><p>Character sheets and prompt systems for consistent AI video.</p><p class="mini mono">Character design · prompt systems · AI video direction</p></article>
+      <article class="reveal project-card" data-cat="web"><span class="num mono">08 · Digital ecosystem</span><h3>3D City / Human-Necessity Ecosystem</h3><p>An interactive 3D city where essential services become explorable buildings.</p><p class="mini mono">3D web concept · interaction · product storytelling</p></article>
+      <article class="reveal project-card" data-cat="ai"><span class="num mono">09 · Personal AI agent</span><h3>Paloan</h3><p>My personal AI agent; a guide version answers your questions right here.</p><p class="mini mono">AI agent · workflows · in development</p><a class="go" href="#paloan">Meet Paloan →</a></article>
     </div>
   </section>
 
