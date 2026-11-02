@@ -28,7 +28,8 @@ AUTHOR = {
     'name': 'Rapar Rubel', 'real': 'Rubel Miah',
     'bio': 'Independent AI expert and AI workflow builder in Dhaka, Bangladesh. I build AI agents, automation and AI-powered content that work in Bangla, Banglish and English — and test them inside my own ventures.',
     'links': [('Portfolio', SITE + '/'), ('Facebook', 'https://www.facebook.com/rapar.rubel'), ('Instagram', 'https://www.instagram.com/rapar.rubel/'),
-              ('X', 'https://x.com/raparrubel1'), ('GitHub', 'https://github.com/rubelpublic')],
+              ('X', 'https://x.com/raparrubel1'), ('LinkedIn', 'https://www.linkedin.com/in/rubel-miah-a16706134'),
+              ('YouTube', 'https://www.youtube.com/@raparrubel1156'), ('Behance', 'https://www.behance.net/raparrubel'), ('GitHub', 'https://github.com/rubelpublic')],
 }
 esc = lambda s: html.escape(s, quote=True)
 

@@ -9,6 +9,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - Online / creative name: Rapar Rubel
 - Other public identity: Rubel Public
 - Based in: Dhaka, Bangladesh (GMT+6)
+- Founder of: Myook (clothing brand) and Cha Khaben? (tea brand)
 - Role: Independent AI Expert & AI Workflow Builder; also Content Strategist and Business Builder
 - Works: independently, in the AI field in Bangladesh
 - Personal AI agent: Paloan (in development; a guide version answers questions on the portfolio site)
@@ -51,6 +52,12 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - Instagram: https://www.instagram.com/rapar.rubel/
 - X: https://x.com/raparrubel1
 - GitHub: https://github.com/rubelpublic
+- LinkedIn: https://www.linkedin.com/in/rubel-miah-a16706134
+- YouTube: https://www.youtube.com/@raparrubel1156
+- Behance: https://www.behance.net/raparrubel
+- Dribbble: https://dribbble.com/RubelMiah
+- Fiverr: https://www.fiverr.com/raparrubel
+- Other site: https://rubelmiah.lovable.app/
 
 <!-- THOUGHTS -->
 ## Thoughts (blog)

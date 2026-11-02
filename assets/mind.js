@@ -50,6 +50,7 @@
       scene.fog.color.set(C.light ? 0xf6f1e7 : 0x0d1b1e);
       mats.forEach(m => { m.blending = C.light ? THREE.NormalBlending : THREE.AdditiveBlending; m.needsUpdate = true; if (m.userData.col) m.color && m.color.copy(C[m.userData.col]); if (m.uniforms && m.uniforms.uCol) m.uniforms.uCol.value.copy(C[m.userData.col || 'a']); });
       labels.forEach(l => l.redraw());
+      if (typeof orbMats !== 'undefined') orbMats.forEach(m => m.uniforms.uCol2.value.copy(C[m.userData.col2]));
     };
     const track = (m, col) => { m.userData.col = col; mats.push(m); return m; };
 
@@ -123,6 +124,26 @@
       g.add(lines(pos, 't', 0.32));
       animators.push(t => { g.rotation.y = t * 0.08; toolNodes.forEach(n => { n.heat = Math.max(0, n.heat - 0.015); n.dot.scale.setScalar(2 + n.heat * 4); }); core.scale.setScalar(10 + Math.sin(t * 1.7) * 0.8); });
     }
+
+    // ---------- living orb: noise-displaced sphere with fresnel glow (Paloan core + output) ----------
+    const orbMats = [];
+    const orb = (radius, detail, colA, colB) => {
+      const mat = track(new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+        uniforms: { uT: { value: 0 }, uE: { value: 0 }, uCol: { value: C[colA].clone() }, uCol2: { value: C[colB].clone() } },
+        vertexShader: `uniform float uT, uE; varying float vF; varying float vN;
+          float n3(vec3 p){ return sin(p.x*1.7+uT*1.3)*sin(p.y*1.9-uT*1.1)*sin(p.z*1.5+uT*0.9); }
+          void main(){ vec3 p = position; float k = n3(p*1.6) + 0.5*n3(p*3.1+2.0);
+            p += normal * k * (0.22 + uE * 0.45); vN = k;
+            vec4 mv = modelViewMatrix * vec4(p, 1.0); vec3 nv = normalize(normalMatrix * normal);
+            vF = pow(1.0 - abs(dot(nv, normalize(-mv.xyz))), 2.2); gl_Position = projectionMatrix * mv; }`,
+        fragmentShader: `uniform vec3 uCol, uCol2; uniform float uE; varying float vF; varying float vN;
+          void main(){ vec3 c = mix(uCol, uCol2, smoothstep(-0.6, 0.8, vN)); gl_FragColor = vec4(c, vF * (0.75 + uE * 0.5) + 0.04); }` }), colA);
+      mat.userData.col2 = colB; orbMats.push(mat);
+      return new THREE.Mesh(new THREE.IcosahedronGeometry(radius, detail), mat);
+    };
+    const coreOrb = orb(2.4, small ? 4 : 6, 'b', 'a'); layers[2].add(coreOrb);
+    const outOrb = orb(3.2, small ? 4 : 6, 'a', 'b'); layers[5].add(outOrb);
+    let energy = 0;
     // packets travelling core → tool → core
     const packets = [];
     const packet = (to, col, back) => { const s = glow(col, 1.6); layers[2].add(s); packets.push({ s, to, t: 0, back }); };
@@ -150,7 +171,8 @@
       for (let x = 0; x < k; x++) for (let y = 0; y < k; y++) for (let z = 0; z < k; z++) pos.push((x - k / 2) * 1.6 + gauss() * 0.1, (y - k / 2) * 1.2, (z - k / 2) * 1.6);
       const lat = points(pos, 't', 0.26, 0.75); g.add(lat);
       const projs = ['MimAI', 'Paloan', 'proyojon.shop', 'Vromon', 'Abashon', 'CAP ON HEAD', 'Myook', 'AI video', '3D City'];
-      projs.forEach((p, i) => { const a = i / projs.length * 6.283, v = new THREE.Vector3(Math.cos(a) * 6.5, (i % 3 - 1) * 4, Math.sin(a) * 6.5); const d = glow('a', 2.6); d.position.copy(v);
+      g.userData.hover = [];
+      projs.forEach((p, i) => { const a = i / projs.length * 6.283, v = new THREE.Vector3(Math.cos(a) * 6.5, (i % 3 - 1) * 4, Math.sin(a) * 6.5); const d = glow('a', 2.6); d.position.copy(v); g.userData.hover.push({ obj: d, base: 2.6, name: 'memory.recall("' + p + '")', heat: 0 });
         const l = label(p, { size: 42, world: 1.1, col: 'a', box: true }); l.sprite.position.copy(v).add(new THREE.Vector3(0, 1.3, 0)); g.add(d, l.sprite); });
       animators.push(t => { g.rotation.y = t * 0.05; g.rotation.x = Math.sin(t * 0.2) * 0.08; });
     }
@@ -175,6 +197,20 @@
       mats.streamPx = mat;
     }
 
+    // ---------- warp streaks: the stream stretches into light lines when you scroll fast ----------
+    let warpMat;
+    {
+      const n = small ? 500 : 1100, span = GAP * LAYERS.length + 80, pos = new Float32Array(n * 6), end = new Float32Array(n * 2);
+      for (let i = 0; i < n; i++) { const a = rnd() * 6.283, r = 9 + rnd() * 26, z = 40 - rnd() * span;
+        pos.set([Math.cos(a) * r, Math.sin(a) * r * 0.7, z, Math.cos(a) * r, Math.sin(a) * r * 0.7, z], i * 6); end[i * 2] = 0; end[i * 2 + 1] = 1; }
+      const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); geo.setAttribute('aEnd', new THREE.Float32BufferAttribute(end, 1));
+      warpMat = track(new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+        uniforms: { uT: { value: 0 }, uW: { value: 0 }, uSpan: { value: span }, uCol: { value: C.a.clone() } },
+        vertexShader: 'attribute float aEnd; uniform float uT, uW, uSpan; varying float vA; void main(){ vec3 p = position; p.z = 40.0 - mod(40.0 - p.z - uT * 9.0, uSpan); p.z += aEnd * uW * 14.0; vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv; vA = uW * smoothstep(140.0, 12.0, -mv.z) * smoothstep(0.5, 5.0, -mv.z) * (1.0 - aEnd * 0.85); }',
+        fragmentShader: 'uniform vec3 uCol; varying float vA; void main(){ gl_FragColor = vec4(uCol, vA * 0.9); }' }), 'a');
+      scene.add(new THREE.LineSegments(geo, warpMat));
+    }
+
     // ---------- live log (desktop) ----------
     const log = document.createElement('div'); log.className = 'agent-log'; log.setAttribute('aria-hidden', 'true');
     log.innerHTML = '<div class="al-head"><i></i><span>PALOAN · live</span></div><div class="al-lines"></div>'; document.body.appendChild(log);
@@ -192,17 +228,32 @@
       tokenize(q).forEach((tk, i) => { const l = label(tk.replace(' ', '␣'), { size: 44, world: 1.2, col: 'b', box: true }); l.redraw(); scene.add(l.sprite);
         l.sprite.position.copy(from); flying.push({ l, from: from.clone().add(new THREE.Vector3((i % 4) * 0.8, Math.floor(i / 4) * 0.9, 0)), to: new THREE.Vector3((rnd() - 0.5) * 6, (rnd() - 0.5) * 4, toZ), t: -i * 0.07 }); });
       head.textContent = 'PALOAN · reading your question'; say('tokenize("' + q.slice(0, 26) + (q.length > 26 ? '…' : '') + '")', () => say('intent → ' + intent, () => say('answer → chat ✦')));
-      toolNodes.forEach(n => n.heat = Math.max(n.heat, rnd() * 0.6)); const tn = toolNodes[(Math.random() * toolNodes.length) | 0]; packet(tn, 'b');
+      energy = 1; toolNodes.forEach(n => n.heat = Math.max(n.heat, rnd() * 0.6)); const tn = toolNodes[(Math.random() * toolNodes.length) | 0]; packet(tn, 'b');
     });
 
+    // ---------- hover: point at a tool or a project node and it lights up (desktop) ----------
+    let hoverT = 0, lastHover = null, px = -9, py = -9;
+    addEventListener('pointermove', e => { px = e.clientX / innerWidth * 2 - 1; py = -(e.clientY / innerHeight) * 2 + 1; }, { passive: true });
+    const tmpV = new THREE.Vector3();
+    const hoverables = () => curLayer === 4 ? layers[4].userData.hover : curLayer === 2 ? toolNodes.map(n => ({ obj: n.dot, name: 'tool.focus(' + n.name + ')', node: n })) : [];
+    const checkHover = () => {
+      if (innerWidth < 900) return;
+      const list = hoverables(); if (!list.length) return;
+      let best = null, bd = 0.09;
+      list.forEach(h => { h.obj.getWorldPosition(tmpV); tmpV.project(camera); const d = Math.hypot(tmpV.x - px, (tmpV.y - py) * 0.8); if (tmpV.z < 1 && d < bd) { bd = d; best = h; } });
+      if (best) { if (best.node) best.node.heat = 1; else best.heat = 1; if (lastHover !== best.name) { lastHover = best.name; say(best.name); energy = Math.min(1, energy + 0.4); } }
+      else lastHover = null;
+    };
+
     // ---------- layout & scroll → camera flight ----------
-    let W, H, anchors = [], covers = [];
+    let W, H, anchors = [], covers = [], baseFov = 58;
     const measure = () => {
       W = innerWidth; H = innerHeight; const dpr = Math.min(devicePixelRatio || 1, small ? 1.25 : 1.5);
       renderer.setPixelRatio(dpr); renderer.setSize(W, H, false); camera.aspect = W / H;
       camera.filmOffset = W >= 900 ? -13 : 0; // push the vanishing point to the right so text stays readable
       layers.forEach(g => { g.position.x = W >= 900 ? 7.5 : 0; g.scale.setScalar(W >= 900 ? 1.4 : 1.1); });
-      camera.fov = W / H < 1 ? 72 : 58; camera.updateProjectionMatrix();
+      if (W >= 900) layers[0].position.x = 11.5; // keep the name tokens clear of the hero headline
+      camera.fov = baseFov = W / H < 1 ? 72 : 58; camera.updateProjectionMatrix();
       if (mats.streamPx) mats.streamPx.uniforms.uPx.value = dpr * (W / H < 1 ? 1.4 : 1) * (H / 900);
       canvas.style.opacity = W < 900 ? (C.light ? 0.6 : 0.72) : 1;
       const abs = el => { const r = el.getBoundingClientRect(); return [r.top + scrollY, r.height]; };
@@ -217,13 +268,14 @@
     let mx = 0, my = 0;
     addEventListener('pointermove', e => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; }, { passive: true });
 
-    let camZ = Z[0] + CAM_BACK, curLayer = 0, shownLayer = -1, running = true, wasCovered = false, last = performance.now(), T = 0, packT = 0;
+    let lastY = scrollY, vel = 0, camZ = Z[0] + CAM_BACK, curLayer = 0, shownLayer = -1, running = true, wasCovered = false, last = performance.now(), T = 0, packT = 0;
     const smooth = x => x * x * (3 - 2 * x);
     const frame = now => {
       if (!running) return;
       requestAnimationFrame(frame);
       const dt = Math.min(0.05, (now - last) / 1000); last = now; T += dt;
-      const y = scrollY;
+      const y = scrollY; const dy = y - lastY; lastY = y;
+      vel += ((Math.abs(dy) / Math.max(dt, 0.008)) / 2600 - vel) * Math.min(1, dt * 6); vel = Math.min(1, vel);
       if (covers.some(([a, b]) => y > a + 4 && y < b - 4)) { if (!wasCovered) { renderer.clear(); wasCovered = true; } return; }
       wasCovered = false;
       // scroll position → which two layers we are between → camera depth
@@ -237,6 +289,13 @@
         const st = STEPS[LAYERS[curLayer].id] || []; let k = 0; const nx = () => { if (k < st.length) say(st[k++], nx); }; nx(); }
       camera.position.set(mx * 3, -my * 2, camZ);
       camera.lookAt(mx * 1.2, -my * 0.8, camZ - 40);
+      camera.rotateZ(Math.max(-0.06, Math.min(0.06, dy * 0.0009)));
+      const fov = baseFov + vel * 14; if (Math.abs(camera.fov - fov) > 0.05) { camera.fov += (fov - camera.fov) * 0.25; camera.updateProjectionMatrix(); }
+      warpMat.uniforms.uT.value = T; warpMat.uniforms.uW.value = vel;
+      energy = Math.max(0, energy - dt * 0.6); const en = Math.min(1, energy + vel * 0.8);
+      orbMats.forEach(m => { m.uniforms.uT.value = T; m.uniforms.uE.value = en; }); coreOrb.rotation.y = T * 0.3; outOrb.rotation.y = -T * 0.2;
+      layers[4].userData.hover.forEach(h => { h.heat = Math.max(0, h.heat - dt * 1.5); h.obj.scale.setScalar(h.base * (1 + h.heat * 1.4)); });
+      if ((hoverT -= dt) <= 0) { hoverT = 0.1; checkHover(); }
       animators.forEach(fn => fn(T));
       // tool packets
       packT -= dt; if (packT <= 0 && curLayer === 2) { packT = 0.35; const n = toolNodes[(Math.random() * toolNodes.length) | 0]; packet(n, Math.random() < 0.5 ? 'a' : 'b'); }
