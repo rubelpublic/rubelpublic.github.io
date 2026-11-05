@@ -1,7 +1,7 @@
 ---
-title: Paloan — Why I'm Building My Own Personal AI Agent
+title: Paloan: The Personal AI Agent Rapar Rubel Is Building
 slug: why-i-built-paloan-personal-ai-agent
-description: Rapar Rubel on Paloan, the personal AI agent he is building to research audiences, draft Bangla and English content, plan launches and run workflows.
+description: Paloan is Rapar Rubel’s personal AI agent. See what Paloan does — audience research, Bangla and English drafts, launch plans, workflows — and try it live.
 date: 2026-10-10
 tags: Paloan, personal AI agent, AI agents, productivity, AI workflow, Bangladesh
 tldr: Paloan is the personal AI agent I am building to work alongside me across my ventures.
