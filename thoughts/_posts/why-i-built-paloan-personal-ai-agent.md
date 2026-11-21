@@ -1,8 +1,9 @@
 ---
-title: Paloan: The Personal AI Agent Rapar Rubel Is Building
+title: Paloan AI Agent by Rapar Rubel: What It Does, Try It Live
 slug: why-i-built-paloan-personal-ai-agent
 description: Paloan is Rapar Rubel’s personal AI agent. See what Paloan does — audience research, Bangla and English drafts, launch plans, workflows — and try it live.
 date: 2026-10-10
+updated: 2026-11-21
 tags: Paloan, personal AI agent, AI agents, productivity, AI workflow, Bangladesh
 tldr: Paloan is the personal AI agent I am building to work alongside me across my ventures.
 tldr: It helps with audience research, content drafts in Bangla, Banglish and English, launch planning and repeatable workflows.
@@ -11,6 +12,9 @@ tldr: My rule — the agent prepares, the human decides.
 faq: What is Paloan? :: Paloan is the personal AI agent that Rapar Rubel (Rubel Miah) is building. It helps him research audiences, draft content in Bangla, Banglish and English, plan launches and run repeatable workflows. A guide version on his portfolio answers visitors' questions about his work.
 faq: What is a personal AI agent? :: A personal AI agent is an AI assistant set up around one person's work — their projects, audiences, tools and style — so it can take on multi-step tasks like research, drafting and planning, instead of answering one-off questions.
 faq: Can I talk to Paloan? :: Yes. A guide version of Paloan lives on rubelpublic.github.io. Click "Ask Paloan" to ask about Rapar Rubel's work, services, projects or how to contact him, and watch it think as it answers.
+faq: Who created Paloan? :: Paloan was created by Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka, Bangladesh, also known as Rubel AI.
+faq: Is Paloan free to try? :: Yes. The guide version of Paloan on rubelpublic.github.io is free and needs no sign-up. Open the site and click "Ask Paloan".
+faq: Does Paloan understand Bangla and Banglish? :: Yes. Paloan is built to draft and understand Bangla, Banglish (Bangla written in English letters) and English, because that is how customers in Bangladesh actually write.
 ---
 I run and support several ventures at once — retail, fashion, travel, property, technology and creative work. Each has its own audience, voice and daily tasks. For a long time, the bottleneck was not ideas. It was **switching context** fast enough.
 

@@ -1,8 +1,9 @@
 ---
-title: Why I Build AI That Speaks Bangla, Banglish and English
+title: Banglish AI: Why I Build AI That Speaks Bangla and Banglish
 slug: ai-that-speaks-banglish
 description: Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.
 date: 2026-10-10
+updated: 2026-11-21
 tags: Bangla AI, Banglish, AI agents, Bangladesh, customer messages
 tldr: Customers in Bangladesh write in a mix of Bangla, Banglish and English, often in a single message.
 tldr: An AI that only understands clean English misses the question, the tone and the trust.
@@ -11,6 +12,7 @@ tldr: The fastest start for any business: collect your 20 most common questions,
 faq: Can AI understand Banglish? :: Yes. Modern language models can read Banglish (Bangla written in Latin letters) well, as long as the agent is designed and tested with real Banglish messages, including spelling variations like "koto", "kto" and "koto taka".
 faq: Should a business chatbot in Bangladesh reply in Bangla or English? :: Reply in the language the customer used. If they write Banglish, answer in simple Banglish or Bangla; if they write English, answer in English. Matching the customer's language builds trust faster than any template.
 faq: Who builds Banglish AI agents in Bangladesh? :: Rapar Rubel (Rubel Miah) is an independent AI expert and AI workflow builder in Dhaka who designs AI agents and assistants that work in Bangla, Banglish and English, including MimAI and his personal agent Paloan.
+faq: What is Banglish AI? :: Banglish AI is an AI assistant or chatbot that understands Banglish, Bangla written in English letters, mixed with English, the way most Bangladeshi customers type on Facebook, WhatsApp and Messenger.
 ---
 Open the inbox of almost any business in Bangladesh and you will not find perfect English. You will find messages like *"Apu price koto?"*, *"delivery charge koto hobe Dhaka te?"* or a half-English, half-Bangla question typed fast on a phone. That is the real language of commerce here. If an AI cannot read it, it cannot help.
 

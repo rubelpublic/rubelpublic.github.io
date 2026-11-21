@@ -7,20 +7,7 @@
   <description>AI agents, Banglish AI, audience-first content and building with AI — by Rapar Rubel (Rubel Miah), AI expert and AI workflow builder in Bangladesh.</description>
   <language>en</language>
   <item>
-    <title>Why I Build AI That Speaks Bangla, Banglish and English</title>
-    <link>https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/</link>
-    <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/</guid>
-    <pubDate>Sat, 10 Oct 2026 09:00:00 +0000</pubDate>
-    <dc:creator>Rapar Rubel (Rubel Miah)</dc:creator>
-    <description>Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.</description>
-    <category>Bangla AI</category>
-    <category>Banglish</category>
-    <category>AI agents</category>
-    <category>Bangladesh</category>
-    <category>customer messages</category>
-  </item>
-  <item>
-    <title>What Does an AI Workflow Builder Actually Do for a Small Business?</title>
+    <title>What Does an AI Workflow Builder Do for a Small Business?</title>
     <link>https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/</link>
     <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/</guid>
     <pubDate>Sat, 10 Oct 2026 09:00:00 +0000</pubDate>
@@ -34,7 +21,7 @@
     <category>Dhaka</category>
   </item>
   <item>
-    <title>Paloan: The Personal AI Agent Rapar Rubel Is Building</title>
+    <title>Paloan AI Agent by Rapar Rubel: What It Does, Try It Live</title>
     <link>https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/</link>
     <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/</guid>
     <pubDate>Sat, 10 Oct 2026 09:00:00 +0000</pubDate>
@@ -48,7 +35,20 @@
     <category>Bangladesh</category>
   </item>
   <item>
-    <title>How I Built MimAI, an AI File Assistant, With Claude Code</title>
+    <title>Content Starts in the Audience&#x27;s Head: My 5-Step Process</title>
+    <link>https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/</link>
+    <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/</guid>
+    <pubDate>Sat, 10 Oct 2026 09:00:00 +0000</pubDate>
+    <dc:creator>Rapar Rubel (Rubel Miah)</dc:creator>
+    <description>Rapar Rubel&#x27;s 5-step content process (Listen, Decode, Frame, Create, Test) with real examples from fashion, property, travel and cap brands in Bangladesh.</description>
+    <category>content strategy</category>
+    <category>brand psychology</category>
+    <category>audience research</category>
+    <category>Banglish copywriting</category>
+    <category>social media</category>
+  </item>
+  <item>
+    <title>Building MimAI, a Bangla AI File Assistant, With Claude Code</title>
     <link>https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/</link>
     <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/building-mimai-with-claude-code/</guid>
     <pubDate>Sat, 10 Oct 2026 09:00:00 +0000</pubDate>
@@ -62,17 +62,17 @@
     <category>Bangladesh</category>
   </item>
   <item>
-    <title>Content Starts in the Audience&#x27;s Head — My 5-Step Process</title>
-    <link>https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/</link>
-    <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/</guid>
+    <title>Banglish AI: Why I Build AI That Speaks Bangla and Banglish</title>
+    <link>https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/</link>
+    <guid isPermaLink="true">https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/</guid>
     <pubDate>Sat, 10 Oct 2026 09:00:00 +0000</pubDate>
     <dc:creator>Rapar Rubel (Rubel Miah)</dc:creator>
-    <description>Rapar Rubel&#x27;s five-step content process — Listen, Decode, Frame, Create, Test — with real examples from fashion, property, travel and cap brands in Bangladesh.</description>
-    <category>content strategy</category>
-    <category>brand psychology</category>
-    <category>audience research</category>
-    <category>Banglish copywriting</category>
-    <category>social media</category>
+    <description>Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.</description>
+    <category>Bangla AI</category>
+    <category>Banglish</category>
+    <category>AI agents</category>
+    <category>Bangladesh</category>
+    <category>customer messages</category>
   </item>
 </channel>
 </rss>

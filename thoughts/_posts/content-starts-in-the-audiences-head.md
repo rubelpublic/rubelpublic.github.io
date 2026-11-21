@@ -1,8 +1,9 @@
 ---
-title: Content Starts in the Audience's Head — My 5-Step Process
+title: Content Starts in the Audience's Head: My 5-Step Process
 slug: content-starts-in-the-audiences-head
-description: Rapar Rubel's five-step content process — Listen, Decode, Frame, Create, Test — with real examples from fashion, property, travel and cap brands in Bangladesh.
+description: Rapar Rubel's 5-step content process (Listen, Decode, Frame, Create, Test) with real examples from fashion, property, travel and cap brands in Bangladesh.
 date: 2026-10-10
+updated: 2026-11-21
 tags: content strategy, brand psychology, audience research, Banglish copywriting, social media
 tldr: Good content starts in the audience's head, not on the brand's page.
 tldr: My process has five steps — Listen, Decode, Frame, Create, Test.

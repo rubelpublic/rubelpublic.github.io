@@ -1,8 +1,9 @@
 ---
-title: How I Built MimAI, an AI File Assistant, With Claude Code
+title: Building MimAI, a Bangla AI File Assistant, With Claude Code
 slug: building-mimai-with-claude-code
 description: How Rapar Rubel built MimAI, an AI file assistant for Google Drive that understands Bangla, Banglish and English, with Claude Code, and what he learned.
 date: 2026-10-10
+updated: 2026-11-21
 tags: MimAI, Claude Code, AI product, building with AI, Google Drive, Bangladesh
 tldr: MimAI is a file hub with a built-in AI assistant that finds files in the user's own Google Drive.
 tldr: It understands requests in Bangla, Banglish and English.

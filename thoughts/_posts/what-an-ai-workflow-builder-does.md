@@ -1,8 +1,9 @@
 ---
-title: What Does an AI Workflow Builder Actually Do for a Small Business?
+title: What Does an AI Workflow Builder Do for a Small Business?
 slug: what-an-ai-workflow-builder-does
 description: What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
 date: 2026-10-10
+updated: 2026-11-21
 tags: AI workflow automation, AI agents, small business, SME, Bangladesh, Dhaka
 tldr: An AI workflow builder designs systems where AI handles a repeatable business task from start to finish, with a human checking the important decisions.
 tldr: Every useful workflow has five parts — trigger, understand, decide, act, check.

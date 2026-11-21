@@ -182,7 +182,7 @@ def build_post(p, posts):
     if p['faq']:
         ld['@graph'].append({'@type': 'FAQPage', '@id': p['url'] + '#faq', 'mainEntity': [
             {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in p['faq']]})
-    title = f"{p['title']} | Rapar Rubel"
+    title = p['title']
     out = head(title, p['description'], p['url'], image, ld, 'article', p['date'], p['updated'], p['tags'])
     tldr = ''.join(f'<li>{esc(t)}</li>' for t in p['tldr'])
     faq = ''.join(f'<details class="qa"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in p['faq'])
