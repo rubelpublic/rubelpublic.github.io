@@ -262,6 +262,8 @@ def build_sitemap(posts):
     newest = max(p['updated'] for p in posts)
     home = max(newest, date.fromtimestamp(os.path.getmtime(os.path.join(ROOT, 'index.html'))).isoformat())
     rows = [(SITE + '/', home, '1.0'), (SITE + '/thoughts/', newest, '0.9'), (SITE + '/cv/', '2026-10-07', '0.7')]
+    from build_pages import STATIC_PAGES  # services, /bn/ and case studies
+    rows += [(SITE + u, d, pr) for u, d, pr in STATIC_PAGES]
     rows += [(p['url'], p['updated'], '0.8') for p in posts]
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{u}</loc><lastmod>{d}</lastmod><priority>{pr}</priority></url>\n' for u, d, pr in rows) + '</urlset>\n'

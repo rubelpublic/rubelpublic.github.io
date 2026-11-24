@@ -61,6 +61,14 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - Fiverr: https://www.fiverr.com/raparrubel
 - Other site: https://rubelmiah.lovable.app/
 
+<!-- PAGES -->
+## Key pages
+- [AI workflow automation in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates, real examples, how projects run, what he will not automate
+- [Proyojon Shop case study](https://rubelpublic.github.io/work/proyojon-shop/): China-to-Bangladesh retail and import business and its online store
+- [CAP ON HEAD case study](https://rubelpublic.github.io/work/cap-on-head/): content, product photography and product presentation for a Bangladesh cap brand
+- [বাংলা পেজ (Bangla homepage)](https://rubelpublic.github.io/bn/): the same profile in Bangla
+<!-- /PAGES -->
+
 <!-- THOUGHTS -->
 ## Thoughts (blog)
 - [What Does an AI Workflow Builder Do for a Small Business?](https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/): What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
