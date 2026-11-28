@@ -27,6 +27,11 @@ a{color:inherit}
 .t-nav{display:flex;gap:18px;align-items:center}
 .t-nav a{text-decoration:none;padding:6px 0;border-bottom:1px solid transparent}
 .t-nav a:hover,.t-nav a[aria-current]{border-bottom-color:var(--marigold);color:var(--marigold)}
+.post table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;font-size:15px;line-height:1.45;margin:0 0 24px}
+.post th,.post td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;min-width:120px}
+.post th{font-family:var(--display)}
+html[lang="bn"] body{font-family:"Hind Siliguri",var(--body)}
+html[lang="bn"] h1,html[lang="bn"] h2,html[lang="bn"] summary{font-family:"Tiro Bangla",var(--display)}
 .t-nav .cta{border:1px solid currentColor;border-radius:999px;padding:6px 14px;margin:0;background:none;text-align:left}
 .theme-btn{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:transparent;color:inherit;cursor:pointer}
 .theme-btn svg{width:15px;height:15px}

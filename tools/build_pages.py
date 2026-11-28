@@ -17,7 +17,7 @@ PERSON_ID = SITE + '/#person'
 
 # (path, last modified, sitemap priority). build_thoughts.py reads this list for the sitemap.
 STATIC_PAGES = [
-    ('/services/ai-workflow-automation-bangladesh/', '2026-11-24', '0.9'),
+    ('/services/ai-workflow-automation-bangladesh/', '2026-11-28', '0.9'),
     ('/bn/', '2026-11-24', '0.9'),
     ('/work/proyojon-shop/', '2026-11-24', '0.7'),
     ('/work/cap-on-head/', '2026-11-24', '0.7'),
@@ -160,20 +160,22 @@ def services():
         ('What is a good first workflow to automate?', 'Pick a task that is repetitive, happens many times a week and has a clear right answer. Answering your 20 most common customer questions, or sorting incoming enquiries by type and urgency, are typical first workflows.'),
         ('What should a business not automate?', "Anything where a wrong answer is expensive and nobody is watching: pricing promises, legal advice, refunds, or anything involving a customer's money or documents. AI can prepare that work, but a person should make the final call."),
         ('Who builds AI workflows for businesses in Bangladesh?', 'Rapar Rubel (Rubel Miah), also known as Rubel AI, is an independent AI expert and AI workflow builder in Dhaka who designs AI agents and workflow automation for founders, SMEs and teams, in Bangla, Banglish and English.'),
+        ('How much does an AI chatbot or automation cost in Bangladesh?', 'It depends on channels, connections and language. Bangladeshi AI agencies listed on Clutch and DesignRush in November 2026 start at about $1,000 per project; a small first version on one channel can cost less. Rapar Rubel scopes each project after seeing your real customer messages.'),
+        ('Can you build a chatbot for my Facebook Page?', 'Yes. A Facebook Page AI chatbot can answer Bangla, Banglish and English inbox messages, collect order details and hand unusual conversations to your team with a summary. The same approach works for WhatsApp and website chat.'),
         ('How do I start a project with Rapar Rubel?', 'Send a short brief through the form on rubelpublic.github.io, email rubel.public@gmail.com, or call or WhatsApp +880 1676-464807. Describe one task that repeats every day and he will reply with how he would approach it.'),
     ]
     trail = [('Rapar Rubel', SITE + '/'), ('Services', url), ('AI workflow automation', url)]
     graph = [PERSON,
              {'@type': 'Service', '@id': url + '#service', 'name': 'AI workflow automation for Bangladeshi businesses',
-              'serviceType': 'AI workflow automation and AI agent development', 'url': url,
+              'serviceType': 'AI workflow automation, AI chatbot and AI agent development', 'url': url,
               'description': 'AI agents and workflow automation that read customer messages in Bangla, Banglish and English, sort enquiries, draft replies and content, and hand important decisions to a person.',
               'provider': {'@id': PERSON_ID}, 'brand': {'@id': SITE + '/#service'}, 'areaServed': {'@type': 'Country', 'name': 'Bangladesh'},
               'availableLanguage': ['bn', 'en'], 'audience': {'@type': 'BusinessAudience', 'audienceType': 'Founders, SMEs and teams'}},
-             {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': 'AI Workflow Automation in Bangladesh | Rapar Rubel',
+             {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': 'AI Automation & AI Chatbots in Bangladesh | Rapar Rubel',
               'inLanguage': 'en', 'isPartOf': {'@id': SITE + '/#website'}, 'about': {'@id': url + '#service'}, 'dateModified': DATES[p]},
              crumbs_ld(trail), faq_ld(url, faqs)]
     body = f'''<article class="post">
-  <h1>AI Workflow Automation for Bangladeshi Businesses</h1>
+  <h1>AI Automation &amp; AI Chatbots for Bangladeshi Businesses</h1>
   <p class="lede">I build AI agents and automations that read customer messages in Bangla, Banglish and English, answer common questions, sort enquiries and draft content — with a person checking every decision that matters.</p>
   <section class="tldr" aria-labelledby="tldr-h"><h2 id="tldr-h">Short answer</h2><ul>
     <li>I'm Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka.</li>
@@ -187,6 +189,13 @@ def services():
     <li><strong>Enquiry intake.</strong> The system gathers the customer's problem, context and documents, classifies the request by type and urgency, and lists what's missing before a person picks it up.</li>
     <li><strong>Content drafts.</strong> AI drafts several caption or post options in the right language and brand voice; a person picks and polishes the best one.</li>
     <li><strong>Finding information.</strong> Ask for a file or a record the way you'd ask a colleague, in any of the three languages.</li>
+  </ul>
+  <h2 id="ai-chatbots">AI chatbots for Facebook Page, WhatsApp and website</h2>
+  <p>Most Bangladeshi customers message a business before they buy — usually on its Facebook Page. I build AI chatbots that answer those messages in <strong>Bangla, Banglish and English</strong>: price, size, stock, delivery and payment questions, order details collected into your sheet, and a clean hand-off to your team for anything unusual.</p>
+  <ul>
+    <li><a href="/thoughts/facebook-page-ai-chatbot-bangladesh/">How a Facebook Page AI chatbot works</a> (and the <a href="/thoughts/facebook-page-chatbot-bangla/" lang="bn">বাংলা গাইড</a>)</li>
+    <li><a href="/thoughts/ai-chatbot-cost-in-bangladesh/">How much an AI chatbot costs in Bangladesh</a></li>
+    <li><a href="/thoughts/ai-agency-vs-freelancer-bangladesh/">AI agency, freelancer or independent builder: how to choose</a></li>
   </ul>
   <h2 id="real-examples">What does this look like in real work?</h2>
   <ul>
@@ -213,8 +222,8 @@ def services():
 </article>
 <section class="cta"><h2>Have one task that repeats every day?</h2><p>Tell me what it is. I'll reply with how I'd automate it.</p>
   <a class="btn btn-primary" href="/#brief">Send a brief →</a><a class="btn btn-ghost" href="https://wa.me/8801676464807">WhatsApp</a></section>'''
-    page(p, title='AI Workflow Automation in Bangladesh | Rapar Rubel',
-         desc='AI agents and workflow automation for Bangladeshi businesses that understand Bangla, Banglish and English. By Rapar Rubel, AI workflow builder in Dhaka.',
+    page(p, title='AI Automation & AI Chatbots in Bangladesh | Rapar Rubel',
+         desc='AI chatbots and workflow automation for Bangladeshi businesses, built to understand Bangla, Banglish and English. By Rapar Rubel, AI workflow builder in Dhaka.',
          graph=graph, crumbs=trail, body=body, nav=EN_NAV, footer=EN_FOOT)
 
 
@@ -356,7 +365,7 @@ def bangla_home():
 
 LLMS_BLOCK = '''
 ## Key pages
-- [AI workflow automation in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates, real examples, how projects run, what he will not automate
+- [AI automation and AI chatbots in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates (including Facebook Page, WhatsApp and website chatbots in Bangla, Banglish and English), real examples, how projects run, what he will not automate
 - [Proyojon Shop case study](https://rubelpublic.github.io/work/proyojon-shop/): China-to-Bangladesh retail and import business and its online store
 - [CAP ON HEAD case study](https://rubelpublic.github.io/work/cap-on-head/): content, product photography and product presentation for a Bangladesh cap brand
 - [বাংলা পেজ (Bangla homepage)](https://rubelpublic.github.io/bn/): the same profile in Bangla

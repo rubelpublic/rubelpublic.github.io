@@ -77,13 +77,13 @@ THEME_JS = "<script>try{var t=localStorage.getItem('theme');if(t==='light'||t===
 SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 
 
-def head(title, desc, url, image, extra_ld, og_type='article', published=None, modified=None, tags=()):
+def head(title, desc, url, image, extra_ld, og_type='article', published=None, modified=None, tags=(), lang='en'):
     art = ''
     if og_type == 'article':
         art = (f'<meta property="article:published_time" content="{published}">\n<meta property="article:modified_time" content="{modified}">\n'
                f'<meta property="article:author" content="{SITE}/">\n' + ''.join(f'<meta property="article:tag" content="{esc(t)}">\n' for t in tags))
     return f'''<!doctype html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -171,7 +171,7 @@ def build_post(p, posts):
         person_ld(),
         {'@type': 'BlogPosting', '@id': p['url'] + '#post', 'headline': p['title'], 'description': p['description'], 'image': image,
          'datePublished': p['date'], 'dateModified': p['updated'], 'author': {'@id': PERSON_ID}, 'publisher': {'@id': PERSON_ID},
-         'mainEntityOfPage': p['url'], 'url': p['url'], 'inLanguage': 'en', 'articleSection': 'Thoughts', 'keywords': ', '.join(p['tags']),
+         'mainEntityOfPage': p['url'], 'url': p['url'], 'inLanguage': p.get('lang', 'en'), 'articleSection': 'Thoughts', 'keywords': ', '.join(p['tags']),
          'wordCount': p['words'], 'timeRequired': f"PT{p['minutes']}M", 'isPartOf': {'@id': SITE + '/thoughts/#blog'},
          'abstract': ' '.join(p['tldr'])},
         {'@type': 'BreadcrumbList', 'itemListElement': [
@@ -183,7 +183,7 @@ def build_post(p, posts):
         ld['@graph'].append({'@type': 'FAQPage', '@id': p['url'] + '#faq', 'mainEntity': [
             {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in p['faq']]})
     title = p['title']
-    out = head(title, p['description'], p['url'], image, ld, 'article', p['date'], p['updated'], p['tags'])
+    out = head(title, p['description'], p['url'], image, ld, 'article', p['date'], p['updated'], p['tags'], p.get('lang', 'en'))
     tldr = ''.join(f'<li>{esc(t)}</li>' for t in p['tldr'])
     faq = ''.join(f'<details class="qa"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in p['faq'])
     links = ' '.join(f'<a href="{u}" rel="me noopener"{" target=_blank" if "rubelpublic.github.io" not in u else ""}>{n}</a>' for n, u in AUTHOR['links'])
@@ -337,7 +337,8 @@ def og_image(p, path):
         return ImageFont.load_default()
     mono, big, small = font('consola.ttf', 24, 'DejaVuSansMono.ttf'), font('segoeuib.ttf', 64), font('segoeui.ttf', 28, 'DejaVuSans.ttf')
     d.text((72, 70), 'THOUGHTS · RAPAR RUBEL', font=mono, fill=(240, 168, 48))
-    words, lines, cur = p['title'].split(), [], ''
+    # og_title: an English title for the share image (the image fonts cannot draw Bangla)
+    words, lines, cur = p.get('og_title', p['title']).split(), [], ''
     for w in words:
         t = (cur + ' ' + w).strip()
         if d.textlength(t, font=big) > W - 160: lines.append(cur); cur = w

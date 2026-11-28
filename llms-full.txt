@@ -63,7 +63,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 
 <!-- PAGES -->
 ## Key pages
-- [AI workflow automation in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates, real examples, how projects run, what he will not automate
+- [AI automation and AI chatbots in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates (including Facebook Page, WhatsApp and website chatbots in Bangla, Banglish and English), real examples, how projects run, what he will not automate
 - [Proyojon Shop case study](https://rubelpublic.github.io/work/proyojon-shop/): China-to-Bangladesh retail and import business and its online store
 - [CAP ON HEAD case study](https://rubelpublic.github.io/work/cap-on-head/): content, product photography and product presentation for a Bangladesh cap brand
 - [বাংলা পেজ (Bangla homepage)](https://rubelpublic.github.io/bn/): the same profile in Bangla
@@ -71,6 +71,10 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 
 
 ## Thoughts (blog)
+- [ফেসবুক পেজে এআই চ্যাটবট: বাংলিশ মেসেজের উত্তর দেবে কীভাবে](https://rubelpublic.github.io/thoughts/facebook-page-chatbot-bangla/): ফেসবুক পেজের ইনবক্সে বাংলা ও বাংলিশ মেসেজের উত্তর দিতে এআই চ্যাটবট কীভাবে কাজ করে, কী কী করতে পারে, আর ছোট ব্যবসা কীভাবে কম খরচে শুরু করবে।
+- [How Much Does an AI Chatbot Cost in Bangladesh? (2026 Guide)](https://rubelpublic.github.io/thoughts/ai-chatbot-cost-in-bangladesh/): What an AI chatbot or AI agent costs in Bangladesh in 2026: build vs monthly costs, agency vs freelancer prices, and how to keep your first bot cheap.
+- [Facebook Page AI Chatbot for Banglish Messages](https://rubelpublic.github.io/thoughts/facebook-page-ai-chatbot-bangladesh/): How an AI chatbot for a Facebook Page works in Bangladesh: answering Banglish inbox messages, taking orders, handing off to staff, and what to set up first.
+- [AI Agency or Freelancer? Choosing in Bangladesh](https://rubelpublic.github.io/thoughts/ai-agency-vs-freelancer-bangladesh/): Should a Bangladeshi business hire an AI automation agency, a Fiverr or Upwork freelancer, an independent AI builder, or do it in-house? A practical guide.
 - [What Does an AI Workflow Builder Do for a Small Business?](https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/): What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
 - [Paloan AI Agent by Rapar Rubel: What It Does, Try It Live](https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/): Paloan is Rapar Rubel’s personal AI agent. See what Paloan does — audience research, Bangla and English drafts, launch plans, workflows — and try it live.
 - [Content Starts in the Audience's Head: My 5-Step Process](https://rubelpublic.github.io/thoughts/content-starts-in-the-audiences-head/): Rapar Rubel's 5-step content process (Listen, Decode, Frame, Create, Test) with real examples from fashion, property, travel and cap brands in Bangladesh.
@@ -78,6 +82,276 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - [Banglish AI: Why I Build AI That Speaks Bangla and Banglish](https://rubelpublic.github.io/thoughts/ai-that-speaks-banglish/): Most AI tools fail Bangladeshi customers because they expect perfect English. Rapar Rubel explains why he builds AI that understands Banglish, and how.
 
 # Thoughts — full text
+
+## ফেসবুক পেজে এআই চ্যাটবট: বাংলিশ মেসেজের উত্তর দেবে কীভাবে
+URL: https://rubelpublic.github.io/thoughts/facebook-page-chatbot-bangla/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- বাংলাদেশের বেশিরভাগ অনলাইন বিক্রি হয় ফেসবুক পেজের ইনবক্সে, তাই প্রথম এআই চ্যাটবট সেখানেই সবচেয়ে কাজের।
+- সাধারণ অটো-রিপ্লাই "dam koto?" বা "delivery kobe?" বোঝে না; এআই চ্যাটবট শব্দ নয়, প্রশ্নের অর্থ বোঝে।
+- ভালো চ্যাটবট সাধারণ প্রশ্নের উত্তর দেয়, অর্ডারের তথ্য নেয়, আর অস্বাভাবিক কিছু হলে মানুষের কাছে পাঠায়।
+- শুরু করুন ইনবক্সের সবচেয়ে বেশি আসা ২০টি প্রশ্ন দিয়ে, আর প্রথম দুই সপ্তাহ একজন মানুষ উত্তরগুলো দেখে নিন।
+
+বাংলাদেশে অনলাইন বিক্রির বড় একটা অংশ হয় এক জায়গায়: **ফেসবুক পেজের ইনবক্সে**। কাস্টমার পোস্ট দেখে মেসেজ পাঠান — *"Apu eta koto?"*, *"Size L ache? Dhaka te delivery kobe?"* কয়েক মিনিটে উত্তর না পেলে অনেকেই পরের পেজে চলে যান।
+
+তাই প্রথম এআই চ্যাটবট বসানোর সবচেয়ে ভালো জায়গা হলো পেজের ইনবক্স।
+
+## সাধারণ অটো-রিপ্লাই কেন কাজ করে না?
+
+ফেসবুকে অটোমেটেড রেসপন্স আর ইনস্ট্যান্ট রিপ্লাই সেট করা যায়। "ধন্যবাদ, আমরা শীঘ্রই উত্তর দেব" বলার জন্য এগুলো ঠিক আছে — কিন্তু এরা নির্দিষ্ট কিওয়ার্ড মেলায়।
+
+বাংলাদেশের কাস্টমার একই প্রশ্ন লেখেন অনেকভাবে:
+
+- *dam koto* · *price koto* · *koto taka* · *দাম কত* · *price?*
+
+কিওয়ার্ড রুল এর এক-দুটো ধরতে পারে। **এআই চ্যাটবট** প্রশ্নের অর্থ বোঝে, তাই পাঁচটাই সঠিক উত্তর পায় — কাস্টমার যে ভাষায় লিখেছেন সেই ভাষায়।
+
+## ফেসবুক পেজের এআই চ্যাটবট কী কী করতে পারে?
+
+1. **প্রোডাক্টের প্রশ্নের উত্তর** — দাম, সাইজ, রং, কাপড়, স্টক — আপনার নিজের প্রোডাক্ট লিস্ট থেকে।
+2. **ডেলিভারি ও পেমেন্ট বোঝানো** — ঢাকার ভেতরে-বাইরে চার্জ, ক্যাশ অন ডেলিভারি, বিকাশ।
+3. **অর্ডারের তথ্য নেওয়া** — নাম, ফোন, ঠিকানা, প্রোডাক্ট, সাইজ — তারপর আপনার শিট বা টিমে পাঠানো।
+4. **মানুষের কাছে হস্তান্তর** — অভিযোগ, কাস্টম অর্ডার বা দরদাম হলে এক লাইনের সারাংশসহ আপনার টিমের কাছে পাঠায়।
+5. **রাতেও উত্তর** — রাত ১১টার মেসেজের উত্তর রাত ১১টাতেই।
+
+যা **নিজে থেকে করবে না**: ডিসকাউন্টের প্রতিশ্রুতি, রিটার্ন গ্রহণ, বা টাকা-পয়সা নিয়ে এমন কিছু যা মানুষ অনুমোদন করেনি।
+
+## কম খরচে কীভাবে শুরু করবেন?
+
+1. ইনবক্সের শেষ ১০০টি কথোপকথন থেকে **সবচেয়ে বেশি আসা ২০টি প্রশ্ন** বের করুন — কাস্টমার যেভাবে লিখেছেন ঠিক সেভাবে।
+2. প্রতিটির জন্য আপনার সেরা সেলসপারসনের মতো **সঠিক উত্তর** লিখুন।
+3. ঠিক করুন কোন কোন বিষয় চ্যাটবট **কখনো একা** উত্তর দেবে না।
+4. প্রথম এক-দুই সপ্তাহ **"ড্রাফট মোডে"** চালান — চ্যাটবট উত্তর সাজেস্ট করবে, মানুষ পাঠাবে।
+5. তারপর সাধারণ প্রশ্নগুলোর উত্তর চ্যাটবটকে একা দিতে দিন, আর নিয়মিত দেখে নিন।
+
+খরচ নিয়ে বিস্তারিত (ইংরেজিতে): [How Much Does an AI Chatbot Cost in Bangladesh?](../ai-chatbot-cost-in-bangladesh/) · পুরো গাইড: [Facebook Page AI Chatbot for Banglish Messages](../facebook-page-ai-chatbot-bangladesh/)
+
+আপনার কাস্টমারের বাংলিশ বোঝে এমন চ্যাটবট চান? ইনবক্সের ২০টি সাধারণ প্রশ্নসহ [একটি ছোট ব্রিফ পাঠান](/#brief), অথবা দেখুন [আমার বাংলা পেজ](/bn/)।
+
+Quick answers:
+- Q: এআই চ্যাটবট কি বাংলিশ মেসেজ বুঝতে পারে?
+  A: হ্যাঁ। পেজের আসল কাস্টমার মেসেজ দিয়ে ডিজাইন ও টেস্ট করলে এআই চ্যাটবট বাংলা, বাংলিশ ও ইংরেজি তিনটাই বোঝে এবং কাস্টমার যে ভাষায় লিখেছেন সেই ভাষায় উত্তর দেয়।
+- Q: ফেসবুকের অটো-রিপ্লাই আর এআই চ্যাটবটের পার্থক্য কী?
+  A: অটো-রিপ্লাই নির্দিষ্ট কিওয়ার্ড মেলায় বা সবাইকে একই মেসেজ পাঠায়। এআই চ্যাটবট বানান ভুল বা বাংলিশ হলেও প্রশ্নটা বোঝে, আপনার প্রোডাক্ট ও দামের তথ্য থেকে উত্তর দেয়, আর দরকার হলে মানুষের কাছে হস্তান্তর করে।
+- Q: বাংলাদেশে কে ফেসবুক পেজের জন্য এআই চ্যাটবট বানায়?
+  A: Rapar Rubel (রুবেল মিয়া), ঢাকার একজন স্বাধীন এআই এক্সপার্ট ও এআই ওয়ার্কফ্লো বিল্ডার, বাংলা, বাংলিশ ও ইংরেজিতে কাস্টমারের মেসেজের উত্তর দেয় এমন এআই এজেন্ট তৈরি করেন।
+
+---
+
+## How Much Does an AI Chatbot Cost in Bangladesh? (2026 Guide)
+URL: https://rubelpublic.github.io/thoughts/ai-chatbot-cost-in-bangladesh/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- A useful AI chatbot has two costs: a one-time build and a monthly running cost (AI usage, hosting, and someone checking it).
+- Bangladeshi AI agencies listed on Clutch and DesignRush in late 2026 start their projects at about $1,000 (roughly ৳1.2 lakh); freelancers on Fiverr and Upwork often quote less for a single workflow.
+- The biggest price drivers are how many channels the bot answers on, how many systems it connects to, and how much Bangla and Banglish it must understand.
+- The cheapest good start is one channel, your 20 most common questions, and a human who reviews anything unusual.
+
+"Bhai, ekta chatbot banate koto lagbe?" — it is the first thing most business owners want to know. The honest answer is: it depends on what you want the bot to do. But "it depends" is not useful, so here is how the cost actually breaks down in Bangladesh in 2026 — and how to keep your first one small and cheap.
+
+## What are you actually paying for?
+
+Every AI chatbot or AI agent has **two kinds of cost**:
+
+1. **The build (one time).** Designing the conversations, writing the answers, connecting the bot to your Facebook Page, website or WhatsApp, connecting it to your product list or sheet, and testing it with real customer messages.
+2. **Running it (every month).** The AI model is paid per use, the bot needs somewhere to run, and someone has to read the conversations it got wrong and improve them.
+
+Most people only ask about the first one. The second one decides whether the bot is still useful three months later.
+
+## What do agencies and freelancers in Bangladesh charge?
+
+Public price information is thin, but directory listings give a useful floor. In November 2026:
+
+- **Karigor AI Labs** (Dhaka) lists a minimum project size of **$1,000** and an hourly rate of **$50–$99** on [Clutch](https://clutch.co/profile/karigor-ai-labs).
+- **ByteFlow AI Labs** (Dhaka) lists a minimum budget in the **$1,000–$10,000** range on [DesignRush](https://www.designrush.com/agency/profile/byteflow-ai-labs).
+- Dozens of Bangladeshi **freelancers on Fiverr and Upwork** sell single n8n workflows and chatbot builds, usually for less than an agency minimum, with prices that change often.
+
+So a reasonable expectation: an agency project starts around **৳1.2 lakh** and goes up with scope; a freelancer can be cheaper for one narrow job. These are listed prices, not quotes — always ask for a written scope.
+
+## What makes a chatbot more expensive?
+
+Five things move the price more than anything else:
+
+1. **Channels.** One Facebook Page is simpler than Page + Instagram + WhatsApp + website.
+2. **Connections.** Answering from a fixed list of questions is simple. Checking live stock, prices or order status in your system takes more work.
+3. **Language.** Bangla, Banglish and English in the same inbox need more testing. "dam koto", "price koto", "koto taka" and "দাম কত" are the same question — the bot has to know that. (I wrote about this in [Why I Build AI That Speaks Bangla, Banglish and English](../ai-that-speaks-banglish/).)
+4. **Actions.** Replying is cheaper than taking orders, booking visits or updating records.
+5. **Risk.** Anything about money, legal matters or property documents needs a human check built in, which adds design time.
+
+## How do you keep the first chatbot cheap?
+
+Start smaller than you think:
+
+- **One channel** — usually your Facebook Page, because that is where most Bangladeshi customers message first.
+- **Your 20 most common questions**, copied exactly as customers type them, Banglish and spelling mistakes included.
+- **A clear hand-off**: anything outside those questions goes to a person, with the conversation already summarised.
+- **Two weeks of watching** before it answers on its own.
+
+That version is small enough to build quickly and cheap to run, and it shows you whether a bigger bot is worth paying for. It is also how I structure every project — I explain the steps in [What Does an AI Workflow Builder Actually Do?](../what-an-ai-workflow-builder-does/)
+
+## What should you ask before paying anyone?
+
+- Will it understand **Banglish** and mixed Bangla-English messages? Ask to see it handle five of your real messages.
+- What is the **monthly cost** after launch, and who pays for AI usage?
+- Who **owns** the bot, the prompts and the data if you stop working together?
+- What happens when the bot **does not know** an answer?
+- Can you **see every conversation** it had?
+
+If the answers are vague, the price is not the problem.
+
+If you want a scoped estimate for your own business, [send me a short brief](/#brief) with your 20 most common customer questions — or see how I work on the [AI workflow automation page](/services/ai-workflow-automation-bangladesh/).
+
+Quick answers:
+- Q: How much does an AI chatbot cost in Bangladesh?
+  A: It depends on scope. Bangladeshi AI agencies listed on Clutch and DesignRush in November 2026 state minimum projects of about $1,000 (roughly ৳1.2 lakh), while freelancers on Fiverr and Upwork often quote less for a single workflow. Expect a monthly running cost on top for AI usage and hosting.
+- Q: Is there a monthly cost for an AI chatbot?
+  A: Yes. The AI model is paid per use, the bot needs hosting, and someone should review its answers. For a small business answering a few hundred messages a day, AI usage is usually the smallest part; the time spent improving answers matters more.
+- Q: Can I get a cheap chatbot that understands Banglish?
+  A: Yes, if you keep the first version small: one channel such as your Facebook Page, your most common questions written the way customers actually type them, and clear hand-off to a person. Rapar Rubel (Rubel Miah), an AI workflow builder in Dhaka, designs agents this way.
+- Q: Who builds AI chatbots for businesses in Bangladesh?
+  A: Options include AI agencies in Dhaka listed on Clutch, GoodFirms and DesignRush, freelancers on Fiverr and Upwork, and independent builders such as Rapar Rubel (Rubel Miah), who builds AI agents that work in Bangla, Banglish and English.
+
+---
+
+## Facebook Page AI Chatbot for Banglish Messages
+URL: https://rubelpublic.github.io/thoughts/facebook-page-ai-chatbot-bangladesh/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- Most Bangladeshi online shops sell through their Facebook Page inbox, so that is the best first place for an AI chatbot.
+- Old keyword auto-replies fail on Banglish ("dam koto?", "delivery kobe?"); an AI chatbot reads the meaning, not the exact words.
+- A good Page bot answers common questions, collects order details and hands anything unusual to a person with a summary.
+- Start with your 20 most common inbox questions and a human who reviews the bot's answers for the first two weeks.
+
+In Bangladesh, a huge share of online selling happens in one place: the **Facebook Page inbox**. Customers see a post, tap "Send message", and type something like *"Apu eta koto?"* or *"Size L ache? Dhaka te delivery kobe?"*. If nobody answers in a few minutes, many of them move on to the next Page.
+
+That makes the Page inbox the best first place for an AI chatbot.
+
+## Why don't normal auto-replies work?
+
+Facebook already lets you set automated responses and instant replies. They are useful for "Thanks, we'll reply soon" — but they match fixed keywords or send the same message to everyone.
+
+Bangladeshi customers do not write fixed keywords. The same question arrives as:
+
+- *dam koto* · *price koto* · *koto taka* · *দাম কত* · *price?*
+
+A keyword rule catches one or two of these. An **AI chatbot** reads the meaning, so all five get the right answer — in the language the customer used. (Why this matters so much: [Why I Build AI That Speaks Bangla, Banglish and English](../ai-that-speaks-banglish/).)
+
+## What can a Facebook Page AI chatbot do?
+
+A well-built Page bot handles the repetitive 80% of the inbox:
+
+1. **Answer product questions** — price, size, colour, fabric, availability — from your own product list, not from guesswork.
+2. **Explain delivery and payment** — inside Dhaka vs outside, delivery charge, cash on delivery, bKash.
+3. **Collect order details** — name, phone, address, product, size — and send them to your order sheet or team.
+4. **Hand off cleanly** — anything unusual (a complaint, a custom order, a bargaining customer) goes to a person, with a one-line summary so they do not have to scroll.
+5. **Reply after hours** — so the 11 pm message is answered at 11 pm, not at 10 am.
+
+What it should **not** do on its own: promise discounts, accept returns, or say anything about money that a person has not approved.
+
+## How does it work behind the scenes?
+
+You do not need to understand the technology, but it helps to know the parts:
+
+- **Connection** — the bot is connected to your Page through Meta's Messenger platform, with your permission as Page admin.
+- **Knowledge** — your products, prices, delivery rules and FAQ, kept in a simple sheet you can edit.
+- **The AI model** — reads each message, finds the right answer in your knowledge, and writes a reply in Bangla, Banglish or English.
+- **Rules** — what it may answer alone and what must go to a person.
+- **Review** — every conversation is saved so you can check what it said and improve it.
+
+This is the same five-part pattern — trigger, understand, decide, act, check — I use for every workflow. I explain it in [What Does an AI Workflow Builder Actually Do?](../what-an-ai-workflow-builder-does/)
+
+## How do you set one up without wasting money?
+
+1. **Export or copy your last 100 inbox conversations.** Pick the 20 questions that come up most, written exactly as customers typed them.
+2. **Write the perfect answer for each**, in the tone your best salesperson uses.
+3. **Decide the hand-off rules**: what the bot must never answer alone.
+4. **Run it in "draft mode" first** — the bot suggests replies, a person sends them — for one or two weeks.
+5. **Then let it answer** the common questions on its own, and keep reviewing.
+
+If you are wondering about price, I broke down the real costs in [How Much Does an AI Chatbot Cost in Bangladesh?](../ai-chatbot-cost-in-bangladesh/)
+
+## Is it worth it for a small Page?
+
+If your inbox gets the same questions dozens of times a day, yes — the time saved and the late-night replies pay for a small bot quickly. If you get five messages a day, keep answering them yourself and use AI to draft replies instead.
+
+Want a bot that speaks your customers' Banglish? [Send me a short brief](/#brief) with your 20 most common inbox questions, or read how I work on the [AI workflow automation page](/services/ai-workflow-automation-bangladesh/).
+
+Quick answers:
+- Q: Can an AI chatbot reply to Facebook Page messages in Bangla and Banglish?
+  A: Yes. An AI chatbot connected to a Facebook Page through Meta's Messenger platform can read Bangla, Banglish and English and reply in the customer's language, as long as it is designed and tested with real messages from that Page.
+- Q: What is the difference between Facebook auto-reply and an AI chatbot?
+  A: Facebook's built-in automated responses match fixed keywords or send the same instant reply to everyone. An AI chatbot understands the question even when it is written in Banglish or with spelling mistakes, answers from your own product and price information, and knows when to hand over to a person.
+- Q: Does a Facebook Page chatbot need Meta approval?
+  A: A chatbot app that sends messages on behalf of a Page needs the Page owner's permission, and apps used beyond the developer's own Pages go through Meta's app review. Plan a few days for this before launch.
+- Q: Who builds Facebook Page AI chatbots in Bangladesh?
+  A: Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka, builds AI agents that answer customer messages in Bangla, Banglish and English. Agencies and freelancers on Clutch, Fiverr and Upwork also offer Messenger bots.
+
+---
+
+## AI Agency or Freelancer? Choosing in Bangladesh
+URL: https://rubelpublic.github.io/thoughts/ai-agency-vs-freelancer-bangladesh/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- Agencies suit large, multi-system projects with a budget to match; listed Bangladeshi AI agencies start around $1,000 per project.
+- Marketplace freelancers are cheapest for one narrow, well-defined workflow, but quality and follow-up vary a lot.
+- An independent AI builder sits in between: one person who understands the business problem, builds the system and stays involved.
+- Doing it yourself works for simple tasks if someone on your team learns the tools properly.
+
+Search "AI automation Bangladesh" and you will find three kinds of results: agency listings on directories like Clutch and GoodFirms, hundreds of n8n and chatbot gigs on Fiverr and Upwork, and a few independent builders. They are very different ways to buy the same thing. Here is how to choose.
+
+## What does each option look like?
+
+| | AI agency | Marketplace freelancer | Independent AI builder | Do it yourself |
+|---|---|---|---|---|
+| **Typical start** | Listed minimums around $1,000 per project (Clutch, DesignRush, Nov 2026) | Often below an agency minimum, per gig | Scoped per project | Your team's time + tool costs |
+| **Best for** | Many systems, large teams | One narrow workflow | One owner-led business problem, end to end | Simple, low-risk tasks |
+| **Who you talk to** | Account manager + team | One seller | The person who builds it | Yourself |
+| **After launch** | Support contract | Varies a lot | Usually stays involved | You maintain it |
+| **Risk** | Cost | Quality and follow-up vary | One person's capacity | Time, and doing it wrong |
+
+Examples from the listings: [Karigor AI Labs](https://clutch.co/profile/karigor-ai-labs) and [ByteFlow AI Labs](https://www.designrush.com/agency/profile/byteflow-ai-labs) are Dhaka agencies founded in 2025; [Upbeat Strategy](https://www.goodfirms.co/company/upbeat-strategy) focuses on AI agents and n8n; [AgentiqBD](https://www.goodfirms.co/company/agentiqbd) sells "AI employees" for support. Freelancers offering n8n, Make and Zapier workflows are easy to find on Fiverr and Upwork.
+
+## When is an agency the right choice?
+
+When the project is big: several departments, an ERP or CRM to integrate, compliance requirements, and a budget that can carry a team. You pay for project management and a bench of specialists.
+
+## When is a freelancer the right choice?
+
+When you can describe the job in one sentence — "send every new Google Form entry to a sheet and WhatsApp me a summary" — and you can test the result yourself. Check reviews, ask for a recorded demo, and keep the scope tight.
+
+## When is an independent AI builder the right choice?
+
+When the hard part is not the code but **knowing what to automate**. Most small and medium businesses in Bangladesh are in this position: the inbox is full of Banglish questions, orders are tracked in three places, and nobody is sure which task to automate first.
+
+That is the work I do. I start from the business problem, map one workflow, build a small version, test it with your real messages and stay involved while it runs — the process is in [What Does an AI Workflow Builder Actually Do?](../what-an-ai-workflow-builder-does/) and on the [AI workflow automation page](/services/ai-workflow-automation-bangladesh/).
+
+## When should you do it yourself?
+
+For simple, low-risk tasks — drafting captions, summarising documents, sorting emails — a team member who learns the tools properly can do a lot. That is why I teach **AI Power User**, a practical AI course in Bangla where every module ends with something built, tested or automated.
+
+## Five questions to ask anyone you hire
+
+1. Can you show it working on **five of my real customer messages**, including Banglish?
+2. What will it cost **every month** after launch?
+3. Who **owns** the prompts, workflows and data?
+4. What happens when the AI **does not know** the answer?
+5. Who **fixes it** when something changes?
+
+Whoever answers these clearly — agency, freelancer or independent — is a good hire. For what a project usually costs, see [How Much Does an AI Chatbot Cost in Bangladesh?](../ai-chatbot-cost-in-bangladesh/)
+
+Quick answers:
+- Q: Should I hire an AI agency or a freelancer in Bangladesh?
+  A: Hire an agency for large projects that touch many systems and need a team. Hire a freelancer for one clearly defined workflow. Hire an independent AI builder when you need someone to understand the business problem, design the workflow and stay involved after launch.
+- Q: Where can I find AI automation experts in Bangladesh?
+  A: Agencies are listed on Clutch, GoodFirms and DesignRush; freelancers are on Fiverr and Upwork. Independent builders such as Rapar Rubel (Rubel Miah) in Dhaka can be contacted directly through their portfolio sites.
+- Q: What should I check before hiring someone to build an AI chatbot or workflow?
+  A: Ask to see it work on your own real messages (including Banglish), get the monthly running cost in writing, confirm who owns the prompts and data, and agree how unknown questions are handed to a person.
+
+---
 
 ## What Does an AI Workflow Builder Do for a Small Business?
 URL: https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/
