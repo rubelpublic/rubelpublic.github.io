@@ -18,6 +18,8 @@ PERSON_ID = SITE + '/#person'
 # (path, last modified, sitemap priority). build_thoughts.py reads this list for the sitemap.
 STATIC_PAGES = [
     ('/services/ai-workflow-automation-bangladesh/', '2026-11-28', '0.9'),
+    ('/courses/ai-power-user/', '2026-11-28', '0.8'),
+    ('/lab/hand-particles/', '2026-11-28', '0.6'),
     ('/bn/', '2026-11-24', '0.9'),
     ('/work/proyojon-shop/', '2026-11-24', '0.7'),
     ('/work/cap-on-head/', '2026-11-24', '0.7'),
@@ -144,7 +146,7 @@ def page(path, *, lang='en', title, desc, og_type='website', graph, crumbs, body
 EN_NAV = ('<a href="/services/ai-workflow-automation-bangladesh/" class="hide-sm">Services</a><a href="/thoughts/">Thoughts</a>'
           '<a href="/bn/" lang="bn" hreflang="bn">বাংলা</a><a href="/#contact" class="cta">Contact</a>')
 EN_FOOT = '''<p>© 2026 Rubel Miah · Rapar Rubel · Rubel Public — AI expert &amp; AI workflow builder, Dhaka, Bangladesh</p>
-  <p><a href="/">Portfolio</a> · <a href="/services/ai-workflow-automation-bangladesh/">AI workflow automation</a> · <a href="/work/proyojon-shop/">Proyojon Shop case study</a> · <a href="/work/cap-on-head/">CAP ON HEAD case study</a> · <a href="/thoughts/">Thoughts</a> · <a href="/bn/" lang="bn">বাংলা</a> · <a href="/#contact">Contact</a></p>'''
+  <p><a href="/">Portfolio</a> · <a href="/services/ai-workflow-automation-bangladesh/">AI workflow automation</a> · <a href="/courses/ai-power-user/">AI course in Bangla</a> · <a href="/work/proyojon-shop/">Proyojon Shop case study</a> · <a href="/work/cap-on-head/">CAP ON HEAD case study</a> · <a href="/thoughts/">Thoughts</a> · <a href="/bn/" lang="bn">বাংলা</a> · <a href="/#contact">Contact</a></p>'''
 AUTHOR = ('<aside class="author" aria-labelledby="author-h"><img src="/assets/portrait-600.webp" alt="Rapar Rubel (Rubel Miah)" width="72" height="72" loading="lazy">'
           '<div><h2 id="author-h">Rapar Rubel <span class="mono" style="color:var(--muted)">· Rubel Miah</span></h2><p>Independent AI expert and AI workflow builder in Dhaka, '
           'Bangladesh. I build AI agents, automation and AI-powered content that work in Bangla, Banglish and English — and test them inside my own ventures.</p>'
@@ -216,7 +218,7 @@ def services():
   <h2 id="who-its-for">Who is this for?</h2>
   <p>Founders, SMEs and teams in Bangladesh whose customers write the way they talk — in retail, fashion, property, travel and services. If your inbox is full of Banglish, an English-only chatbot will miss most of it. (<a href="/thoughts/ai-that-speaks-banglish/">Why I build AI that speaks Banglish</a>.)</p>
   <h2 id="training">Want your team to do it themselves?</h2>
-  <p>I also teach <strong>AI Power User</strong>, a practical AI course in Bangla: 10 classes, 18–20 hours, about 70% hands-on, from beginner to intermediate. Every module ends with something built, tested or automated.</p>
+  <p>I also teach <strong><a href="/courses/ai-power-user/">AI Power User</a></strong>, a practical AI course in Bangla: 10 classes, 18–20 hours, about 70% hands-on, from beginner to intermediate. Every module ends with something built, tested or automated.</p>
   {faq_html(faqs)}
   {AUTHOR}
 </article>
@@ -366,10 +368,69 @@ def bangla_home():
 LLMS_BLOCK = '''
 ## Key pages
 - [AI automation and AI chatbots in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates (including Facebook Page, WhatsApp and website chatbots in Bangla, Banglish and English), real examples, how projects run, what he will not automate
+- [AI Power User — AI course in Bangla](https://rubelpublic.github.io/courses/ai-power-user/): Rapar Rubel's practical AI course taught in Bangla, 10 classes, 18–20 hours, about 70% hands-on, beginner to intermediate; for individuals and company teams
 - [Proyojon Shop case study](https://rubelpublic.github.io/work/proyojon-shop/): China-to-Bangladesh retail and import business and its online store
 - [CAP ON HEAD case study](https://rubelpublic.github.io/work/cap-on-head/): content, product photography and product presentation for a Bangladesh cap brand
 - [বাংলা পেজ (Bangla homepage)](https://rubelpublic.github.io/bn/): the same profile in Bangla
 '''
+
+
+def course():
+    p = '/courses/ai-power-user/'
+    url = SITE + p
+    modules = [
+        ('Understand AI', "What today's AI models can and cannot do, how they work in plain language, and how to choose the right model or tool for a job instead of using one chatbot for everything."),
+        ('Use AI', 'Prompting that gets useful answers in Bangla, Banglish and English: giving context, examples and constraints, checking the output, and fixing it when it is wrong.'),
+        ('Create with AI', 'Writing, images, audio and video with AI: drafting posts, scripts and visuals for real projects, and keeping your own voice and brand in the result.'),
+        ('Automate with AI', 'Turning a task you repeat every week into a workflow with tools such as n8n, Make or Zapier: trigger, understand, decide, act, check.'),
+        ('Think with AI', 'Using AI for research, planning and decisions: breaking down problems, comparing options and spotting when the AI is confidently wrong.'),
+        ('Capstone: your Personal AI Operating System', 'You design and build your own set of AI tools, prompts and workflows for your work or business, and present it working.'),
+    ]
+    faqs = [
+        ('Is there an AI course in Bangla for beginners?', 'Yes. AI Power User is a practical AI course taught in Bangla by Rapar Rubel (Rubel Miah) in Dhaka. It runs for 10 classes and 18–20 hours, takes learners from beginner to intermediate, and is about 70% hands-on practice.'),
+        ('What will I be able to do after the course?', 'Choose the right AI model or tool for a task, write prompts that give useful results in Bangla, Banglish and English, create content with AI, automate a repeatable task as a workflow, and run your own Personal AI Operating System built in the capstone.'),
+        ('Do I need coding or technical knowledge?', 'No. The course starts from the basics. Every module ends with something built, tested or automated, so you learn by doing rather than by memorizing interfaces.'),
+        ('Is the course available for company teams?', 'Yes. AI Power User is designed for individual learners and for teams in Bangladesh. For a team batch or training at your office, contact Rapar Rubel to plan the schedule and focus areas.'),
+        ('When is the next batch and what does it cost?', 'Batch dates and fees are shared directly. Message Rapar Rubel on WhatsApp at +880 1676-464807 or email rubel.public@gmail.com to join the list for the next batch.'),
+    ]
+    trail = [('Rapar Rubel', SITE + '/'), ('Courses', url), ('AI Power User', url)]
+    graph = [PERSON,
+             {'@type': 'Course', '@id': url + '#course', 'name': 'AI Power User — practical AI course in Bangla', 'url': url,
+              'description': 'A practical AI course taught in Bangla: choosing the right AI model or tool, prompting in Bangla, Banglish and English, creating content, automating workflows and building a Personal AI Operating System. 10 classes, 18–20 hours, about 70% hands-on.',
+              'provider': {'@id': PERSON_ID}, 'creator': {'@id': PERSON_ID}, 'inLanguage': 'bn', 'educationalLevel': 'Beginner to intermediate',
+              'timeRequired': 'PT20H', 'teaches': [m for m, _ in modules],
+              'syllabusSections': [{'@type': 'Syllabus', 'name': m, 'description': d} for m, d in modules],
+              'audience': {'@type': 'Audience', 'audienceType': 'Learners, professionals and teams in Bangladesh'}},
+             {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': 'AI Course in Bangla: AI Power User | Rapar Rubel',
+              'inLanguage': 'en', 'isPartOf': {'@id': SITE + '/#website'}, 'about': {'@id': url + '#course'}, 'dateModified': DATES[p]},
+             crumbs_ld(trail), faq_ld(url, faqs)]
+    mods = ''.join(f'<li><strong>{E(m)}.</strong> {E(d)}</li>' for m, d in modules)
+    body = f'''<article class="post">
+  <h1>AI Power User: a Practical AI Course in Bangla</h1>
+  <p class="lede">Learn to use AI for real work — choosing the right tool, prompting in Bangla, Banglish and English, creating content and automating the tasks you repeat every week. Every module ends with something built, tested or automated.</p>
+  <section class="tldr" aria-labelledby="tldr-h"><h2 id="tldr-h">Short answer</h2><ul>
+    <li><strong>10 classes, 18–20 hours</strong>, taught in Bangla by Rapar Rubel (Rubel Miah) in Dhaka.</li>
+    <li><strong>About 70% hands-on</strong> practice, from beginner to intermediate.</li>
+    <li>Six modules: Understand, Use, Create, Automate and Think with AI, plus a capstone.</li>
+    <li>For individual learners and for company teams.</li></ul></section>
+  <h2 id="who-its-for">Who is it for?</h2>
+  <p>Business owners, marketers, freelancers, students and teams in Bangladesh who already use ChatGPT a little and want to use AI properly in their daily work. No coding needed.</p>
+  <h2 id="syllabus">What you will learn</h2>
+  <ol>{mods}</ol>
+  <h2 id="how-its-taught">How it is taught</h2>
+  <p>The focus is on choosing the right model or tool, designing repeatable workflows and producing useful work — not memorizing buttons that change every month. Examples come from real Bangladeshi businesses: Facebook Page inboxes full of Banglish, product content, property enquiries and online shops. I use the same methods in my own ventures and client work; see <a href="/services/ai-workflow-automation-bangladesh/">AI automation</a> and <a href="/thoughts/n8n-vs-make-vs-zapier-bangladesh/">n8n vs Make vs Zapier</a>.</p>
+  <h2 id="teams">Training for teams</h2>
+  <p>For a company batch, I adapt the modules to your team's real tasks — customer messages, content, reporting — so people leave with workflows they use the next day.</p>
+  <h2 id="next-batch">Next batch</h2>
+  <p>Batch dates and fees are shared directly. <a href="https://wa.me/8801676464807">Message me on WhatsApp</a> or email <a href="mailto:rubel.public@gmail.com">rubel.public@gmail.com</a> to join the list.</p>
+  {faq_html(faqs)}
+  {AUTHOR}
+</article>
+<section class="cta"><h2>Want to join the next batch?</h2><p>Tell me whether it is for you or your team, and what you want to use AI for.</p>
+  <a class="btn btn-primary" href="https://wa.me/8801676464807">WhatsApp →</a><a class="btn btn-ghost" href="/#brief">Send a brief</a></section>'''
+    page(p, title='AI Course in Bangla: AI Power User | Rapar Rubel',
+         desc='AI Power User: a practical AI course in Bangla by Rapar Rubel in Dhaka. 10 classes, 18–20 hours, 70% hands-on: prompting, AI content, automation and your own AI system.',
+         graph=graph, crumbs=trail, body=body, nav=EN_NAV, footer=EN_FOOT)
 
 
 def update_llms():
@@ -386,6 +447,7 @@ def update_llms():
 if __name__ == '__main__':
     print('Built pages:')
     services()
+    course()
     case_studies()
     bangla_home()
     update_llms()

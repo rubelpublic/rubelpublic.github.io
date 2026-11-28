@@ -10,6 +10,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - Other public identity: Rubel Public
 - Also searched as: Rubel AI (the name people use to find his AI work)
 - Music: writes and releases Bangla songs as Rapar Rubel (Rubel Music) on YouTube https://www.youtube.com/@raparrubel1156 — e.g. Arektu Thako, Signal Nai, Nikhoj Shongbad, Vebacheka, Ghumer Gari; playable at https://rubelpublic.github.io/#music
+- Lab project: Hand-Controlled 3D Particles, a browser app where 12,000 particles follow your hand via webcam (fingers change shape, pinch expands): https://rubelpublic.github.io/lab/hand-particles/
 - Based in: Dhaka, Bangladesh (GMT+6)
 - Founder of: Myook (clothing brand) and Cha Khaben? (tea brand)
 - Role: Independent AI Expert & AI Workflow Builder; also Content Strategist and Business Builder
@@ -64,6 +65,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 <!-- PAGES -->
 ## Key pages
 - [AI automation and AI chatbots in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates (including Facebook Page, WhatsApp and website chatbots in Bangla, Banglish and English), real examples, how projects run, what he will not automate
+- [AI Power User — AI course in Bangla](https://rubelpublic.github.io/courses/ai-power-user/): Rapar Rubel's practical AI course taught in Bangla, 10 classes, 18–20 hours, about 70% hands-on, beginner to intermediate; for individuals and company teams
 - [Proyojon Shop case study](https://rubelpublic.github.io/work/proyojon-shop/): China-to-Bangladesh retail and import business and its online store
 - [CAP ON HEAD case study](https://rubelpublic.github.io/work/cap-on-head/): content, product photography and product presentation for a Bangladesh cap brand
 - [বাংলা পেজ (Bangla homepage)](https://rubelpublic.github.io/bn/): the same profile in Bangla
@@ -72,8 +74,11 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 <!-- THOUGHTS -->
 ## Thoughts (blog)
 - [ফেসবুক পেজে এআই চ্যাটবট: বাংলিশ মেসেজের উত্তর দেবে কীভাবে](https://rubelpublic.github.io/thoughts/facebook-page-chatbot-bangla/): ফেসবুক পেজের ইনবক্সে বাংলা ও বাংলিশ মেসেজের উত্তর দিতে এআই চ্যাটবট কীভাবে কাজ করে, কী কী করতে পারে, আর ছোট ব্যবসা কীভাবে কম খরচে শুরু করবে।
+- [n8n vs Make vs Zapier: Which Should a Bangladeshi Business Use?](https://rubelpublic.github.io/thoughts/n8n-vs-make-vs-zapier-bangladesh/): n8n, Make or Zapier for a business in Bangladesh? How each one charges, which fits a small team, and when self-hosted n8n is worth it. 2026 guide.
+- [WhatsApp AI Chatbot for Businesses in Bangladesh (2026 Guide)](https://rubelpublic.github.io/thoughts/whatsapp-ai-chatbot-bangladesh/): How a WhatsApp AI chatbot works for a Bangladeshi business in 2026: what you need, what Meta charges per message, and how to make it understand Banglish.
 - [How Much Does an AI Chatbot Cost in Bangladesh? (2026 Guide)](https://rubelpublic.github.io/thoughts/ai-chatbot-cost-in-bangladesh/): What an AI chatbot or AI agent costs in Bangladesh in 2026: build vs monthly costs, agency vs freelancer prices, and how to keep your first bot cheap.
 - [Facebook Page AI Chatbot for Banglish Messages](https://rubelpublic.github.io/thoughts/facebook-page-ai-chatbot-bangladesh/): How an AI chatbot for a Facebook Page works in Bangladesh: answering Banglish inbox messages, taking orders, handing off to staff, and what to set up first.
+- [AI for Real Estate in Bangladesh: What Buyers Fear and Where AI Helps](https://rubelpublic.github.io/thoughts/ai-for-real-estate-bangladesh/): How AI helps real estate in Bangladesh: answering buyer questions on deeds and DAP, sorting enquiries and building trust. A Proyojon Abashon case.
 - [AI Agency or Freelancer? Choosing in Bangladesh](https://rubelpublic.github.io/thoughts/ai-agency-vs-freelancer-bangladesh/): Should a Bangladeshi business hire an AI automation agency, a Fiverr or Upwork freelancer, an independent AI builder, or do it in-house? A practical guide.
 - [What Does an AI Workflow Builder Do for a Small Business?](https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/): What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
 - [Paloan AI Agent by Rapar Rubel: What It Does, Try It Live](https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/): Paloan is Rapar Rubel’s personal AI agent. See what Paloan does — audience research, Bangla and English drafts, launch plans, workflows — and try it live.

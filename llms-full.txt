@@ -10,6 +10,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - Other public identity: Rubel Public
 - Also searched as: Rubel AI (the name people use to find his AI work)
 - Music: writes and releases Bangla songs as Rapar Rubel (Rubel Music) on YouTube https://www.youtube.com/@raparrubel1156 — e.g. Arektu Thako, Signal Nai, Nikhoj Shongbad, Vebacheka, Ghumer Gari; playable at https://rubelpublic.github.io/#music
+- Lab project: Hand-Controlled 3D Particles, a browser app where 12,000 particles follow your hand via webcam (fingers change shape, pinch expands): https://rubelpublic.github.io/lab/hand-particles/
 - Based in: Dhaka, Bangladesh (GMT+6)
 - Founder of: Myook (clothing brand) and Cha Khaben? (tea brand)
 - Role: Independent AI Expert & AI Workflow Builder; also Content Strategist and Business Builder
@@ -64,6 +65,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 <!-- PAGES -->
 ## Key pages
 - [AI automation and AI chatbots in Bangladesh](https://rubelpublic.github.io/services/ai-workflow-automation-bangladesh/): what Rapar Rubel automates (including Facebook Page, WhatsApp and website chatbots in Bangla, Banglish and English), real examples, how projects run, what he will not automate
+- [AI Power User — AI course in Bangla](https://rubelpublic.github.io/courses/ai-power-user/): Rapar Rubel's practical AI course taught in Bangla, 10 classes, 18–20 hours, about 70% hands-on, beginner to intermediate; for individuals and company teams
 - [Proyojon Shop case study](https://rubelpublic.github.io/work/proyojon-shop/): China-to-Bangladesh retail and import business and its online store
 - [CAP ON HEAD case study](https://rubelpublic.github.io/work/cap-on-head/): content, product photography and product presentation for a Bangladesh cap brand
 - [বাংলা পেজ (Bangla homepage)](https://rubelpublic.github.io/bn/): the same profile in Bangla
@@ -72,8 +74,11 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 
 ## Thoughts (blog)
 - [ফেসবুক পেজে এআই চ্যাটবট: বাংলিশ মেসেজের উত্তর দেবে কীভাবে](https://rubelpublic.github.io/thoughts/facebook-page-chatbot-bangla/): ফেসবুক পেজের ইনবক্সে বাংলা ও বাংলিশ মেসেজের উত্তর দিতে এআই চ্যাটবট কীভাবে কাজ করে, কী কী করতে পারে, আর ছোট ব্যবসা কীভাবে কম খরচে শুরু করবে।
+- [n8n vs Make vs Zapier: Which Should a Bangladeshi Business Use?](https://rubelpublic.github.io/thoughts/n8n-vs-make-vs-zapier-bangladesh/): n8n, Make or Zapier for a business in Bangladesh? How each one charges, which fits a small team, and when self-hosted n8n is worth it. 2026 guide.
+- [WhatsApp AI Chatbot for Businesses in Bangladesh (2026 Guide)](https://rubelpublic.github.io/thoughts/whatsapp-ai-chatbot-bangladesh/): How a WhatsApp AI chatbot works for a Bangladeshi business in 2026: what you need, what Meta charges per message, and how to make it understand Banglish.
 - [How Much Does an AI Chatbot Cost in Bangladesh? (2026 Guide)](https://rubelpublic.github.io/thoughts/ai-chatbot-cost-in-bangladesh/): What an AI chatbot or AI agent costs in Bangladesh in 2026: build vs monthly costs, agency vs freelancer prices, and how to keep your first bot cheap.
 - [Facebook Page AI Chatbot for Banglish Messages](https://rubelpublic.github.io/thoughts/facebook-page-ai-chatbot-bangladesh/): How an AI chatbot for a Facebook Page works in Bangladesh: answering Banglish inbox messages, taking orders, handing off to staff, and what to set up first.
+- [AI for Real Estate in Bangladesh: What Buyers Fear and Where AI Helps](https://rubelpublic.github.io/thoughts/ai-for-real-estate-bangladesh/): How AI helps real estate in Bangladesh: answering buyer questions on deeds and DAP, sorting enquiries and building trust. A Proyojon Abashon case.
 - [AI Agency or Freelancer? Choosing in Bangladesh](https://rubelpublic.github.io/thoughts/ai-agency-vs-freelancer-bangladesh/): Should a Bangladeshi business hire an AI automation agency, a Fiverr or Upwork freelancer, an independent AI builder, or do it in-house? A practical guide.
 - [What Does an AI Workflow Builder Do for a Small Business?](https://rubelpublic.github.io/thoughts/what-an-ai-workflow-builder-does/): What an AI workflow builder does for a small business: real examples, how to pick your first AI workflow, and what not to automate. By Rapar Rubel, Bangladesh.
 - [Paloan AI Agent by Rapar Rubel: What It Does, Try It Live](https://rubelpublic.github.io/thoughts/why-i-built-paloan-personal-ai-agent/): Paloan is Rapar Rubel’s personal AI agent. See what Paloan does — audience research, Bangla and English drafts, launch plans, workflows — and try it live.
@@ -136,6 +141,139 @@ Quick answers:
   A: অটো-রিপ্লাই নির্দিষ্ট কিওয়ার্ড মেলায় বা সবাইকে একই মেসেজ পাঠায়। এআই চ্যাটবট বানান ভুল বা বাংলিশ হলেও প্রশ্নটা বোঝে, আপনার প্রোডাক্ট ও দামের তথ্য থেকে উত্তর দেয়, আর দরকার হলে মানুষের কাছে হস্তান্তর করে।
 - Q: বাংলাদেশে কে ফেসবুক পেজের জন্য এআই চ্যাটবট বানায়?
   A: Rapar Rubel (রুবেল মিয়া), ঢাকার একজন স্বাধীন এআই এক্সপার্ট ও এআই ওয়ার্কফ্লো বিল্ডার, বাংলা, বাংলিশ ও ইংরেজিতে কাস্টমারের মেসেজের উত্তর দেয় এমন এআই এজেন্ট তৈরি করেন।
+
+---
+
+## n8n vs Make vs Zapier: Which Should a Bangladeshi Business Use?
+URL: https://rubelpublic.github.io/thoughts/n8n-vs-make-vs-zapier-bangladesh/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- All three connect your apps and run steps automatically; the big difference is how they count usage and who runs the server.
+- Zapier counts every action (task), Make counts operations (credits), and n8n counts a whole workflow run as one execution — so long workflows get cheaper on n8n.
+- n8n can also be self-hosted for free on your own server, which suits Bangladeshi businesses paying in dollars, but someone has to maintain it.
+- For a first simple automation, Make or Zapier is quicker; for AI agents, Banglish chatbots and high volume, n8n usually wins.
+
+"Bhai, n8n shikhbo na Zapier?" — I get this question from business owners and from students in my AI course. The honest answer depends less on features and more on two things: **how each tool counts your usage**, and **who keeps it running**. Here is the plain-language version for a business in Bangladesh, as of November 2026.
+
+## What do these tools actually do?
+
+All three are workflow automation tools. You connect apps — Facebook Page, Google Sheets, Gmail, WhatsApp, your website — and tell the tool: *when this happens, do these steps.* For example: when a new order message arrives, read it with AI, add the details to a sheet, and notify the team on WhatsApp.
+
+The steps are similar on all three. The bill is not.
+
+## How does each one charge?
+
+| | Zapier | Make | n8n |
+|-|-|-|-|
+| What it counts | Each action ("task") | Each operation ("credit") | One whole workflow run ("execution") |
+| Free plan | 100 tasks / month | 1,000 credits / month | Self-hosted Community edition (you pay for the server) |
+| Can you host it yourself? | No | No | Yes |
+| Learning curve | Easiest | Moderate, visual | Steepest, most control |
+
+Prices change often — check [Zapier](https://zapier.com/pricing), [Make](https://www.make.com/en/pricing) and [n8n](https://n8n.io/pricing/) before you decide. What matters is the counting:
+
+A workflow with **10 steps that runs 1,000 times** a month is roughly 9,000–10,000 units on Zapier or Make, but **1,000 executions on n8n**. Long workflows — which AI workflows usually are — get expensive fast when every step is counted.
+
+## Why does this matter more in Bangladesh?
+
+- **Dollar billing.** All three bill in USD (n8n Cloud in EUR in some regions). A plan that looks small becomes real money in taka, and international card limits can be a problem.
+- **Self-hosting.** n8n can run on your own server for the cost of hosting. For a business paying in taka, that can be the difference between "we can afford automation" and "we can't". The trade-off: someone must update and back it up.
+- **Language.** Banglish chatbots need more steps — understand the message, match it to your answers, decide, reply, log. That plays to n8n's per-execution model and its AI-agent features.
+
+## Which should you pick?
+
+- **Zapier** if you want one or two simple automations working today, and nobody on the team is technical.
+- **Make** if you like a visual canvas, need branches and loops, and want a more generous free plan.
+- **n8n** if you are building AI agents or chatbots, run many steps or high volume, care about where your data lives, or want to self-host to keep costs in check.
+
+Many businesses end up with **Make or Zapier for small office tasks and n8n for the serious, customer-facing workflows**.
+
+## The tool is the easy part
+
+The hard part is not choosing the tool; it is designing the workflow — what triggers it, what the AI should understand, what it may decide alone and when a person takes over. I explain those five parts in [What Does an AI Workflow Builder Actually Do?](../what-an-ai-workflow-builder-does/), and what a full chatbot costs in [AI Chatbot Cost in Bangladesh](../ai-chatbot-cost-in-bangladesh/).
+
+If you want your team to learn this hands-on, the [AI Power User course](/courses/ai-power-user/) covers automation in Bangla. If you want it built, [send me a brief](/#brief).
+
+Quick answers:
+- Q: Which is cheapest for a Bangladeshi small business, n8n, Make or Zapier?
+  A: For a few simple automations, the free plans of Make (1,000 credits a month) or Zapier (100 tasks a month) may cost nothing. For long, multi-step or high-volume workflows, n8n is usually cheapest because one full workflow run counts as one execution, and the self-hosted Community edition is free apart from server costs.
+- Q: Is n8n really free?
+  A: The self-hosted n8n Community edition is free to use for your own business under n8n's Sustainable Use License; you pay for the server and someone's time to maintain it. n8n Cloud, where n8n hosts it for you, is a paid monthly plan.
+- Q: Which tool is best for an AI chatbot that understands Banglish?
+  A: Any of the three can call an AI model, but n8n gives the most control over AI agents, memory and custom logic, which helps when a bot must handle Bangla, Banglish and English in one inbox. Rapar Rubel (Rubel Miah), an AI workflow builder in Dhaka, uses this kind of setup for chatbots and workflows.
+- Q: Do I need a developer to use n8n?
+  A: Not for simple workflows, but n8n has a steeper learning curve than Zapier or Make, and self-hosting needs someone comfortable with servers. Many businesses have a builder set it up and then manage day-to-day changes themselves.
+
+---
+
+## WhatsApp AI Chatbot for Businesses in Bangladesh (2026 Guide)
+URL: https://rubelpublic.github.io/thoughts/whatsapp-ai-chatbot-bangladesh/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- A real WhatsApp AI chatbot runs on the WhatsApp Business Platform (the API), not on the free WhatsApp Business app on your phone.
+- Since October 2026 Meta charges per message delivered; each business number gets 1,000 free service messages a month, and messages customers send you are free.
+- In Bangladesh the bot must handle Bangla, Banglish and English in the same chat, plus voice notes and photos of products.
+- Start with one number, your 20 most common questions, and a person who takes over anything about money or complaints.
+
+"Apnar WhatsApp number ta din" — for many Bangladeshi businesses the real conversation starts on WhatsApp, not on the website. Customers send voice notes, product screenshots and messages like *"eta ki stock e ache? Uttara te delivery hobe?"* at 11 pm. A WhatsApp AI chatbot can answer those in seconds. Here is how it actually works in 2026, what it costs, and how to start small.
+
+## What is a WhatsApp AI chatbot?
+
+It is an AI assistant connected to your business WhatsApp number. It reads each message, understands what the customer wants, answers from your own information (prices, stock, delivery areas, opening hours), and hands the chat to a person when it should.
+
+The important detail: it runs on the **WhatsApp Business Platform** — the API — not on the free WhatsApp Business app on your phone. The app has quick replies and away messages, but no real AI. To connect AI you use Meta's Cloud API directly or a provider such as Twilio or 360dialog.
+
+## What does WhatsApp charge?
+
+Meta changed its pricing in 2026. As of November 2026 ([Meta's pricing page](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing)):
+
+- Meta charges **per delivered message**, based on the message category (marketing, utility, authentication, service) and the customer's country.
+- Each business phone number gets **1,000 free service messages a month**. They reset monthly.
+- **Messages customers send to you are free.** You pay for what your business sends.
+- When a customer messages you from a **Click-to-WhatsApp ad**, Meta gives a free window for your replies.
+
+On top of that, budget for your provider's fee (if you use one) and the AI model's usage. For a small shop answering a few hundred chats a month, the build and the time spent improving answers usually cost more than the messages. I break down the full cost in [How Much Does an AI Chatbot Cost in Bangladesh?](../ai-chatbot-cost-in-bangladesh/)
+
+## What makes WhatsApp different in Bangladesh?
+
+Three things a generic chatbot gets wrong:
+
+1. **Mixed language.** One chat can switch between Bangla script, Banglish and English in three messages. The bot has to recognise "koto", "কত" and "how much" as the same question. ([Why I build AI that speaks Banglish](../ai-that-speaks-banglish/).)
+2. **Voice notes and photos.** Customers send a voice note or a screenshot of the product instead of typing. A good bot either understands them or politely asks for the detail it needs and flags the chat for a person.
+3. **Trust.** People use WhatsApp for businesses they already know. A pushy or robotic bot breaks that trust faster than on a website.
+
+## What should the bot do first?
+
+Keep the first version narrow:
+
+- Answer your **20 most common questions**, written exactly the way customers type them.
+- **Collect order or booking details** (name, area, product, size, preferred time) into your sheet.
+- **Hand over** anything about payment problems, refunds, complaints or custom requests — with a short summary so your team does not ask the customer to repeat everything.
+- **Never promise** a price, discount or delivery date it cannot check.
+
+Run it alongside your team for two weeks, read the chats it got wrong, and fix them. That is the whole method — the same five steps I describe in [What Does an AI Workflow Builder Actually Do?](../what-an-ai-workflow-builder-does/)
+
+## WhatsApp or Facebook Page first?
+
+Start where your customers already are. Most Bangladeshi online shops get more messages on their Facebook Page, so a [Facebook Page AI chatbot](../facebook-page-ai-chatbot-bangladesh/) often comes first. Clinics, service businesses, property sellers and repeat B2B customers usually live on WhatsApp. Once the answers and hand-off rules work on one channel, reusing them on the other is the easy part.
+
+## Who should build it?
+
+You can hire an agency, a freelancer or an independent builder — I compare the three in [AI Agency vs Freelancer in Bangladesh](../ai-agency-vs-freelancer-bangladesh/). Whoever you pick, ask them to run five of your real WhatsApp messages, Banglish and voice-note style included, before you pay.
+
+If you want me to look at your WhatsApp setup, [send a short brief](/#brief) or see the [AI automation and chatbot service](/services/ai-workflow-automation-bangladesh/).
+
+Quick answers:
+- Q: Can I put an AI chatbot on my WhatsApp Business app?
+  A: Not on the free WhatsApp Business app itself. An AI chatbot needs the WhatsApp Business Platform (API), reached directly through Meta's Cloud API or through a provider such as Twilio or 360dialog. The app's own quick replies and away messages are not AI.
+- Q: How much does WhatsApp charge for a chatbot?
+  A: Since October 1, 2026 Meta charges per delivered message, by message category and the customer's country. Each business phone number gets 1,000 free service messages per month, and messages customers send to you are free. Check Meta's current rate card before you budget, and add your provider's fee and the AI model's usage cost.
+- Q: Can a WhatsApp chatbot understand Banglish?
+  A: Yes, if it is built and tested with real Banglish messages. "dam koto", "price koto" and "দাম কত" are the same question; a good bot treats them the same and replies in the language the customer used. Rapar Rubel (Rubel Miah), an AI workflow builder in Dhaka, builds bots this way.
+- Q: Should I start with WhatsApp or my Facebook Page?
+  A: Start where most of your customers already message you. For many Bangladeshi online shops that is the Facebook Page; for service businesses, clinics and repeat B2B customers it is often WhatsApp. The same answers and hand-off rules can later serve both.
 
 ---
 
@@ -288,6 +426,72 @@ Quick answers:
   A: A chatbot app that sends messages on behalf of a Page needs the Page owner's permission, and apps used beyond the developer's own Pages go through Meta's app review. Plan a few days for this before launch.
 - Q: Who builds Facebook Page AI chatbots in Bangladesh?
   A: Rapar Rubel (Rubel Miah), an independent AI expert and AI workflow builder in Dhaka, builds AI agents that answer customer messages in Bangla, Banglish and English. Agencies and freelancers on Clutch, Fiverr and Upwork also offer Messenger bots.
+
+---
+
+## AI for Real Estate in Bangladesh: What Buyers Fear and Where AI Helps
+URL: https://rubelpublic.github.io/thoughts/ai-for-real-estate-bangladesh/
+Published: 2026-11-28 · Author: Rapar Rubel (Rubel Miah)
+
+Short answer:
+- Property buyers in Bangladesh are not asking "what is the price?" so much as "can I trust this?" — paperwork, DAP, hidden problems and pushy brokers.
+- At Proyojon Abashon, a land-share and property platform in Dhaka, the answer was buyer education first: a series called ক্রেতা সুরক্ষা (buyer protection) explaining deeds, DAP and home loans before asking for a sale.
+- AI fits best around that trust: answering the same document questions in Bangla and Banglish, sorting enquiries by readiness, and preparing a checklist before a site visit.
+- AI should never give legal opinions on a specific deed or promise prices; a person makes those calls.
+
+Ask a Bangladeshi property buyer what they want and they will say price, location, size. Listen longer and you hear something else: **"Ei jomir kagoj ki clean? Ashol dam koto?"** — is this land's paperwork clean, and what is the real price? I learned this working on Proyojon Abashon, and it changed how I think about AI in real estate.
+
+## What do property buyers actually fear?
+
+When I mapped what buyers said, meant, feared and shared, the pattern was clear:
+
+- **They say:** "Is this land's paperwork clean? What's the real price?"
+- **They mean:** "I can't afford one wrong move with my family's savings."
+- **They fear:** fake deeds, hidden DAP problems, and being rushed by a broker.
+- **They share:** anything that protects their family and makes them look careful.
+
+So the first problem in real estate is not lead generation. It is **trust**. Any AI that ignores that will just produce faster, pushier sales messages — exactly what buyers are afraid of.
+
+## What we did at Proyojon Abashon
+
+Proyojon Abashon is a land-share and property management platform in Dhaka. Instead of starting with offers, we started with protection: a calm buyer-education series called **ক্রেতা সুরক্ষা** (buyer protection) that explains deeds, DAP and home loans *before* ever asking for a sale. For **Proyojon Green Vista**, a G+9 lake-view land-share development, I worked on land-share visualization and a buyer-facing structure so people could see what they were buying into.
+
+That is the method from [Content Starts in the Audience's Head](../content-starts-in-the-audiences-head/): listen, decode the real need, then frame everything around it.
+
+## Where does AI fit in real estate?
+
+AI is useful exactly where the same trust questions repeat every day:
+
+1. **Answering document questions.** "Namjari ki?", "DAP e ki dekhte hobe?", "home loan e koto down payment lage?" — an AI assistant trained on your own explanations can answer these in Bangla, Banglish and English at any hour, and link to the right explainer.
+2. **Sorting enquiries.** It can ask a few calm questions — budget, area, family size, timeline, loan or cash — and mark who is ready for a visit and who is still researching. Your team calls the ready ones first.
+3. **Preparing site visits.** Before a meeting, it collects what the buyer already has and lists what they still need, so the visit is about the property, not paperwork.
+4. **Drafting buyer education.** AI can turn your team's real answers into first drafts of posts, short videos and FAQs, which a person checks and publishes.
+
+The same intake pattern — *problem → context → documents*, then *type → urgency → required files* — is what I designed for Proyojon Solutions' advisory work, and it fits property enquiries well.
+
+## What AI should never do in real estate
+
+- **Declare a deed or title clean.** It can explain which documents to ask for; a lawyer or qualified person checks the originals.
+- **Promise a price, discount or handover date.**
+- **Pressure.** No countdowns, no fake scarcity. In this market, pressure reads as a red flag.
+
+A person makes every decision involving money, documents or legal status. AI prepares; people decide.
+
+## How to start
+
+Pick one list: the 20 questions your sales team answers every week. Write the best human answer for each, in the language buyers use. That list becomes your first AI assistant on your [Facebook Page](../facebook-page-ai-chatbot-bangladesh/) or [WhatsApp](../whatsapp-ai-chatbot-bangladesh/), and your next ten pieces of content.
+
+If you run a real estate or land-share business and want to talk it through, [send me a short brief](/#brief) or read how I run [AI automation projects](/services/ai-workflow-automation-bangladesh/).
+
+Quick answers:
+- Q: How can AI help a real estate business in Bangladesh?
+  A: AI can answer common buyer questions about deeds, mutation, DAP and home loans in Bangla, Banglish and English, sort enquiries by budget, area and readiness, collect documents before a meeting, and draft buyer-education content. Legal opinions and price commitments should stay with a person.
+- Q: Can an AI chatbot check if a land deed is genuine?
+  A: No. AI can explain which documents a buyer should ask for and what each one means, and collect copies for a professional, but it should not declare a specific deed or title clean. That needs a lawyer or a qualified person who checks the original records.
+- Q: What do property buyers in Bangladesh worry about most?
+  A: In Rapar Rubel's audience research for Proyojon Abashon, buyers asked whether the paperwork was clean and what the real price was. Underneath was one fear: one wrong move with the family's savings. They feared fake deeds, hidden DAP problems and being rushed by a broker.
+- Q: Who builds AI for real estate businesses in Dhaka?
+  A: Rapar Rubel (Rubel Miah) is an independent AI expert and AI workflow builder in Dhaka who has worked on property storytelling, buyer education and visualization for Proyojon Abashon and Proyojon Green Vista, and builds AI chatbots and workflows in Bangla, Banglish and English.
 
 ---
 
