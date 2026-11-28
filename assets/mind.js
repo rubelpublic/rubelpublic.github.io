@@ -157,7 +157,7 @@ void main(){
       cap.style.left = (cx - 160) + 'px'; cap.style.width = '320px'; cap.style.top = (cy + R * 1.55) + 'px'; cap.style.display = desk ? '' : 'none';
       const abs = el => { const r = el.getBoundingClientRect(); return [r.top + scrollY, r.height]; };
       anchors = STAGES.map(L => { const el = document.getElementById(L.id); if (!el) return null; const [t, h] = abs(el); return t + Math.min(h, H * 2) / 2; });
-      covers = ['portrait', 'reel', 'bts'].map(id => document.getElementById(id)).filter(Boolean).map(el => { const [t, h] = abs(el); return [t, t + h - H]; });
+      covers = ['portrait', 'reel', 'bts', 'shipped'].map(id => document.getElementById(id)).filter(Boolean).map(el => { const [t, h] = abs(el); return [t, t + h - H]; });
     };
     applyTheme(); measure();
     new MutationObserver(() => { applyTheme(); measure(); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
