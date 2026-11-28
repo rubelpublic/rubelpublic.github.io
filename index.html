@@ -674,6 +674,14 @@
 @media (max-width:600px){.guide{height:72px;bottom:calc(66px + env(safe-area-inset-bottom,0px))}.g-bub{max-width:160px;font-size:11.5px;padding:7px 10px}}
 @media (prefers-reduced-motion:reduce){.marq-t,.guide .g-bob,.sh-hint span{animation:none}.guide.pop img{animation:none}}
 @media print{.guide,.rr-fly,.rr-ghost{display:none}}
+@media (pointer:coarse),(max-width:760px){.rr-ghost{display:none}.rr-3d .lyr:nth-child(n+5){display:none}.rr-3d::before{display:none}}
+.marq-t,.h-reel img,.guide .g-bob{will-change:transform}
+.shipped,.brands{contain:layout paint}
+@media (min-width:761px) and (pointer:fine){#projects,#hand-lab,#music,#thoughts,#faq,#contact{content-visibility:auto;contain-intrinsic-size:auto 1000px}}
+@media (max-width:760px),(pointer:coarse){.btn-ghost,.pa-fab{-webkit-backdrop-filter:none;backdrop-filter:none}.btn-ghost{background:color-mix(in srgb,var(--ink) 90%,transparent)}.pa-fab{background:color-mix(in srgb,var(--ink) 94%,transparent)}}
+@media (max-width:400px){.guide{height:58px;bottom:calc(62px + env(safe-area-inset-bottom,0px))}.g-bub{max-width:138px;font-size:11px;padding:6px 9px}}
+@media (max-height:500px) and (orientation:landscape){.guide{height:58px;bottom:calc(60px + env(safe-area-inset-bottom,0px))}.g-bub{max-width:200px;font-size:11px;padding:6px 9px}}
+@media (min-width:900px){.sh-card{flex-basis:min(56vw,860px,calc((100vh - 300px) * 1.6))}.sh-intro h2{font-size:clamp(40px,min(6.4vw,11vh),96px)}}
 /* ---------- Lab: hand-controlled particles ---------- */
 .hand-lab .hl-lede{margin:0;color:var(--muted);max-width:64ch;font-size:clamp(16px,1.3vw,19px)}
 .hl-stage{position:relative;height:min(68vh,600px);min-height:360px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#05080a;isolation:isolate}
@@ -778,8 +786,8 @@ html{scroll-behavior:smooth}
 .progress{position:fixed;left:0;bottom:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(var(--f,0));background:var(--marigold);z-index:50}
 .letterbox{position:fixed;left:0;right:0;height:calc(7vh * var(--lb,1));background:var(--letterbox);z-index:40;pointer-events:none;transition:background .4s}
 .letterbox.top{top:0}.letterbox.bot{bottom:0}
-.grain{position:fixed;inset:0;z-index:45;pointer-events:none;opacity:var(--grain);background-size:160px;animation:grain 1s steps(6) infinite}
-@keyframes grain{0%{background-position:0 0}20%{background-position:-48px 32px}40%{background-position:32px -64px}60%{background-position:-64px -16px}80%{background-position:48px 48px}100%{background-position:0 0}}
+.grain{position:fixed;inset:-160px;z-index:45;pointer-events:none;opacity:var(--grain);background-size:160px;animation:grain 1s steps(6) infinite;will-change:transform}
+@keyframes grain{0%{transform:translate3d(0,0,0)}20%{transform:translate3d(-48px,32px,0)}40%{transform:translate3d(32px,-64px,0)}60%{transform:translate3d(-64px,-16px,0)}80%{transform:translate3d(48px,48px,0)}100%{transform:translate3d(0,0,0)}}
 
 /* ---------- shared scene scaffolding ---------- */
 .scene{position:relative}
@@ -2226,12 +2234,12 @@ img,svg,video{max-width:100%}
 })();
 </script>
 
-<script src="assets/mind.js?v=liquid2" defer></script>
+<script src="assets/mind.js?v=liquid4" defer></script>
 <div class="rr-ghost" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#rr-badge"/></svg></div>
 <div class="rr-ghost" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#rr-badge"/></svg></div>
 <div class="rr-fly" aria-hidden="true"><div class="rr-3d"><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg><svg class="lyr" viewBox="0 0 200 200"><use href="#rr-badge"/></svg></div></div>
 <button type="button" class="guide" id="guide" aria-label="Ask Paloan, Rapar Rubel's AI agent"><span class="g-bub" id="g-bub" aria-hidden="true"></span><span class="g-bob"><img id="g-img" src="assets/me/welcome.webp" alt="" width="260" height="240" decoding="async"></span></button>
-<script src="assets/motion.js?v=3" defer></script>
+<script src="assets/motion.js?v=7" defer></script>
 
 
 <script>

@@ -24,20 +24,20 @@
   // ---------- 2. travelling logo ----------
   const home = $('.hud .home'), band = $('#brands'), fly = $('.rr-fly'), ghosts = $$('.rr-ghost');
   const flyOn = !!(home && band && fly) && !reduce;
-  let big = 300, g = [{ x: 0, y: 0, s: 0 }, { x: 0, y: 0, s: 0 }], bandVisible = false, wasUndocked = false;
+  let big = 300, g = [{ x: 0, y: 0, s: 0 }, { x: 0, y: 0, s: 0 }], bandVisible = false, wasUndocked = false, hr = { left: 0, top: 0, width: 34, height: 34 }, bandTop = 0, bandH = 0;
+  const lite = matchMedia('(pointer: coarse), (max-width: 760px)').matches; // phones/tablets: fewer layers, no ghost trail
   if (flyOn) new IntersectionObserver(([e]) => { bandVisible = e.isIntersecting; if (!bandVisible) dock(); kick(); }, { rootMargin: '100% 0px' }).observe(band);
   function dock() { if (!wasUndocked) return; wasUndocked = false; fly.style.opacity = 0; ghosts.forEach(x => x.style.opacity = 0); home.style.opacity = ''; }
+  function measureBand() { if (!band) return; const r = band.getBoundingClientRect(); bandTop = r.top + scrollY; bandH = r.height; }
   function flyFrame() {
-    const hr = home.getBoundingClientRect(), br = band.getBoundingClientRect();
-    const bc = br.top + br.height / 2, u = clamp(1 - Math.abs(bc - H * 0.5) / (H * 0.8)), e = smooth(clamp(u * 1.3));
+    const bc = bandTop - scrollY + bandH / 2, u = clamp(1 - Math.abs(bc - H * 0.5) / (H * 0.8)), e = smooth(clamp(u * 1.3));
     if (e < 0.012) { dock(); return; }
-    wasUndocked = true; home.style.opacity = 0;
+    if (!wasUndocked) { wasUndocked = true; home.style.opacity = 0; fly.style.opacity = 1; }
     const x = lerp(hr.left + hr.width / 2, W / 2, e), y = lerp(hr.top + hr.height / 2, bc, e), size = lerp(hr.height, big, e);
     const k = size / big, ry = (bc / H) * -420, rx = Math.sin(bc / H * 3) * 14 * e;
-    fly.style.opacity = 1;
     fly.style.transform = `translate3d(${x - big / 2}px,${y - big / 2}px,0) scale(${k}) rotateX(${rx}deg) rotateY(${ry}deg)`;
-    fly.style.setProperty('--d', (1.6 / Math.max(k, 0.15)).toFixed(2) + 'px');
     // ghost trail: lags behind and only shows while the badge is moving fast
+    if (lite) return false;
     let px = x, py = y, ps = k;
     g.forEach((t, j) => { t.x += (px - t.x) * 0.32; t.y += (py - t.y) * 0.32; t.s += (ps - t.s) * 0.32;
       const sp = Math.hypot(px - t.x, py - t.y) + Math.abs(ps - t.s) * 300;
@@ -85,15 +85,23 @@
     'p-solutions': ['meeting', 'Proyojon Solutions: advice with an AI intake.'], 'p-gaan': ['ukulele', 'Gaan Banai: making songs with AI.'] };
   const secs = guide ? Object.keys(POSE).concat(['approach', 'reel']).map(id => document.getElementById(id)).filter(Boolean) : [];
   const panels = $$('#reel .panel');
-  let cur = '', bubT, swapT;
+  let cur = '', bubT, swapT, active = null, activePanel = null, poseDirty = true;
+  const inLine = new Set();
+  if (guide) {
+    // a 1px line at 45% of the viewport: whichever section crosses it is the active one
+    const sio = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? inLine.add(e.target) : inLine.delete(e.target));
+      active = [...inLine].sort((a, b) => (a.compareDocumentPosition(b) & 4) ? 1 : -1)[0] || active; poseDirty = true; kick(); }, { rootMargin: '-45% 0px -54.9% 0px' });
+    secs.forEach(x => sio.observe(x));
+    // a vertical line at the middle of the screen picks the Work panel in view
+    const pio = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) activePanel = e.target; }); poseDirty = true; kick(); }, { rootMargin: '0px -49.9% 0px -49.9%' });
+    panels.forEach(x => pio.observe(x));
+  }
   function poseFor() {
-    let best = null, bestTop = -1e9;
-    for (const s of secs) { const t = s.getBoundingClientRect().top; if (t <= H * 0.45 && t > bestTop) { bestTop = t; best = s; } }
+    const best = active;
     if (!best) return POSE.opening;
     if (best.id === 'approach') { const ol = best.querySelector('ol.steps'), r = (ol || best).getBoundingClientRect(), p = clamp((H * 0.72 - r.top) / Math.max(1, r.height + H * 0.3));
       return STEPS[Math.min(STEPS.length - 1, Math.floor(p * STEPS.length))]; }
-    if (best.id === 'reel' && panels.length) { let pick = panels[0], d = 1e9;
-      panels.forEach(p => { const r = p.getBoundingClientRect(), dd = Math.abs(r.left + r.width / 2 - W / 2); if (dd < d) { d = dd; pick = p; } });
+    if (best.id === 'reel' && panels.length) { const pick = activePanel || panels[0];
       const key = [...pick.classList].find(c => PANELS[c]); return PANELS[key] || POSE.opening; }
     return POSE[best.id] || POSE.opening;
   }
@@ -102,7 +110,7 @@
     const src = 'assets/me/' + name + '.webp';
     const go = () => {
       guide.classList.remove('pop'); guide.classList.add('swap');
-      clearTimeout(swapT); swapT = setTimeout(() => { gImg.src = src; guide.classList.remove('swap'); void guide.offsetWidth; guide.classList.add('pop'); }, reduce ? 0 : 160);
+      clearTimeout(swapT); swapT = setTimeout(() => { gImg.src = src; guide.classList.remove('swap'); requestAnimationFrame(() => requestAnimationFrame(() => guide.classList.add('pop'))); }, reduce ? 0 : 160);
       gBub.textContent = line; guide.classList.add('talk'); clearTimeout(bubT); bubT = setTimeout(() => guide.classList.remove('talk'), 3200);
     };
     const pre = new Image(); pre.onload = pre.onerror = go; pre.src = src;
@@ -117,15 +125,20 @@
   // ---------- loop: runs only while something needs it ----------
   let raf = 0, lastPoseCheck = 0;
   function frame(now) {
-    raf = 0; let again = false;
-    if (flyOn && bandVisible) again = flyFrame() || again;
-    if (sh && shVisible) shFrame();
-    if (guide && now - lastPoseCheck > 120) { lastPoseCheck = now; setPose(poseFor()); }
+    raf = 0; let again = false, pose = null;
+    if (guide && (poseDirty || now - lastPoseCheck > 150)) { poseDirty = false; lastPoseCheck = now; pose = poseFor(); } // at most one read (Approach step)
+    if (flyOn && bandVisible) again = flyFrame() || again;                              // one read, then writes
+    if (sh && shVisible) shFrame();                                                     // writes
+    if (pose) setPose(pose);                                                            // writes
     if (again) kick();
   }
   function kick() { if (!raf) raf = requestAnimationFrame(frame); }
   addEventListener('scroll', kick, { passive: true });
-  function measure() { W = innerWidth; H = innerHeight; big = Math.round(Math.min(H * 0.46, W * 0.5)); if (fly) { fly.style.width = fly.style.height = big + 'px'; ghosts.forEach(x => { x.style.width = x.style.height = big + 'px'; }); } measureShipped(); kick(); }
+  function measure() { W = innerWidth; H = innerHeight; big = Math.round(Math.min(H * 0.46, W * 0.5));
+    if (home) { const r = home.getBoundingClientRect(); hr = { left: r.left, top: r.top, width: r.width, height: r.height }; }
+    if (fly) { fly.style.width = fly.style.height = big + 'px'; fly.style.setProperty('--d', (big * 0.011).toFixed(2) + 'px'); ghosts.forEach(x => { x.style.width = x.style.height = big + 'px'; }); }
+    measureBand(); measureShipped(); kick(); }
+  setInterval(() => { if (!document.hidden) { measureBand(); if (shPin) measureShipped(); } }, 3000); // layout above can change (lazy content)
   let rT; addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(measure, 150); });
   addEventListener('load', measure);
   measure();

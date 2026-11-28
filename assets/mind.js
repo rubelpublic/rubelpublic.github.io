@@ -148,9 +148,9 @@ void main(){
       head.textContent = 'PALOAN · reading your question'; say('listen("' + q.slice(0, 24) + (q.length > 24 ? '…' : '') + '")', () => say('shape(answer) → chat ✦')); });
 
     // ---------- layout ----------
-    let W, H, scale, cx, cy, R, anchors = [], covers = [];
+    let W, H, scale, cx, cy, R, anchors = [], covers = [], q = 1; // q: adaptive render quality (0.5..1)
     const measure = () => {
-      W = innerWidth; H = innerHeight; scale = Math.min(devicePixelRatio || 1, 1.5) * (W >= 900 ? 0.62 : 0.55);
+      W = innerWidth; H = innerHeight; scale = Math.min(devicePixelRatio || 1, 1.5) * (W >= 900 ? 0.62 : 0.55) * q;
       canvas.width = Math.round(W * scale); canvas.height = Math.round(H * scale); gl.viewport(0, 0, canvas.width, canvas.height);
       const desk = W >= 900; cx = desk ? W * 0.76 : W * 0.5; cy = desk ? H * 0.5 : H * 0.56; R = desk ? Math.min(W * 0.15, H * 0.27) : Math.min(W * 0.33, H * 0.22);
       canvas.style.opacity = desk ? 1 : (light ? 0.42 : 0.5);
@@ -166,12 +166,18 @@ void main(){
     setInterval(measure, 4000);
 
     // ---------- loop ----------
+    let ema = 16, slow = 0, fast = 0, capO = '', capT = '';
     let lastY = scrollY, vel = 0, S = 0, shown = -1, running = true, wasCovered = false, last = performance.now(), T = 0, intro = 0;
     const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), smooth = x => x * x * (3 - 2 * x);
     const frame = now => {
       if (!running) return;
       requestAnimationFrame(frame);
-      const dt = Math.min(0.05, (now - last) / 1000); last = now; T += dt; intro += dt;
+      const raw = now - last, dt = Math.min(0.05, raw / 1000); last = now; T += dt; intro += dt;
+      // adaptive quality: if frames get slow, render fewer pixels; recover when there is headroom
+      if (raw < 200) { ema += (raw - ema) * 0.08;
+        if (ema > 24) { fast = 0; if (++slow > 40 && q > 0.5) { q = Math.max(0.5, q * 0.8); slow = 0; measure(); } }
+        else if (ema < 15) { slow = 0; if (++fast > 300 && q < 1) { q = Math.min(1, q * 1.12); fast = 0; measure(); } }
+        else { slow = 0; fast = 0; } }
       const y = scrollY, dy = y - lastY; lastY = y;
       vel += ((Math.abs(dy) / Math.max(dt, 0.008)) / 2400 - vel) * Math.min(1, dt * 5); vel = clamp(vel);
       if (covers.some(([a, b]) => y > a + 4 && y < b - 4)) { if (!wasCovered) { gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); cap.style.opacity = 0; wasCovered = true; } return; }
@@ -185,7 +191,8 @@ void main(){
       if (st !== shown) { shown = st; head.textContent = 'PALOAN · ' + String(st + 1).padStart(2, '0') + ' · ' + STAGES[st].k;
         cap.innerHTML = '<span style="color:var(--marigold)">' + String(st + 1).padStart(2, '0') + ' / 07 · ' + STAGES[st].k + '</span><br><span style="letter-spacing:.06em;text-transform:none">' + STAGES[st].s + '</span>';
         const lines = STEPS[st]; let k = 0; const nx = () => { if (k < lines.length) say(lines[k++], nx); }; nx(); }
-      cap.style.opacity = clamp(1 - Math.abs(S - st) * 2.6) * 0.9; cap.style.transform = 'translateY(' + (Math.abs(S - st) * 14) + 'px)';
+      if (W >= 900) { const co = (clamp(1 - Math.abs(S - st) * 2.6) * 0.9).toFixed(2), ct = (Math.abs(S - st) * 14).toFixed(1);
+        if (co !== capO) { capO = co; cap.style.opacity = co; } if (ct !== capT) { capT = ct; cap.style.transform = 'translateY(' + ct + 'px)'; } }
       // pointer in object space (eased)
       const ox = W >= 900 ? W * 0.07 * clamp(1 - S) : 0, cxN = cx + ox;
       mpx += ((tmx - cxN) / R - mpx) * Math.min(1, dt * 5); mpy += (-(tmy - cy) / R - mpy) * Math.min(1, dt * 5);
