@@ -74,7 +74,7 @@
     portrait: ['proud', 'That’s me: Rubel Miah.'], manifesto: ['chat', 'Brands that talk the way customers talk.'],
     services: ['gears', 'This is what I build for businesses.'], paloan: ['robot', 'Meet Paloan, my AI agent.'],
     shipped: ['megaphone', 'These are live. Click one!'], projects: ['checklist', 'Every project, in one list.'],
-    'hand-lab': ['down', 'Try this one with your hand ✋'], course: ['test', 'I teach AI in Bangla, hands-on.'],
+    'hand-lab': ['down', 'Try this one with your hand ✋'], course: ['test', 'My AI course in Bangla. First 3 lessons free!'],
     bts: ['camera', 'Behind the camera.'], credits: ['cv', 'Roles I play.'], music: ['ukulele', 'Yes, I sing too 🎵'],
     thoughts: ['write', 'I write down how I think.'], faq: ['question', 'Quick answers, right here.'], contact: ['call', 'Let’s talk. Call or WhatsApp me.'],
   };

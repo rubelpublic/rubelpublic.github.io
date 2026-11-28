@@ -11,6 +11,7 @@ Full text of the profile and every blog post: https://rubelpublic.github.io/llms
 - Also searched as: Rubel AI (the name people use to find his AI work)
 - Music: writes and releases Bangla songs as Rapar Rubel (Rubel Music) on YouTube https://www.youtube.com/@raparrubel1156 — e.g. Arektu Thako, Signal Nai, Nikhoj Shongbad, Vebacheka, Ghumer Gari; playable at https://rubelpublic.github.io/#music
 - Lab project: Hand-Controlled 3D Particles, a browser app where 12,000 particles follow your hand via webcam (fingers change shape, pinch expands): https://rubelpublic.github.io/lab/hand-particles/
+- Course platform: Paloan Academy (https://paloan-academy.netlify.app/) hosts his AI Power User course in Bangla: 10 classes, ৳499 one-time, first three lessons free, scholarships available
 - Based in: Dhaka, Bangladesh (GMT+6)
 - Founder of: Myook (clothing brand) and Cha Khaben? (tea brand)
 - Role: Independent AI Expert & AI Workflow Builder; also Content Strategist and Business Builder
